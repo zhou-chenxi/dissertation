@@ -1,0 +1,262 @@
+\documentclass[12pt]{article}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage[mathscr]{eucal}
+\RequirePackage{mathtools}
+\RequirePackage{etoolbox}
+\usepackage[red]{zhoucx-notation}
+
+\geometry{letterpaper, top = 1in, bottom = 1in, left = 1.5in, right = 1in}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\declaretheorem[numbered=no]{definition}
+
+\theoremstyle{theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\renewcommand{\qedsymbol}{\hfill\rule{2mm}{2mm}}
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\setlength{\headheight}{15pt}
+%\rhead{\textsf{June 13, 2022}}
+%\lhead{\textsf{Chenxi Zhou}}
+%\renewcommand{\headrulewidth}{1pt}
+%\cfoot{\thepage}
+
+\title{ \setstretch{1.0} \textbf{ \Large Appendix 1: Math Background}}
+\author{}
+\date{}
+
+\allowdisplaybreaks
+\setstretch{2}
+
+\begin{document}
+
+\thispagestyle{plain}
+\maketitle
+
+% ------------------------------------------------------------------
+
+\tableofcontents
+
+\newpage
+
+\section{Fr{\'e}chet Differentiability and Derivative}\label{section-frechet-differentiable}
+
+We provide details on the Fr{\'e}chet differentiability and derivative. Throughout this section, we let $\calH$ be a real Hilbert space, $J: \calH \to \Real$ be a map, $\calB \parens{\calH, \Real}$ denote the collection of all bounded linear operators from $\calH$ to $\Real$, and, similarly, $\calB \parens{\calH, \calH}$ denote the collection of all bounded linear operators from $\calH$ to itself. 
+
+\begin{definition}[Fr{\'e}chet differentiability and derivative]\label{def-frechet-differentiable}
+	The map $J$ is said to be \textit{(first-order) Fr{\'e}chet differentiable} at $f \in \calH$ if there exists an operator $\Diff J \parens{f} \in \calB \parens{\calH, \Real}$ such that 
+	\begin{align}\label{eq-frederivative}
+	    \lim_{\substack{\norm{g}_{\calH} \to 0 \\ g \neq 0}} \frac{\abs[\big]{J \parens{f + g} - J \parens{f} - \Diff J \parens{f}\parens{g}}}{\norm{g}_{\calH}} = 0, 
+	\end{align}
+	and the operator $\Diff J \parens{f}$ is called the \textit{(first-order) Fr{\'e}chet derivative}. The map $J$ is said to be \textit{(first-order) Fr{\'e}chet differentiable on $\calH$} if it is Fr{\'e}chet differentiable at every $f \in \calH$. 
+\end{definition}
+
+\begin{proposition}
+	Suppose $J$ is Fr{\'e}chet differentiable at $f \in \calH$ and the Fr{\'e}chet derivative $\Diff J \parens{f}$ exists. Then, $\Diff J \parens{f}$ is unique. 
+\end{proposition}
+
+\begin{remark}
+	If $J$ is Fr{\'e}chet differentiable at $f \in \calH$, we then can write 
+	\begin{align}\label{eq-frechet-derivative-interpretation}
+		J \parens{f + g} = J \parens{f} + \Diff J \parens{f} \parens{g} + o \parens{\norm{g}_{\calH}}, 
+	\end{align}
+	for all $g \in \calH$ in a small neighborhood of the origin, where $o \parens{\norm{g}_{\calH}}$ denotes $\frac{o \parens{\norm{g}_{\calH}}}{\norm{g}_{\calH}} \to 0$ as $\norm{g}_{\calH} \to 0$. Thus, from \eqref{eq-frechet-derivative-interpretation}, we see $J \parens{f} + \Diff J \parens{f} \parens{g}$ provides the best linear approximation of $J$ in a small neighborhood of $f$, which is the similar interpretation of the derivative of a real-valued function of a single variable. 
+\end{remark}
+
+Frech{\'e}t derivative shares many properties of the derivative of a real-valued function of a single variable. The following proposition lists two properties we use in studying the Frech{\'e}t differentiability and deriving the Frech{\'e}t derivative of the log-partition functional $A$ in \textbf{\color{red} Chapter 2}. 
+
+\begin{proposition}\label{prop-property-frechet-differentiable}
+	\begin{enumerate}[label=(\alph*)]
+		\item \label{prop-property-frechet-differentiable-a} Suppose $J_1, J_2: \calH \to \Real$ are Frech{\'e}t differentiable at $f \in \calH$ and $\alpha_1, \alpha_2 \in \Real$. Then, $\alpha_1 J_1 + \alpha_2 J_2$ is also Frech{\'e}t differentiable at $f \in \calH$, and 
+		\begin{align*}
+			\Diff \parens{\alpha_1 J_1 + \alpha_2 J_2} \parens{f} = \alpha_1 \Diff J_1 \parens{f} + \alpha_2 \Diff J_2 \parens{f}. 
+		\end{align*}
+		
+		\item \label{prop-property-frechet-differentiable-b} (Chain rule) Suppose $J_1: \calH \to \Real$ is Frech{\'e}t differentiable at $f \in \calH$ and $J_2: \Real \to \Real$ is differentiable at $J_1 \parens{f}$. Then, $J_2 \circ J_1: \calH \to \Real$ is Frech{\'e}t differentiable at $f \in \calH$, and 
+		\begin{align}
+			\Diff \parens{J_2 \circ J_1} \parens{f} = J_2' \parens{J_1 \parens{f}} \Diff J_1 \parens{f}. 
+		\end{align}
+	\end{enumerate}
+\end{proposition}
+
+
+\begin{definition}[Fr{\'e}chet gradient]
+	Suppose $J: \calH \to \Real$ is Frech{\'e}t differentiable at $f \in \calH$. Since $\Diff J \parens{f}$ is a bounded linear map from $\calH$ to $\Real$, the Riesz-Fr{\'e}chet representation theorem \parencites[Fact 2.24 in][]{Bauschke2017-he} implies there exists a unique element $\nabla J \parens{f} \in \calH$ such that, for any $g \in \calH$, 
+	\begin{align}\label{eq-frechet-grad}
+		\Diff J \parens{f} \parens{g} = \innerp{g}{\nabla J \parens{f}}_{\calH}, 
+	\end{align}
+	and $\nabla J \parens{f}$ is called the \textit{Fr{\'e}chet gradient} of $J$ at $f$. If $J$ is Fr{\'e}chet differentiable on $\calH$, the \textit{Fr{\'e}chet gradient operator} is defined to be $\nabla J: \calH \to \calH, f \mapsto \nabla J \parens{f}$. 
+
+\end{definition}
+
+
+\begin{remark}
+	Note that $\Diff J \parens{f}$ is a bounded linear map from $\calH$ to $\Real$, and belongs to the dual space of $\calH$, denoted by $\calH^*$. Since we have $\Diff J \parens{f} \parens{g} = \innerp{\nabla J \parens{f}}{g}_{\calH}$, the Riesz-Fr{\'e}chet representation theorem implies that $\norm{\Diff J \parens{f}}_{\calH^*} = \norm{\nabla J \parens{f}}_{\calH}$, where $\norm{}_{\calH^*}$ denotes the norm of the dual space $\calH^*$. 
+\end{remark}
+
+We now extend Definition \ref{def-frechet-differentiable} to higher orders. 
+
+\begin{definition}[Higher-order Fr{\'e}chet differentiability and derivatives]
+	Higher-order Fr{\'e}chet differentiability and derivatives are defined inductively. 
+	
+	In particular, the map $J$ is said to be \textit{twice Fr{\'e}chet differentiable at $f \in \calH$} if $J$ itself is Fr{\'e}chet differentiable at $f \in \calH$ and the map $\Diff J \parens{f}: \calH \to \Real$ is also Fr{\'e}chet differentiable at $f \in \calH$. The \textit{second Fr{\'e}chet derivative} of $J$ at $f \in \calH$, denoted by $\Diff^2 J \parens{f}$, is an operator from $\calH$ to $\calB \parens{\calH, \Real}$, that satisfies 
+	\begin{align}\label{eq-2ndfrederivative}
+		\lim_{\substack{\norm{g}_{\calH} \to 0 \\ g \neq 0}} \frac{\norm[\big]{\Diff J \parens{f + g} - \Diff J \parens{f} - \Diff^2 J \parens{f} \parens{g} }_{\calH^*}}{\norm{g}_{\calH}} = 0, 
+	\end{align}
+	where $\norm{\,\cdot\,}_{\calH^*}$ denotes the norm of the dual space of $\calH$. 
+	
+	The \textit{second-order Fr{\'e}chet gradient}, denoted by $\nabla^2 J$, is a bounded linear operator that maps from $\calH$ to $\calB \parens{\calH, \calH}$ and satisfies 
+	\begin{align*}
+		\Diff^2 J \parens{f} \parens{g} \parens{h} = \innerp{h}{ \nabla^2 J \parens{f} \parens{g}}_{\calH}, \qquad \text{ for all } g, h \in \calH. 
+	\end{align*}
+	In other words, $\nabla^2 J \in \calB \parens{\calH, \calB \parens{\calH, \calH}}$ and $\nabla^2 J \parens{f} \in \calB \parens{\calH, \calH}$. 
+
+\end{definition}
+
+\begin{remark}
+	By Proposition 5.1.17 in \textcite{Denkowski2013-ke}, there exists an isometric isomorphism between $\calB \parens{\calH, \calB \parens{\calH, \calH}}$ and $\calB \parens{\calH \times \calH, \calH}$. Let $\Phi$ denote this isometric isomorphism. Then, $\Phi \parens{\nabla^2 J}$ is a map from $\calH \times \calH$ to $\calH$ such that $\Phi \parens{\nabla^2 J} \parens{f, \, g} = \nabla^2 J \parens{f} \parens{g}$, for all $f, g \in \calH$. 
+\end{remark}
+
+
+
+\section{Bochner Integral}\label{section-bochner-integral}
+
+In this section, we present the definition of the Bochner integral, which is the extension of the Lebesgue integral of real-valued functions to the integral of functions taking values in a Banach space. We also present some properties of the Bochner integral that we have used in the dissertation (in particular, in \textbf{\color{red} Chapter 2 and 3}). All materials of this section come from Appendix A.5.3 in \textcite{Steinwart2008-tn} and Section 3.10 \textcite{Denkowski2013-ke}. 
+
+Throughout this section, let $\calE$ be a Banach space whose norm is denoted by $\norm{}_{\calE}$, and $\parens{\calX, \Sigma, \mu}$ be a $\sigma$-finite measure space (note that this $\mu$ differs from the one in the definition of finite-dimensional and kernel exponential families in \textbf{\color{red} Chapter 2}). We first define the simple function (Definition \ref{def-simple-fun}) and the measurable function (Definition \ref{def-measurable-fun}) in the Banach space setting  and then define the Bochner $\mu$-integral (Definition \ref{def-bochner-integral}). 
+
+\begin{definition}[$\calE$-valued simple function]\label{def-simple-fun}
+	A function $s: \calX \to \calE$ is said to be an \textit{$\calE$-valued simple function} if there exist $e_1, \cdots, e_n \in \calE$ and $A_1, \cdots, A_n \in \Sigma$ such that 
+	\begin{align*}
+		s \parens{x} = \sum_{i=1}^n \indic_{A_i} \parens{x} e_i, \qquad \text{ for all } x \in \calX, 
+	\end{align*}
+	where $\indic_A$ is the indicator function of the set $A$, and is equal to 1 if $x \in A$ and to 0, otherwise. 
+\end{definition}
+
+\begin{definition}[$\calE$-valued measurable function]\label{def-measurable-fun}
+	A function $f: \calX \to \calE$ is said to be an \textit{$\calE$-valued measurable function} if there exists a sequence of $\calE$-valued simple functions, $\sets{s_m}_{m \in \Natural}$, such that
+	\begin{align}
+		\lim_{m \to \infty} \norm{f \parens{x} - s_m \parens{x}}_{\calE} = 0
+	\end{align}
+	holds for all $x \in \calX$. 
+\end{definition}
+
+\begin{definition}[Bochner $\mu$-integral]\label{def-bochner-integral}
+	An $\calE$-valued measurable function $f: \calX \to \calE$ is said to be \textit{Bochner $\mu$-integrable} if there exists a sequence of $\calE$-valued simple functions, $\sets{s_m}_{m \in \Natural}$, such that
+	\begin{align}
+		\lim_{n \to \infty} \int_{\calX} \norm{s_n \parens{x} - f \parens{x}}_{\calE} \ \diff \mu \parens{x} = 0. 
+	\end{align}
+	In this case, the limit
+	\begin{align*}
+		\int_{\calX} f \parens{x} \diff \mu \parens{x} := \lim_{n \to \infty} \int_{\calX} s_n \parens{x} \diff \mu \parens{x}
+	\end{align*}
+	exists and is called the \textit{Bochner integral} of $f$. 
+\end{definition}
+
+A criterion to check the Bochner $\mu$-integrability is the following. 
+
+\begin{proposition}
+	A measurable function $f: \calX \to \calE$ is Bochner $\mu$-integrable if and only if $\int_{\calX} \norm{f \parens{x}}_{\calE} \diff \mu \parens{x} < \infty$. 
+\end{proposition}
+
+Finally, we look at some properties of Bochner $\mu$-integral we use. 
+
+\begin{proposition}\label{prop-properties-bochcher-integral}
+	The Bochner $\mu$-integral defined above has the following properties: 
+	\begin{enumerate}[label=(\alph*)]
+		\item \label{prop-properties-bochcher-integral-a} The Bochner integral is linear. 
+		\item \label{prop-properties-bochcher-integral-b} If $f: \calX \to \calE$ is Bochner $\mu$-integrable, we have 
+		\begin{align*}
+			\norm[\bigg]{\int_{\calX} f \parens{x} \diff \mu \parens{x}}_{\calE} \le \int_{\calX} \norm{f \parens{x}}_{\calE} \diff \mu \parens{x}. 
+		\end{align*}
+		\item \label{prop-properties-bochcher-integral-c} Suppose $\calE'$ is another Banach space. If $S: \calE \to \calE'$ is a bounded linear operator and $f: \calX \to \calE$ is Bochner $\mu$-integrable, then $S \circ f: \calX \to \calE'$ is also Bochner $\mu$-integrable. In this case, the integral commutes with $S$, that is, 
+		\begin{align*}
+			S \parens[\bigg]{\int_{\calX} f \parens{x} \diff \mu \parens{x}} = \int_{\calX} \parens{S \circ f} \parens{x} \, \diff \mu \parens{x}. 
+		\end{align*}
+	\end{enumerate}
+\end{proposition}
+
+
+\section{Partial Derivative of a Kernel Function}\label{section-kernel-derivative}
+
+In this section, we discuss the partial derivatives of a kernel function of a RKHS and its reproducing property. We follow the development in Section 4.3 in \textcite{Steinwart2008-tn} and the paper by \textcite{Zhou2008-jt}. Throughout this section, we let $\calX \subseteq \Real^d$ be an open set and $\Natural_0 := \Natural \cup \sets{0}$. 
+
+We first consider a real-valued function $f: \calX \to \Real$. The function $f$ is said to be \textit{$m$-times continuously differentiable} if, for all $\alpha := \parens{\alpha_1, \cdots, \alpha_d}^\top \in \Natural_0^d$ with $\abs{\alpha} := \sum_{i=1}^d \alpha_i \le m$ and all $x \in \calX$, 
+\begin{align*}
+	\partial^\alpha f \parens{x} 
+	%= \partial_1^{\alpha_1} \cdots \partial_d^{\alpha_d} f \parens{x} 
+	= \frac{\partial^{\abs{\alpha}}}{\partial u_1^{\alpha_1} \cdots \partial u_d^{\alpha_d}} f \parens{u} \bigg\vert_{u=x}, 
+\end{align*}
+exists, where $u := \parens{u_1, \cdots, u_d}^\top \in \calX$. 
+
+%\begin{lemma}[Differentiability of feature maps (Lemma 4.34 in \cite{Steinwart2008-tn})]\label{derivative.reproducing}
+%	Let $\calX \subseteq \Real^d$ be an \textit{open} subset, $k$ be a kernel on $\calX$, $\calH$ be the RKHS of $k$, and $\Phi: \calX \to \calH$ be a feature map of $k$. Let $i \in \sets{1, \cdots, d}$ be an index such that the mixed partial derivative $\partial_i \partial_{i+d} k$ of $k$ with respect to the coordinates $i$ and $i+d$ exists and is continuous, where. Then the partial derivative $\partial_i \Phi$ of $\Phi: \calX \to \hil$ with respect to the $i$-th coordinate exists, is continuous, and for all $x, x \in \calX$, we have
+%	\begin{align}
+%		\innerp{\partial_i \Phi \parens{x}}{\partial_{i} \Phi \parens{x'}}_{\calH} = \partial_i \partial_{i+d} k \parens{x, x'} = \partial_{i+d} \partial_i k \parens{x, x'}. 
+%	\end{align}
+%\end{lemma}
+
+We then define the $m$-times continuous differentiability of the kernel function $k$. 
+
+\begin{definition}[$m$-times continuous differentiability of a kernel function]
+	Let $k: \calX \times \calX \to \Real$ be a kernel function and $m \in \Natural$. We say $k$ is \textit{$m$-times continuously differentiable} if $\partial^{\alpha, \alpha}k: \calX \times \calX \to \Real$ exists and is continuous for all $\alpha := \parens{\alpha_1, \cdots, \alpha_d} \in \Natural_0^d$ with $\abs{\alpha} := \sum_{i=1}^d \alpha_i \le m$, where 
+	\begin{align*}
+		\partial^{\alpha, \alpha} k \parens{x, y} 
+		%= \partial_1^{\alpha_1} \cdots \partial_d^{\alpha_d} \partial_{1+d}^{\alpha_1} \cdots \partial_{2d}^{\alpha_d} k \parens{x, y} 
+		= \frac{\partial^{2\abs{\alpha}}}{\partial u_1^{\alpha_1} \cdots \partial u_d^{\alpha_d} \partial v_1^{\alpha_1} \cdots \partial v_d^{\alpha_d}} k \parens{u, v}\bigg\vert_{u=x, v=y}, \qquad \text{ for all } x, y \in \calX. 
+	\end{align*}
+\end{definition}
+
+%\begin{remark}
+%	\begin{enumerate}
+%	\item From the lemma above, it is observed that $\partial_i \partial_{i+d} k$ is a kernel on $\calX \times \calX$ with the feature map $\partial_i \Phi$. 
+%	\item Assuming that $\partial_i \partial_{i+d} \partial_j \partial_{j+d} k$ exists and is continuous, applying the lemma above iteratively one can show that $\partial_j \partial_i \Phi$ exists, is continuous, and is a feature map of the kernel $\partial_i \partial_{i+d} \partial_j \partial_{j+d} k$. 
+%	\end{enumerate}
+%\end{remark}
+
+The partial derivative of $k$ is an element in $\calH$ and has the reproducing property as $k$ does, as the following proposition states. 
+
+\begin{proposition}[Partial derivatives of kernels and its reproducing property]\label{prop-reproducing-derivative}
+	Let $\calH$ be a RKHS with the kernel function $k: \calX \times \calX \to \Real$, and assume $k$ is $m$-times continuously differentiable on $\calX$. Then, 
+	\begin{enumerate}[label=(\alph*)]
+		\item we have 
+		\begin{align}
+			\partial^{\alpha} k \parens{x, \,\cdot\,} 
+			%= \partial_1^{\alpha_1} \cdots \partial_d^{\alpha_d} k \parens{x, \,\cdot\,} 
+			= \frac{\partial^{\abs{\alpha}}}{\partial u_1^{\alpha_1} \cdots \partial u_d^{\alpha_d}} k \parens{\parens{u_1, \cdots, u_d}, \,\cdot\,}\bigg\vert_{u=x} \in \calH
+		\end{align}
+		for all $u := \parens{u_1, \cdots, u_d}^\top \in \calX$, and 
+		\item every $f \in \hil$ is $m$-times continuously differentiable, and, for all $\alpha \in \Natural_0^d$ with $\abs{\alpha} \le m$ and all $x \in \calX$, the partial derivative reproducing property holds, i.e., 
+		\begin{align}
+			\partial^{\alpha} f \parens{x} = \innerp{\partial^{\alpha} k \parens{x, \,\cdot\,}}{f}_{\calH}, \qquad \text{ for all } x \in \calX. %, \hspace{20pt} \text{and}\hspace{20pt}  \abs{\partial^{\alpha} f(x)} \le \norm{f}_{\hil} \cdot \sqrt{\partial^{\alpha, \alpha} k\pare{x, x}}. 
+		\end{align}
+		In particular, we have $\partial^{\alpha, \alpha} k \parens{x, y} = \innerp{\partial^{\alpha} k \parens{x, \,\cdot\,}}{\partial^{\alpha} k \parens{y,\,\cdot\,}}_{\calH}$ for all $x, y \in \calX$. 
+	\end{enumerate}
+\end{proposition}
+
+%
+%\section{Operators}\label{section-classification-operators}
+%
+%
+%In our development of \textbf{\color{red}Chapters 2 and 3}, we have used properties of various operators. 
+%
+
+\printbibliography
+
+\end{document}
