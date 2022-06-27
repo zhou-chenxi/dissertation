@@ -1,0 +1,1520 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nyt/global//global/global}
+  \entry{Axelrod2019-xd}{article}{}
+    \name{author}{5}{}{%
+      {{hash=AB}{%
+         family={Axelrod},
+         familyi={A\bibinitperiod},
+         given={Brian},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=DI}{%
+         family={Diakonikolas},
+         familyi={D\bibinitperiod},
+         given={Ilias},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Sidiropoulos},
+         familyi={S\bibinitperiod},
+         given={Anastasios},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Stewart},
+         familyi={S\bibinitperiod},
+         given={Alistair},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=VG}{%
+         family={Valiant},
+         familyi={V\bibinitperiod},
+         given={Gregory},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AB+1}
+    \strng{fullhash}{ABDISASAVG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \verb{eprint}
+    \verb 1907.08306
+    \endverb
+    \field{title}{A Polynomial Time Algorithm for {Log-Concave} Maximum
+  Likelihood via Locally Exponential Families}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.DS}
+    \field{month}{07}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Azzalini1990-kj}{article}{}
+    \name{author}{2}{}{%
+      {{hash=AA}{%
+         family={Azzalini},
+         familyi={A\bibinitperiod},
+         given={A},
+         giveni={A},
+      }}%
+      {{hash=BAW}{%
+         family={Bowman},
+         familyi={B\bibinitperiod},
+         given={A\bibnamedelima W},
+         giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JSTOR}%
+    }
+    \strng{namehash}{AABAW1}
+    \strng{fullhash}{AABAW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1990}
+    \field{labeldatesource}{}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{3}
+    \field{pages}{357}
+    \field{title}{A look at some data on the old faithful geyser}
+    \field{volume}{39}
+    \field{journaltitle}{J. R. Stat. Soc. Ser. C Appl. Stat.}
+    \field{year}{1990}
+  \endentry
+
+  \entry{Bagnoli2005}{article}{}
+    \name{author}{2}{}{%
+      {{hash=BM}{%
+         family={Bagnoli},
+         familyi={B\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Bergstrom},
+         familyi={B\bibinitperiod},
+         given={Ted},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{BMBT1}
+    \strng{fullhash}{BMBT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{2}
+    \field{pages}{445\bibrangedash 469}
+    \field{title}{Log-Concave Probability and Its Applications}
+    \verb{url}
+    \verb http://www.jstor.org/stable/25055959
+    \endverb
+    \field{volume}{26}
+    \field{journaltitle}{Economic Theory}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Balabdaoui2009-fz}{article}{}
+    \name{author}{3}{}{%
+      {{hash=BF}{%
+         family={Balabdaoui},
+         familyi={B\bibinitperiod},
+         given={Fadoua},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=RK}{%
+         family={Rufibach},
+         familyi={R\bibinitperiod},
+         given={Kaspar},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=WJA}{%
+         family={Wellner},
+         familyi={W\bibinitperiod},
+         given={Jon\bibnamedelima A},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \strng{namehash}{BFRKWJA1}
+    \strng{fullhash}{BFRKWJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{3}
+    \field{pages}{1299\bibrangedash 1331}
+    \field{title}{Limit Distribution Theory for Maximum Likelihood Estimation
+  of a {Log-Concave} Density}
+    \field{volume}{37}
+    \field{journaltitle}{Ann. Stat.}
+    \field{month}{06}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Birge1989-sr}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BL}{%
+         family={Birge},
+         familyi={B\bibinitperiod},
+         given={Lucien},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{BL1}
+    \strng{fullhash}{BL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1989}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{number}{4}
+    \field{pages}{1532\bibrangedash 1549}
+    \field{title}{The Grenander Estimator: A Nonasymptotic Approach}
+    \field{volume}{17}
+    \field{journaltitle}{The Annals of Statistics}
+    \field{year}{1989}
+  \endentry
+
+  \entry{Birge1997-af}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BL}{%
+         family={Birg{\'e}},
+         familyi={B\bibinitperiod},
+         given={Lucien},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \keyw{Curve estimation; unimodal densities; Grenander estimator; spatial
+  adaptation}
+    \strng{namehash}{BL2}
+    \strng{fullhash}{BL2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1997}
+    \field{labeldatesource}{}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{abstract}{%
+    Project Euclid - mathematics and statistics online%
+    }
+    \field{number}{3}
+    \field{pages}{970\bibrangedash 981}
+    \field{title}{Estimation of unimodal densities without smoothness
+  assumptions}
+    \field{volume}{25}
+    \field{journaltitle}{Ann. Stat.}
+    \field{month}{06}
+    \field{year}{1997}
+  \endentry
+
+  \entry{Casella2002-vu}{book}{}
+    \name{author}{2}{}{%
+      {{hash=CG}{%
+         family={Casella},
+         familyi={C\bibinitperiod},
+         given={George},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BRL}{%
+         family={Berger},
+         familyi={B\bibinitperiod},
+         given={Roger\bibnamedelima L},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Duxbury Pacific Grove, CA}%
+    }
+    \strng{namehash}{CGBRL1}
+    \strng{fullhash}{CGBRL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Statistical inference}
+    \field{volume}{2}
+    \field{year}{2002}
+  \endentry
+
+  \entry{Chen2021-hf}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CW}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Wenyu},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Mazumder},
+         familyi={M\bibinitperiod},
+         given={Rahul},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SRJ}{%
+         family={Samworth},
+         familyi={S\bibinitperiod},
+         given={Richard\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CWMRSRJ1}
+    \strng{fullhash}{CWMRSRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \verb{eprint}
+    \verb 2105.11387
+    \endverb
+    \field{title}{A new computational framework for log-concave density
+  estimation}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{stat.CO}
+    \field{month}{05}
+    \field{year}{2021}
+  \endentry
+
+  \entry{Chen2013-kj}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CY}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Yining},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SRJ}{%
+         family={Samworth},
+         familyi={S\bibinitperiod},
+         given={Richard\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Statistical Science, Academia Sinica}%
+    }
+    \strng{namehash}{CYSRJ1}
+    \strng{fullhash}{CYSRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{3}
+    \field{pages}{1373\bibrangedash 1398}
+    \field{title}{{SMOOTHED} {LOG-CONCAVE} {MAXIMUM} {LIKELIHOOD} {ESTIMATION}
+  {WITH} {APPLICATIONS}}
+    \field{volume}{23}
+    \field{journaltitle}{Stat. Sin.}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Cule2010-lc}{article}{}
+    \name{author}{3}{}{%
+      {{hash=CM}{%
+         family={Cule},
+         familyi={C\bibinitperiod},
+         given={M},
+         giveni={M},
+      }}%
+      {{hash=SR}{%
+         family={Samworth},
+         familyi={S\bibinitperiod},
+         given={R},
+         giveni={R},
+      }}%
+      {{hash=SM}{%
+         family={Stewart},
+         familyi={S\bibinitperiod},
+         given={M},
+         giveni={M},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley Online Library}%
+    }
+    \strng{namehash}{CMSRSM1}
+    \strng{fullhash}{CMSRSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{labeldatesource}{}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{pages}{545\bibrangedash 607}
+    \field{title}{Maximum likelihood estimation of a multi-dimensional
+  log-concave density}
+    \field{volume}{72}
+    \field{journaltitle}{Journal of the Royal Statistical Society}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Doss2016-kx}{article}{}
+    \name{author}{2}{}{%
+      {{hash=DCR}{%
+         family={Doss},
+         familyi={D\bibinitperiod},
+         given={Charles\bibnamedelima R},
+         giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=WJA}{%
+         family={Wellner},
+         familyi={W\bibinitperiod},
+         given={Jon\bibnamedelima A},
+         giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \keyw{Bracketing entropy; Hellinger metric; Primary 62G07; consistency;
+  empirical processes; global rate; log-concave; s-concave; secondary 62G05,
+  62G20}
+    \strng{namehash}{DCRWJA1}
+    \strng{fullhash}{DCRWJA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{3}
+    \field{pages}{954\bibrangedash 981}
+    \field{title}{{GLOBAL} {RATES} {OF} {CONVERGENCE} {OF} {THE} {MLES} {OF}
+  {LOG-CONCAVE} {AND} {s-CONCAVE} {DENSITIES}}
+    \field{volume}{44}
+    \field{journaltitle}{Ann. Stat.}
+    \field{month}{04}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Dumbgen2007-wa}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DL}{%
+         family={D{\"u}mbgen},
+         familyi={D\bibinitperiod},
+         given={Lutz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Huesler},
+         familyi={H\bibinitperiod},
+         given={Andre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=RK}{%
+         family={Rufibach},
+         familyi={R\bibinitperiod},
+         given={Kaspar},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DLHARK1}
+    \strng{fullhash}{DLHARK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{eprint}
+    \verb 0707.4643
+    \endverb
+    \field{title}{Active Set and {EM} Algorithms for {Log-Concave} Densities
+  Based on Complete and Censored Data}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{stat.ME}
+    \field{month}{07}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Dumbgen2009-br}{article}{}
+    \name{author}{2}{}{%
+      {{hash=DL}{%
+         family={D{\"u}mbgen},
+         familyi={D\bibinitperiod},
+         given={Lutz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=RK}{%
+         family={Rufibach},
+         familyi={R\bibinitperiod},
+         given={Kaspar},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{2}{%
+      {Bernoulli Society for Mathematical Statistics}%
+      {Probability}%
+    }
+    \keyw{adaptivity; bracketing; exponential inequality; gap problem; hazard
+  function; method of caricatures; shape constraints}
+    \strng{namehash}{DLRK1}
+    \strng{fullhash}{DLRK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{1}
+    \field{pages}{40\bibrangedash 68}
+    \field{title}{Maximum likelihood estimation of a log-concave density and
+  its distribution function: Basic properties and uniform consistency}
+    \field{volume}{15}
+    \field{journaltitle}{Bernoulli}
+    \field{month}{02}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Dumbgen2010-so}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DL}{%
+         family={D{\"u}mbgen},
+         familyi={D\bibinitperiod},
+         given={Lutz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=RK}{%
+         family={Rufibach},
+         familyi={R\bibinitperiod},
+         given={Kaspar},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=O}{%
+         family={{Others}},
+         familyi={O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Citeseer}%
+    }
+    \strng{namehash}{DLRKO1}
+    \strng{fullhash}{DLRKO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{logcondens: Computations related to univariate log-concave
+  density estimation}
+    \field{journaltitle}{Journal of Statistical Software, to appear}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Dumbgen2011-fu}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DL}{%
+         family={D{\"u}mbgen},
+         familyi={D\bibinitperiod},
+         given={Lutz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=SR}{%
+         family={Samworth},
+         familyi={S\bibinitperiod},
+         given={Richard},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Schuhmacher},
+         familyi={S\bibinitperiod},
+         given={Dominic},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{DLSRSD1}
+    \strng{fullhash}{DLSRSD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{labeldatesource}{}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{2}
+    \field{pages}{702\bibrangedash 730}
+    \field{title}{{APPROXIMATION} {BY} {LOG-CONCAVE} {DISTRIBUTIONS}, {WITH}
+  {APPLICATIONS} {TO} {REGRESSION}}
+    \field{volume}{39}
+    \field{journaltitle}{Ann. Stat.}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Fisher1922-qi}{article}{}
+    \name{author}{1}{}{%
+      {{hash=FRA}{%
+         family={Fisher},
+         familyi={F\bibinitperiod},
+         given={Ronald\bibnamedelima A},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {The Royal Society London}%
+    }
+    \strng{namehash}{FRA1}
+    \strng{fullhash}{FRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1922}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{594-604}
+    \field{pages}{309\bibrangedash 368}
+    \field{title}{On the mathematical foundations of theoretical statistics}
+    \field{volume}{222}
+    \field{journaltitle}{Philosophical Transactions of the Royal Society of
+  London. Series A, Containing Papers of a Mathematical or Physical Character}
+    \field{year}{1922}
+  \endentry
+
+  \entry{Freedman1981-oi}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FD}{%
+         family={Freedman},
+         familyi={F\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=DP}{%
+         family={Diaconis},
+         familyi={D\bibinitperiod},
+         given={Persi},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Springer Nature}%
+    }
+    \strng{namehash}{FDDP1}
+    \strng{fullhash}{FDDP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1981}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{4}
+    \field{pages}{453\bibrangedash 476}
+    \field{title}{On the histogram as a density estimator:L 2 theory}
+    \field{volume}{57}
+    \field{journaltitle}{Z. Wahrscheinlichkeitstheorie verw Gebiete}
+    \field{month}{12}
+    \field{year}{1981}
+  \endentry
+
+  \entry{Fukunaga1975-vy}{article}{}
+    \name{author}{2}{}{%
+      {{hash=FK}{%
+         family={Fukunaga},
+         familyi={F\bibinitperiod},
+         given={K},
+         giveni={K},
+      }}%
+      {{hash=HL}{%
+         family={Hostetler},
+         familyi={H\bibinitperiod},
+         given={L},
+         giveni={L},
+      }}%
+    }
+    \keyw{Nonparametric estimation;Pattern recognition;Probability functions}
+    \strng{namehash}{FKHL1}
+    \strng{fullhash}{FKHL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1975}
+    \field{labeldatesource}{}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{1}
+    \field{pages}{32\bibrangedash 40}
+    \field{title}{The estimation of the gradient of a density function, with
+  applications in pattern recognition}
+    \field{volume}{21}
+    \field{journaltitle}{IEEE Trans. Inf. Theory}
+    \field{month}{01}
+    \field{year}{1975}
+  \endentry
+
+  \entry{Good1971-gm}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GIJ}{%
+         family={Good},
+         familyi={G\bibinitperiod},
+         given={I\bibnamedelima J},
+         giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=GRA}{%
+         family={Gaskins},
+         familyi={G\bibinitperiod},
+         given={R\bibnamedelima A},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {[Oxford University Press, Biometrika Trust]}%
+    }
+    \strng{namehash}{GIJGRA1}
+    \strng{fullhash}{GIJGRA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1971}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{2}
+    \field{pages}{255\bibrangedash 277}
+    \field{title}{Nonparametric Roughness Penalties for Probability Densities}
+    \field{volume}{58}
+    \field{journaltitle}{Biometrika}
+    \field{year}{1971}
+  \endentry
+
+  \entry{Grenander1956-db}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GU}{%
+         family={Grenander},
+         familyi={G\bibinitperiod},
+         given={Ulf},
+         giveni={U\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{GU1}
+    \strng{fullhash}{GU1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1956}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{2}
+    \field{pages}{125\bibrangedash 153}
+    \field{title}{On the theory of mortality measurement: part ii}
+    \field{volume}{1956}
+    \field{journaltitle}{Scand. Actuar. J.}
+    \field{year}{1956}
+  \endentry
+
+  \entry{Groeneboom1984-rd}{book}{}
+    \name{author}{1}{}{%
+      {{hash=GP}{%
+         family={Groeneboom},
+         familyi={G\bibinitperiod},
+         given={P},
+         giveni={P},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Centrum voor Wiskunde en Informatica}%
+    }
+    \strng{namehash}{GP1}
+    \strng{fullhash}{GP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1984}
+    \field{labeldatesource}{}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{title}{Estimating a Monotone Density}
+    \field{year}{1984}
+  \endentry
+
+  \entry{Hampel1968-gm}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=HFR}{%
+         family={Hampel},
+         familyi={H\bibinitperiod},
+         given={Frank\bibnamedelima R},
+         giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Berkeley ProQuest Dissertations Publishing}%
+    }
+    \strng{namehash}{HFR1}
+    \strng{fullhash}{HFR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1968}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Contributions to the theory of robust estimation}
+    \list{institution}{1}{%
+      {University of California}%
+    }
+    \field{type}{phdthesis}
+    \field{year}{1968}
+  \endentry
+
+  \entry{Huber1967-sd}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=HPJ}{%
+         family={Huber},
+         familyi={H\bibinitperiod},
+         given={Peter\bibnamedelima J},
+         giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HPJ1}
+    \strng{fullhash}{HPJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1967}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{booktitle}{Proceedings of the fifth Berkeley symposium on
+  mathematical statistics and probability}
+    \field{pages}{221\bibrangedash 233}
+    \field{title}{The behavior of maximum likelihood estimates under
+  nonstandard conditions}
+    \field{volume}{1}
+    \list{institution}{1}{%
+      {University of California Press}%
+    }
+    \field{year}{1967}
+  \endentry
+
+  \entry{Hyvarinen2005-wp}{article}{}
+    \name{author}{1}{}{%
+      {{hash=HA}{%
+         family={Hyv{\"a}rinen},
+         familyi={H\bibinitperiod},
+         given={Aapo},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HA1}
+    \strng{fullhash}{HA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{labeldatesource}{}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{number}{Apr}
+    \field{pages}{695\bibrangedash 709}
+    \field{title}{Estimation of {Non-Normalized} Statistical Models by Score
+  Matching}
+    \field{volume}{6}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Ibragimov1956-nw}{article}{}
+    \name{author}{1}{}{%
+      {{hash=IIA}{%
+         family={Ibragimov},
+         familyi={I\bibinitperiod},
+         given={I\bibnamedelima A},
+         giveni={I\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Society for Industrial}%
+      {Applied Mathematics}%
+    }
+    \strng{namehash}{IIA1}
+    \strng{fullhash}{IIA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1956}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{abstract}{%
+    A distribution function is called strong unimodal if its composition with
+  any unimodal distribution function is unimodal.The following theorem is
+  proved:For a proper unimodal distribution $F(x)$ to be strong unimodal, it is
+  necessary and sufficient that the function $F(x)$ be continuous, and the
+  function log $F'(x)$ be concave at a set of points where neither the right
+  nor the left derivative of the function $F(x)$ is equal to zero.%
+    }
+    \field{number}{2}
+    \field{pages}{255\bibrangedash 260}
+    \field{title}{On the Composition of Unimodal Distributions}
+    \field{volume}{1}
+    \field{journaltitle}{Theory Probab. Appl.}
+    \field{month}{01}
+    \field{year}{1956}
+  \endentry
+
+  \entry{Izenman2009-jk}{book}{}
+    \name{author}{1}{}{%
+      {{hash=IAJ}{%
+         family={Izenman},
+         familyi={I\bibinitperiod},
+         given={Alan\bibnamedelima J},
+         giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Springer Science \& Business Media}%
+    }
+    \strng{namehash}{IAJ1}
+    \strng{fullhash}{IAJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{labeldatesource}{}
+    \field{sortinit}{I}
+    \field{sortinithash}{I}
+    \field{title}{Modern Multivariate Statistical Techniques: Regression,
+  Classification, and Manifold Learning}
+    \field{month}{03}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Kim2016-zr}{article}{}
+    \name{author}{2}{}{%
+      {{hash=KAKH}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Arlene K\bibnamedelima H},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
+      }}%
+      {{hash=SRJ}{%
+         family={Samworth},
+         familyi={S\bibinitperiod},
+         given={Richard\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \keyw{62G07; 62G20; Bracketing entropy; Density estimation; global loss
+  function; Log-concavity; maximum likelihood estimation;}
+    \strng{namehash}{KAKHSRJ1}
+    \strng{fullhash}{KAKHSRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{6}
+    \field{pages}{2756\bibrangedash 2779}
+    \field{title}{Global rates of convergence in log-concave density
+  estimation}
+    \field{volume}{44}
+    \field{journaltitle}{aos}
+    \field{month}{12}
+    \field{year}{2016}
+  \endentry
+
+  \entry{Koenker2007-zo}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=KR}{%
+         family={Koenker},
+         familyi={K\bibinitperiod},
+         given={Roger},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MI}{%
+         family={Mizera},
+         familyi={M\bibinitperiod},
+         given={Ivan},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {WORLD SCIENTIFIC}%
+    }
+    \strng{namehash}{KRMI1}
+    \strng{fullhash}{KRMI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{booktitle}{Advances in Statistical Modeling and Inference}
+    \field{pages}{613\bibrangedash 633}
+    \field{series}{Series in Biostatistics}
+    \field{title}{{DENSITY} {ESTIMATION} {BY} {TOTAL} {VARIATION}
+  {REGULARIZATION}}
+    \field{volume}{3}
+    \field{month}{03}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Leonard1978-mc}{article}{}
+    \name{author}{1}{}{%
+      {{hash=LT}{%
+         family={Leonard},
+         familyi={L\bibinitperiod},
+         given={Tom},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LT1}
+    \strng{fullhash}{LT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1978}
+    \field{labeldatesource}{}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{number}{2}
+    \field{pages}{113\bibrangedash 132}
+    \field{title}{Density Estimation, Stochastic Processes and Prior
+  Information}
+    \field{volume}{40}
+    \field{journaltitle}{J. R. Stat. Soc. Series B Stat. Methodol.}
+    \field{month}{01}
+    \field{year}{1978}
+  \endentry
+
+  \entry{Pal2007-ai}{article}{}
+    \name{author}{3}{}{%
+      {{hash=PJK}{%
+         family={Pal},
+         familyi={P\bibinitperiod},
+         given={Jayanta\bibnamedelima Kumar},
+         giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=WM}{%
+         family={Woodroofe},
+         familyi={W\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Meyer},
+         familyi={M\bibinitperiod},
+         given={Mary},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{PJKWMMM1}
+    \strng{fullhash}{PJKWMMM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{pages}{239\bibrangedash 249}
+    \field{title}{Estimating a Polya Frequency Function$_2$}
+    \field{volume}{54}
+    \field{journaltitle}{Lect. Notes Monogr. Ser.}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Rao1969-ug}{article}{}
+    \name{author}{1}{}{%
+      {{hash=RBLSP}{%
+         family={Rao},
+         familyi={R\bibinitperiod},
+         given={B\bibnamedelima L S\bibnamedelima Prakasa},
+         giveni={B\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim
+  S\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer}%
+    }
+    \strng{namehash}{RBLSP1}
+    \strng{fullhash}{RBLSP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1969}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{number}{1}
+    \field{pages}{23\bibrangedash 36}
+    \field{title}{Estimation of a Unimodal Density}
+    \field{volume}{31}
+    \field{journaltitle}{Sankhy{\=a}: The Indian Journal of Statistics, Series
+  A (1961-2002)}
+    \field{year}{1969}
+  \endentry
+
+  \entry{Rathke2019-xn}{article}{}
+    \name{author}{2}{}{%
+      {{hash=RF}{%
+         family={Rathke},
+         familyi={R\bibinitperiod},
+         given={Fabian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Schn{\"o}rr},
+         familyi={S\bibinitperiod},
+         given={Christoph},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \keyw{Log-concavity; Maximum likelihood estimation; Nonparametric density
+  estimation; Adaptive piecewise-affine parametrization}
+    \strng{namehash}{RFSC1}
+    \strng{fullhash}{RFSC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{pages}{41\bibrangedash 58}
+    \field{title}{Fast multivariate log-concave density estimation}
+    \field{volume}{140}
+    \field{journaltitle}{Comput. Stat. Data Anal.}
+    \field{month}{12}
+    \field{year}{2019}
+  \endentry
+
+  \entry{Ripley1996-bi}{book}{}
+    \name{author}{1}{}{%
+      {{hash=RBD}{%
+         family={Ripley},
+         familyi={R\bibinitperiod},
+         given={Brian\bibnamedelima D.},
+         giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{RBD1}
+    \strng{fullhash}{RBD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1996}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \verb{doi}
+    \verb 10.1017/CBO9780511812651
+    \endverb
+    \field{title}{Pattern Recognition and Neural Networks}
+    \field{year}{1996}
+  \endentry
+
+  \entry{Rufibach2007-tl}{article}{}
+    \name{author}{1}{}{%
+      {{hash=RK}{%
+         family={Rufibach},
+         familyi={R\bibinitperiod},
+         given={Kaspar},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{RK1}
+    \strng{fullhash}{RK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{labeldatesource}{}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{number}{7}
+    \field{pages}{561\bibrangedash 574}
+    \field{title}{Computing maximum likelihood estimators of a log-concave
+  density function}
+    \field{volume}{77}
+    \field{journaltitle}{J. Stat. Comput. Simul.}
+    \field{month}{07}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Samworth2018-bw}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SRJ}{%
+         family={Samworth},
+         familyi={S\bibinitperiod},
+         given={Richard\bibnamedelima J},
+         giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \keyw{Log-concavity; maximum likelihood estimation}
+    \strng{namehash}{SRJ1}
+    \strng{fullhash}{SRJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{4}
+    \field{pages}{493\bibrangedash 509}
+    \field{title}{Recent Progress in {Log-Concave} Density Estimation}
+    \field{volume}{33}
+    \field{journaltitle}{Stat. Sci.}
+    \field{month}{11}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Sardy2010-hp}{article}{}
+    \name{author}{2}{}{%
+      {{hash=SS}{%
+         family={Sardy},
+         familyi={S\bibinitperiod},
+         given={Sylvain},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TP}{%
+         family={Tseng},
+         familyi={T\bibinitperiod},
+         given={Paul},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SSTP1}
+    \strng{fullhash}{SSTP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{2}
+    \field{pages}{321\bibrangedash 337}
+    \field{title}{Density Estimation by Total Variation Penalized Likelihood
+  Driven by the Sparsity $\ell_1$ Information Criterion: Total variation
+  density estimation}
+    \field{volume}{37}
+    \field{journaltitle}{Scand. Stat. Theory Appl.}
+    \field{month}{01}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Silverman1982-ey}{article}{}
+    \name{author}{1}{}{%
+      {{hash=SBW}{%
+         family={Silverman},
+         familyi={S\bibinitperiod},
+         given={B\bibnamedelima W},
+         giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \keyw{Probability density estimate; roughness penalty; penalized
+  likelihood; smoothing; data analysis; reproducing kernel Hilbert space;
+  Sobolev space; convex optimization existence and uniqueness; rates;
+  consitency; asymptotic normality; Gaussian process; strong approximation}
+    \strng{namehash}{SBW1}
+    \strng{fullhash}{SBW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1982}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{3}
+    \field{pages}{795\bibrangedash 810}
+    \field{title}{On the Estimation of a Probability Density Function by the
+  Maximum Penalized Likelihood Method}
+    \field{volume}{10}
+    \field{journaltitle}{Ann. Stat.}
+    \field{month}{09}
+    \field{year}{1982}
+  \endentry
+
+  \entry{Silverman1986-mu}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SBW}{%
+         family={Silverman},
+         familyi={S\bibinitperiod},
+         given={B\bibnamedelima W},
+         giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Chapman}%
+      {Hall}%
+    }
+    \strng{namehash}{SBW1}
+    \strng{fullhash}{SBW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{isbn}{978-0412246203}
+    \field{title}{Density Estimation for Statistics and Data Analysis}
+    \list{location}{1}{%
+      {Boston, MA}%
+    }
+    \field{year}{1986}
+  \endentry
+
+  \entry{Sriperumbudur-density-estimation-inf-exp-family}{article}{}
+    \name{author}{5}{}{%
+      {{hash=SB}{%
+         family={Sriperumbudur},
+         familyi={S\bibinitperiod},
+         given={Bharath},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=FK}{%
+         family={Fukumizu},
+         familyi={F\bibinitperiod},
+         given={Kenji},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         familyi={G\bibinitperiod},
+         given={Arthur},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Hyv{\"a}rinen},
+         familyi={H\bibinitperiod},
+         given={Aapo},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kumar},
+         familyi={K\bibinitperiod},
+         given={Revant},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SB+1}
+    \strng{fullhash}{SBFKGAHAKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{57}
+    \field{pages}{1\bibrangedash 59}
+    \field{title}{Density Estimation in Infinite Dimensional Exponential
+  Families}
+    \verb{url}
+    \verb http://jmlr.org/papers/v18/16-011.html
+    \endverb
+    \field{volume}{18}
+    \field{journaltitle}{Journal of Machine Learning Research}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Walther2002-tw}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WG}{%
+         family={Walther},
+         familyi={W\bibinitperiod},
+         given={Guenther},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{WG1}
+    \strng{fullhash}{WG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2002}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{number}{458}
+    \field{pages}{508\bibrangedash 513}
+    \field{title}{Detecting the Presence of Mixing with Multiscale Maximum
+  Likelihood}
+    \field{volume}{97}
+    \field{journaltitle}{J. Am. Stat. Assoc.}
+    \field{month}{06}
+    \field{year}{2002}
+  \endentry
+
+  \entry{Wegman1970-wm}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WEJ}{%
+         family={Wegman},
+         familyi={W\bibinitperiod},
+         given={Edward\bibnamedelima J},
+         giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{WEJ1}
+    \strng{fullhash}{WEJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1970}
+    \field{extradate}{1}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{number}{2}
+    \field{pages}{457\bibrangedash 471}
+    \field{title}{Maximum Likelihood Estimation of a Unimodal Density Function}
+    \field{volume}{41}
+    \field{journaltitle}{Ann. Math. Stat.}
+    \field{year}{1970}
+  \endentry
+
+  \entry{Wegman1970-ow}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WEJ}{%
+         family={Wegman},
+         familyi={W\bibinitperiod},
+         given={Edward\bibnamedelima J},
+         giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{WEJ1}
+    \strng{fullhash}{WEJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1970}
+    \field{extradate}{2}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{abstract}{%
+    [This paper is a sequel to the earlier paper, ``Maximum Likelihood
+  Estimation of a Unimodal Density Function.'' The MLE of a unimodal density
+  with unknown mode is shown to agree, for sufficiently large n and on certain
+  regions, with the MLE of a unimodal density with known mode. The asymptotic
+  distributions of the MLE's then agree. Also a geometrical interpretation of
+  the MLE of a unimodal density with unknown mode is given.]%
+    }
+    \field{number}{6}
+    \field{pages}{2169\bibrangedash 2174}
+    \field{title}{Maximum Likelihood Estimation of a Unimodal Density, {II}}
+    \field{volume}{41}
+    \field{journaltitle}{Ann. Math. Stat.}
+    \field{year}{1970}
+  \endentry
+
+  \entry{White1982-dn}{article}{}
+    \name{author}{1}{}{%
+      {{hash=WH}{%
+         family={White},
+         familyi={W\bibinitperiod},
+         given={Halbert},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {[Wiley, Econometric Society]}%
+    }
+    \strng{namehash}{WH1}
+    \strng{fullhash}{WH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1982}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{abstract}{%
+    [This paper examines the consequences and detection of model
+  misspecification when using maximum likelihood techniques for estimation and
+  inference. The quasi-maximum likelihood estimator (OMLE) converges to a well
+  defined limit, and may or may not be consistent for particular parameters of
+  interest. Standard tests (Wald, Lagrange Multiplier, or Likelihood Ratio) are
+  invalid in the presence of misspecification, but more general statistics are
+  given which allow inferences to be drawn robustly. The properties of the QMLE
+  and the information matrix are exploited to yield several useful tests for
+  model misspecification.]%
+    }
+    \field{number}{1}
+    \field{pages}{1\bibrangedash 25}
+    \field{title}{Maximum Likelihood Estimation of Misspecified Models}
+    \field{volume}{50}
+    \field{journaltitle}{Econometrica}
+    \field{year}{1982}
+  \endentry
+\enddatalist
+\endinput
