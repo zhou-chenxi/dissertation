@@ -96,7 +96,7 @@ Frech{\'e}t derivative shares many properties of the derivative of a real-valued
 \end{proposition}
 
 
-\begin{definition}[Fr{\'e}chet gradient]
+\begin{definition}[Fr{\'e}chet gradient]\label{def-frechet-gradient}
 	Suppose $J: \calH \to \Real$ is Frech{\'e}t differentiable at $f \in \calH$. Since $\Diff J \parens{f}$ is a bounded linear map from $\calH$ to $\Real$, the Riesz-Fr{\'e}chet representation theorem \parencites[Fact 2.24 in][]{Bauschke2017-he} implies there exists a unique element $\nabla J \parens{f} \in \calH$ such that, for any $g \in \calH$, 
 	\begin{align}\label{eq-frechet-grad}
 		\Diff J \parens{f} \parens{g} = \innerp{g}{\nabla J \parens{f}}_{\calH}, 
@@ -171,7 +171,7 @@ Throughout this section, let $\calE$ be a Banach space whose norm is denoted by 
 
 A criterion to check the Bochner $\mu$-integrability is the following. 
 
-\begin{proposition}
+\begin{proposition}\label{prop-bochner-integrability}
 	A measurable function $f: \calX \to \calE$ is Bochner $\mu$-integrable if and only if $\int_{\calX} \norm{f \parens{x}}_{\calE} \diff \mu \parens{x} < \infty$. 
 \end{proposition}
 
