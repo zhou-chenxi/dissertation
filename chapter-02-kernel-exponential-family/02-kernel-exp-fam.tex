@@ -1,0 +1,973 @@
+\documentclass[12pt]{article}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage[mathscr]{eucal}
+\RequirePackage{mathtools}
+\RequirePackage{etoolbox}
+\usepackage[red]{zhoucx-notation}
+
+\usepackage{xr-hyper}
+\usepackage{hyperref}
+\externaldocument{../appendix-01-math-background/appendix-1-math-background}
+
+\geometry{letterpaper, top = 1in, bottom = 1in, left = 1.5in, right = 1in}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+%\declaretheorem[numbered=no]{definition}
+
+\theoremstyle{theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+\renewcommand{\qedsymbol}{\hfill\rule{2mm}{2mm}}
+
+%\pagestyle{fancy}
+%\fancyhf{}
+%\setlength{\headheight}{15pt}
+%\rhead{\textsf{\today}}
+%\lhead{\textsf{Chenxi Zhou}}
+%\renewcommand{\headrulewidth}{1pt}
+%\cfoot{\thepage}
+
+\title{ \setstretch{1.0} \textbf{\Large Chapter 2: Kernel Exponential Family and \\ Density Estimation in It}}
+\author{}
+\date{}
+
+\allowdisplaybreaks
+\setstretch{2}
+
+\begin{document}
+
+\thispagestyle{plain}
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+In this chapter, we formally introduce the kernel exponential family and discuss the density estimation problem in it. 
+
+\section{Kernel Exponential Families}
+
+\subsection{A Review of Finite-dimensional Exponential Family}\label{subsection-fin-dim-exp-fam}
+
+In order to introduce the kernel exponential family, we first review the classic finite-dimensional exponential family. 
+
+Let $\calX \subseteq \Real^d$ be the sample space and $\varphi: \calX \to \Real^m$ be a measurable vector-valued function such that $\varphi \parens{x} = \parens[\big]{\varphi_1 \parens{x}, \cdots, \varphi_m \parens{x}}^\top \in \Real^m$ for all $x \in \calX$. An \textit{$m$-dimensional exponential family} \parencite{Brown1986-ef, Barndorff-Nielsen2014-ua}, denoted by $\mathcal{Q}_{\mathrm{fin}}$, in its natural parametrization form, contains all pdfs of the form 
+\begin{align}\label{eq-fin-exp-fam}
+	\tilde{q}_{\theta} \parens{x} := \mu \parens{x} \exp \parens[\big]{\innerp{\varphi \parens{x}}{\theta} - B \parens{\theta}} \text{ for all } x \in \calX, \qquad \theta \in \Theta, 
+\end{align}
+where $\mu: \calX \to [0, \infty)$ is a pdf referred to as the \textit{base density}, $\theta \in \Real^m$ is the \textit{natural parameter}, $\varphi$ is referred to as the \textit{canonical statistic}, $\innerp{\,\cdot\,}{\,\cdot\,}$ denotes the inner product in $\Real^m$, 
+\begin{align}\label{eq-log-partition-fun-finexpfam}
+	B \parens{\theta} := \log \parens[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens[\big]{\innerp{\theta}{\varphi \parens{x}}} \diff x}
+\end{align}
+is the \textit{log-partition function}, and $\Theta := \braces[\big]{\theta \in \Real^m \bigm| B \parens{\theta} < \infty}$ is the \textit{natural parameter space}. %It is possible to replace the Lebesgue measure by some other $\sigma$-finite measure over $\calX$, and the functional form of $\tilde{q}_{\theta}$ might be slightly different, whose details are omitted here. 
+
+The finite-dimensional exponential family was first discovered by \textcite{Darmois1935-yz, Koopman1936-fb, Pitman1936-cl} in studying the family of distributions whose sufficient statistics have fixed dimensionality as the sample size increases. It can also be motivated via the principle of maximum entropy: given $n$ i.i.d samples $X_1, \cdots, X_n \in \calX$ and $m$ measurable functions $\varphi_j: \calX \to \Real$, for all $j = 1, \cdots, m$, the unique pdf $p$ over $\calX$ that maximizes Shannon's entropy 
+\begin{align}
+	- \int_{\calX} p \parens{x} \log p \parens{x} \diff x 
+\end{align}
+subject to the linear constraints 
+\begin{align}
+	\int_{\calX} p \parens{x} \varphi_j \parens{x} \diff x = \frac{1}{n} \sum_{i=1}^n \varphi_j \parens{X_i}, \qquad \text{ for all } j = 1, \cdots, m, 
+\end{align}
+takes on the form \eqref{eq-fin-exp-fam}. 
+
+Exponential families are ubiquitous in statistics. Many parametric families are special cases of exponential families, such as the family of Gaussian pdfs and the family of probability mass functions (pmfs) of the binomial distribution with the known number of trials. In addition, they form the basis for the generalized linear models \parencite{mccullagh1989generalized}. In recent years, they are also used extensively in the studies of graphical models \parencite{Wainwright2008-tp}. 
+
+\subsection{Kernel Exponential Family}
+
+Note that in \eqref{eq-fin-exp-fam}, the function $\varphi$ maps to an $m$-dimensional Euclidean space, which can be limited in some applications. In addition, $\tilde{q}_{\theta}$ depends on $\varphi$ only through its inner product with $\theta \in \Theta$. Motivated by these observations, \textcite{Canu2006-ig} proposed to replace the inner product in the Euclidean space in \eqref{eq-fin-exp-fam} by the one in a reproducing kernel Hilbert space (RKHS), and introduced the \textit{kernel exponential family}, denoted by $\calQ_{\ker}$, that contains all pdfs over $\calX$ of the form 
+\begin{align}\label{eq-kernel-exp-fam}
+	q_f \parens{x} := \mu \parens{x} \exp \parens[\big]{ f \parens{x} - A \parens{f}} \text{ for all } x \in \calX, \qquad f \in \calF,  
+\end{align}
+where 
+\begin{align}\label{eq-log-partition-fun-kerexpfam}
+	A \parens{f} := \log \parens[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } \diff x}
+\end{align}
+is the \textit{log-partition functional}, and $\calF := \braces[\big]{f \in \calH \bigm| A \parens{f} < \infty}$ is referred to as the \textit{natural parameter space}. 
+
+Due to the reproducing kernel property of $k$, we have $f \parens{x} = \innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}$, where $k: \calX \times \calX \to \Real$ is the kernel function associated with the underlying RKHS $\calH$, and $\innerp{\,\cdot\,}{\,\cdot\,}_{\calH}: \calH \times \calH \to \Real$ denotes the inner product in $\calH$. Thus, comparing with \eqref{eq-fin-exp-fam}, we see that $f \in \calH$ plays the role of the natural parameter and $k \parens{x, \,\cdot\,} \in \calH$ plays the role of the canonical statistic. 
+
+The kernel exponential family $\calQ_{\ker}$ has been used in various statistical applications, such as the anomaly detection \parencites{Canu2006-ig}, and the estimation of the conditional independence structure of graphical models \parencites{Sun15-dc}. 
+
+
+\subsection{Properties of $\mathcal{Q}_{\ker}$}
+
+
+The kernel exponential family $\calQ_{\ker}$ has many nice properties, some of which are in common with those of $\calQ_{\mathrm{fin}}$. In the following subsections, we discuss these properties. 
+
+\subsubsection{Characterization of $\calF$ for Bounded Kernels}
+
+The first property we discuss here relates to the characterization of $\calF$ when a bounded kernel function $k$ is used, where $k$ is said to be \emph{bounded} if $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$. 
+
+\begin{proposition}\label{prop-bounded-kernel-H=F}
+	If the kernel function $k$ is bounded, then we have $\calF = \calH$. 
+\end{proposition}
+
+The proof of Proposition \ref{prop-bounded-kernel-H=F} can be found in Subsection \ref{subsection-proof-prop-bounded-kernel-H=F}. 
+
+As a consequence of Proposition \ref{prop-bounded-kernel-H=F}, if $\calX \subset \Real^d$ is compact and $k$ is continuous over $\calX$, we must have $\kappa < \infty$ and $\calF = \calH$. As another example, if $\calX = \Real^d$ or an unbounded proper subset of $\Real^d$, and $k$ is the Gaussian kernel function, $k \parens{x, y} = \exp \parens[\big]{- \frac{\norm{x - y}_2^2}{2 \sigma^2}}$ for all $x, y \in \calX$, or the rational quadratic kernel function, $k \parens{x, y} = \parens[\big]{1 + \frac{\norm{x - y}_2^2}{\sigma^2}}^{-1}$ for all $x, y \in \calX$, 
+%	or the Maternal kernel function 
+	where $\sigma > 0$ is the bandwidth parameter associated with each kernel function, we also have $\kappa < \infty$ and $\calF = \calH$. 
+
+The boundedness of $k$ is \emph{not} a necessary condition for $\calF = \calH$, though. For instance, if we let $\calX = \Real$ and $k \parens{x, y} = x y$ for all $x, y \in \Real$, the corresponding $\calH$ contains all functions $f$ of the form 
+\begin{align*}
+	f \parens{x} = \sum_{i=1}^{\infty} y_i x, \qquad \text{ for all } x \in \Real, 
+\end{align*}
+that satisfies $\norm{f}_{\calH}^2 = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} y_i y_j < \infty$. It is easy to observe $\sup_{x \in \calX} \sqrt{k \parens{x, x} } = \sup_{\calX} \abs{x} = \infty$. In addition, choose $\mu$ to be $\mu \parens{x} = \frac{1}{\sqrt{2 \pi}} \exp \parens[\big]{-\frac{x^2}{2}}$ for all $x \in \calX$. It follows that $A \parens{f} < \infty$ for all $f \in \calH$ and $\calF = \calH$. 
+
+\subsubsection{Convexity of $A$}
+
+It is a classic result that the log-partition function $B$ defined in \eqref{eq-log-partition-fun-finexpfam} is a convex function and the natural parameter space $\Theta$ is a convex set \parencites[Theorem 7.1 in][]{Barndorff-Nielsen2014-ua}. As the following proposition demonstrates, similar results hold for $\calQ_{\ker}$. 
+%the log-partition functional $A$ defined in \eqref{eq-log-partition-fun-kerexpfam} is a convex functional and the natural parameter space $\calF$ is a convex set as well. 
+
+\begin{proposition}\label{prop-convexity-A}
+	The log-partition functional $A$ defined in \eqref{eq-log-partition-fun-kerexpfam} is convex over $\calF$, and is strictly convex over $\calF$ if $\calH$ does $\mathrm{not}$ contain constant functions. In addition, $\calF$ is convex. 
+\end{proposition}
+
+The proof of Proposition \ref{prop-convexity-A} can be found in Subsection \ref{subsection-prop-convexity-A}. 
+
+As we will see in Subsection \ref{subsection-nnl-kef} of this chapter and Chapter 4, the convexity of $A$ plays an important role in density estimation using the (penalized) NLL loss functional, which ensures the convexity of the NLL loss functional and directly relates to the existence and the uniqueness of its minimizer. 
+
+\subsubsection{Differential Properties of $A$}
+
+It is well-known that the log-partition function $B$ in $\calQ_{\mathrm{fin}}$ is infinitely differentiable and has a close relationship with the cumulant and moment generating functions of the canonical statistic \parencites[Theorem 2.2 in][]{Brown1986-ef}. 
+
+In this section, we study differential properties of the log-partition functional $A$ in $\calQ_{\ker}$ defined in \eqref{eq-log-partition-fun-kerexpfam}. We will show that $A$ is also infinitely differentiable and link its derivatives (suitably defined) to the moments of $k \parens{X, \,\cdot\,}$. 
+
+To start with, notice that the domain of $A$ is a collection of functions over $\calX$, or more precisely, a subset of a Hilbert space. We need a version of differentiability defined for functionals whose domain is a normed space or a subset of it. We choose the \textit{Frech{\'e}t differentiability}, whose definition, together with those of Fr{\'e}chet derivative and gradient, is given in \textbf{\color{red} Section \ref{section-frechet-differentiable} in Appendix 1}. 
+
+The following lemma illustrates these definitions and serves as a preparation for the derivation of the Fr{\'e}chet derivative and gradient of $A$. 
+
+\begin{lemma}\label{lemma-eval-functional-frechet-diff}
+	Suppose $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$ so that $\calF = \calH$. Let $J: \calH \to \Real$ be the evaluation functional $J \parens{f} = \innerp{f}{k \parens{x, \,\cdot\,}}_{\calH} = f \parens{x}$ for all $f \in \calH$. Then, $J$ is Frech{\'e}t differentiable over $\calH$ with the Frech{\'e}t derivative at $f \in \calH$ being 
+	\begin{align*}
+		\Diff J \parens{f} \parens{g} = \innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}, \quad \qquad \text{ for all } g \in \calH. 
+	\end{align*}
+	In addition, the Fr{\'e}chet gradient is $\nabla J: \calH \to \calH$ with $\nabla J \parens{f} = k \parens{x, \,\cdot\,}$ for all $f \in \calH$. 
+\end{lemma}
+
+The proof of Lemma \ref{lemma-eval-functional-frechet-diff} can be found in Subsection \ref{subsection-proof-lemma-eval-functional-frechet-diff}. 
+
+With this lemma, we now establish the Fr{\'e}chet differentiability of $A$ over $\calH$ and derive its Fr{\'e}chet derivative and gradient at $f \in \calH$. 
+
+\begin{proposition}[Fr{\'e}chet differentiability, derivative and gradient of $A$]\label{prop-frechet-derivative-A}
+	Suppose $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$ so that $\calF = \calH$. Then, $A: \calH \to \Real$ is Fr{\'e}chet differentiable over $\calH$ and its Fr{\'e}chet derivative at $f \in \calH$ is a bounded linear operator from $\calH$ to $\Real$ given by 
+	\begin{align}\label{eq-frechet-derivative-A}
+		\Diff A \parens{f} \parens{g} = \innerp[\bigg]{g}{\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x}_{\calH} = \int_{\calX} g \parens{x} q_f \parens{x} \diff x, 
+	\end{align}
+	for all $g \in \calH$. In addition, the Fr{\'e}chet gradient of $A$ is 
+	\begin{align*}
+		\nabla A: \calH \to \calH, \quad \qquad f \longmapsto \int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x. 
+	\end{align*}
+\end{proposition}
+
+\begin{remark}
+	Note that the integrand of $\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x$ is an element in $\calH$ and this integral is a Bochner integral \parencite{Diestel1977-bt, Denkowski2013-ke}; also see \textbf{\color{red} Section \ref{section-bochner-integral} in Appendix 1} for its definition and properties. In particular, the second equality in \eqref{eq-frechet-derivative-A} follows from \textbf{\color{red} Proposition \ref{prop-properties-bochcher-integral}\ref{prop-properties-bochcher-integral-c}} there. 
+	
+	In addition, we can view $\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x$ as the output of the \textit{kernel mean embedding} \parencite{bertinetThomas04RKHS, hilbert-embedding-2007}, i.e., we map a distribution $F$, whose density function is $q_f$, into $\calH$ via the map 
+	\begin{align}
+		F \longmapsto \int_{\calX} k \parens{x, \,\cdot\,} \diff F \parens{x} = \int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x. 
+	\end{align}
+	Kernel mean embedding has drawn a lot of attention in recent years. Its statistical properties have been extensively studied by, to name a few, \textcites{Le2008-dl, Sriperumbudur2010-ug, Sriperumbudur2011-db, kernel-mean-estimator-muandet}. It can be used in statistical hypothesis testing for independence \parencites{Gretton2005-tj} and for the equality of two sets of random samples \parencites{Gretton2012-zi}, statistical clustering \parencites{Jegelka2009-an}, the estimation of graphical models \parencites{Song2010-ea, Song2013-ha, Song2014-pi}. More details about the kernel mean embedding can be found in the recent comprehensive survey by \textcites{kernel-mean-embedding-survey-muandet}. 
+\end{remark}
+
+Proposition \ref{prop-frechet-derivative-A} only considers the first-order Fr{\'e}chet differentiability of $A$. By an inductive argument, we can show that $A$ is $r$-times Fr{\'e}chet differentiable for all $r \in \Natural$. In particular, the following proposition shows the result when $r = 2$. 
+
+\begin{proposition}[Second-order Fr{\'e}chet differentiability, derivative and gradient of $A$] 
+	Suppose $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$ so that $\calF = \calH$. Then, the log-partition functional $A$ is twice Fr{\'e}chet differentiable over $\calH$ and its second-order Frech{\'e}t derivative at $f \in \calH$, denoted by $\Diff^2 A \parens{f}$, is a map from $\calH$ to the collection of bounded linear operators from $\calH$ to $\Real$ given by 
+	\begin{align}\label{eq-frechet-derivative-A-order2}
+		\Diff^2 A \parens{f} \parens{g} = & \, \bigg[ \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} \otimes k \parens{x, \,\cdot\,} q_f \parens{x} \diff x } \nonumber \\ 
+		& \qquad - \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x } \otimes \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x } \bigg] g \nonumber \\ 
+		= & \, \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} g \parens{x} q_f \parens{x} \diff x } - \parens[\bigg]{\int_{\calX} q_f \parens{x} g \parens{x} \diff x } \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x }, \nonumber
+	\end{align}
+	for all $g \in \calH$. 
+	
+	In addition, the second-order Fr{\'e}chet gradient of $A$ at $f \in \calF$, denoted by $\nabla^2 A \parens{f}$, is a bounded linear operator from $\calH$ to itself given by 
+	\begin{align*}
+		\nabla^2 A \parens{f} = & \, \int_{\calX} k \parens{x, \,\cdot\,} \otimes k \parens{x, \,\cdot\,} q_f \parens{x} \diff x \\ 
+		& \quad \qquad - \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x} \otimes \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x} 
+	\end{align*}
+\end{proposition}
+
+The bounded linear operator $\nabla^2 A \parens{f}$, or more generally, the operator 
+\begin{align}
+	\parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} \otimes k \parens{x, \,\cdot\,} \diff F \parens{x} } - \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} \diff F \parens{x} } \otimes \parens[\bigg]{\int_{\calX} k \parens{x, \,\cdot\,} \diff F \parens{x} }
+\end{align}
+where $F$ is a distribution over $\calX$, maps from $\calH$ to itself, and is referred to as the \textit{covariance operator}, and is known to be linear, bounded, self-adjoint, and of trace-class \parencites{Baker1971-pu}. The covariance operator has been used in such statistical and machine learning applications as dimensionality reduction \parencites{Fukumizu2004-zw, Fukumizu2009-zh}, kernel principal component analysis \parencites{Scholkopf1998-jn}, kernel canonical correlation analysis \parencites{Fukumizu2007-rd}, and independence and conditional independence measures \parencites{Gretton2005-tj, Fukumizu2007-rc}. More details on the covariance operator, and more generally, and the cross-covariance operator can be found in Section 3.2 and 4.3 in \textcites{kernel-mean-embedding-survey-muandet}. 
+
+
+\subsection{Connection to Finite-dimensional Exponential Families}\label{subsection-connection-fin-exp-fam}
+
+In this section, we show the connection between $\calQ_{\mathrm{fin}}$ and $\calQ_{\ker}$. In particular, we show that density functions in $\calQ_{\mathrm{fin}}$ can be written in the form of those in $\calQ_{\ker}$ by choosing $\calH$ to be a finite-dimensional RKHS. Therefore, $\calQ_{\mathrm{fin}}$ is a special case of $\calQ_{\ker}$. If we choose $\calH$ to be an infinite-dimensional RKHS, $\calQ_{\ker}$ is a strict generalization of $\calQ_{\mathrm{fin}}$. 
+
+We start with $\calQ_{\mathrm{fin}}$ that contains all pdfs of the form \eqref{eq-fin-exp-fam}. Consider the following collection of functions 
+\begin{align}
+	\calH_{0} := \braces[\Bigg]{\sum_{j=1}^m \alpha_j \varphi_j \Bigm| \alpha_1, \cdots, \alpha_m \in \Real}, 
+\end{align}
+which is a vector space with addition and scalar multiplication defined as 
+\begin{align}
+	\parens{f + g} \parens{x} = & \, f \parens{x} + g \parens{x}, \quad \text{ and } \quad \parens{c f} \parens{x} = c f \parens{x}, \qquad \text{ for all } x \in \calX, 
+\end{align}
+for all $f, g \in \calH_0$ and all $c \in \Real$. 
+
+Now, for any $f = \sum_{j=1}^m \alpha_j \varphi_j \in \calH_0$ and $g = \sum_{j=1}^m \beta_j \varphi_j \in \calH_0$, where $\alpha_j, \beta_j \in \Real$ for all $j = 1, \cdots, m$, define the inner product between them to be 
+\begin{align}\label{eq-pre-hilbert-space}
+	\innerp{f}{g}_{\calH_0} = \sum_{j=1}^m \alpha_{j} \beta_{j}. 
+\end{align}
+Then, we have the following proposition. 
+
+\begin{proposition}\label{prop-fin-ker-exp-fam-connection}
+	The vector space $\calH_{0}$ equipped with the inner product $\innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}$ defined in \eqref{eq-pre-hilbert-space}, denoted by $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$, is a RKHS with the kernel function 
+	\begin{align}\label{eq-m-dim-exp-fam-rk}
+		k \parens{x, y} = \sum_{j=1}^m \varphi_j \parens{x} \varphi_j \parens{y}, \qquad \quad \text{ for all } x, y \in \calX. 
+	\end{align}
+\end{proposition}
+
+The proof of Proposition \ref{prop-fin-ker-exp-fam-connection} can be found in Subsection \ref{subsection-proof-prop-fin-ker-exp-fam-connection}. 
+
+In the rest of this section, we provide several examples of frequently used finite-dimensional exponential families to illustrate Proposition \ref{prop-fin-ker-exp-fam-connection}. 
+
+\begin{example}[Binomial distribution]
+	Consider the family of probability mass functions (pmfs) of the binomial distribution with the known number of trials $n$ and the success probability $\eta \in \parens{0, 1}$. The general form of the pmf is 
+	\begin{align*}
+		p_{\eta} \parens{x} := {n \choose x} \eta^x \parens{1 - \eta}^{n-x}, \qquad \text{ for all } x \in \calX := \sets[\big]{0, 1, \cdots, n}. 
+	\end{align*}		
+	In the natural parametrization, we can rewrite $p_{\eta}$ as 
+	\begin{align*}
+		\tilde{q}_{\theta} \parens{x} := {n \choose x} \exp \parens[\big]{x \theta - n \log \parens{1 + e^\theta}}, \qquad \text{ for all } x \in \calX, 
+	\end{align*}
+	where the natural parameter is $\theta := \log \parens[\big]{\frac{\eta}{1-\eta}}$ and the natural parameter space is $\Real$. We recognize 
+	\begin{align*}
+		\mu \parens{x} = & \, {n \choose x} \enspace \text{ and } \enspace \varphi \parens{x} = x \text{ for all } x \in \calX, \quad \text{ and } \quad 
+		B \parens{\theta} = n \log \parens{1 + e^\theta}. 
+	\end{align*}
+	Here, the canonical statistic is $\varphi = \mathrm{Id}$, the identity map, with $\varphi \parens{x} = x$ for all $x \in \calX$. Then, $\calH_0$ in this case contains all functions of the form $f \parens{x} = \theta x$ for all $x \in \calX$, where $\theta \in \Real$. With $\theta_1, \theta_2 \in \Real$, the inner product between $f = \theta_1 \cdot \mathrm{Id} \in \calH_0$ and $g = \theta_2 \cdot \mathrm{Id} \in \calH_0$ is $\innerp{f}{g}_{\calH_0} = \theta_1 \theta_2$. The reproducing kernel is $k \parens{x, y} = \innerp{x \cdot \mathrm{Id}}{y \cdot \mathrm{Id} }_{\hil_0} = x y$ for all $x, y \in \calX$. 
+	
+	Furthermore, we verify $A \parens{f} = B \parens{\theta}$, where $f = \theta \cdot \mathrm{Id}$ for some $\theta \in \Real$. Note that 
+	\begin{align*}
+		A \parens{f} = & \, \log \parens[\bigg]{\int_{\mathcal{X}} \mu \parens{x} \exp \parens{f \parens{x} } \diff x} 
+		= \log \parens[\Bigg]{\sum_{x=0}^n {n \choose x} e^{\theta x}}  \\ 
+		= & \, \log \parens{\parens{1+e^{\theta}}^n} 
+		= n \log \parens{1+e^{\eta}} = B \parens{\theta}, 
+	\end{align*}
+	which is the desired result. Since $A \parens{f} = A \parens{\theta \cdot \mathrm{Id} } = n \log \parens{1 + e^{\theta}} < + \infty$ for all $\theta \in \Real$, we have $\calF = \sets[\big]{f \in \calH_0 \mid f := \theta \cdot \mathrm{Id}, \theta \in \Real}$. 
+\end{example}
+
+% -------------------------------------------
+
+\begin{example}[Poisson distribution]
+	Consider the family of the pmfs of the Poisson distribution with the mean parameter $\eta > 0$. The general form of the pmf is 
+	\begin{align*}
+		p_{\eta} \parens{x} = e^{-\eta} \frac{\eta^x}{x!}, \qquad \text{ for all } x \in \calX := \sets{0, 1, 2, \cdots}.  
+	\end{align*}
+	We rewrite $p_{\eta}$ in the natural parametrization form as 
+	\begin{align}
+		\tilde{q}_{\theta} \parens{x} = \frac{1}{x!} \exp \parens{x \theta - e^{\theta}}, \qquad \text{ for all } x \in \calX, 
+	\end{align}
+	where the natural parameter is $\theta = \log \eta$ and the natural parameter space is $\Real$. We recognize 
+	\begin{align*}
+		\mu \parens{x} = \frac{1}{x!} \enspace \text{ and } \enspace \varphi \parens{x} = x \text{ for all } x \in \calX, \qquad \text{ and } \qquad B \parens{\theta} = e^\theta. 
+		\end{align*}
+	Here, similar to the binomial example we have considered earlier, the canonical statistic is $\varphi = \mathrm{Id}$, the identity map. Then, $\calH_0$ contains all functions of the form $f \parens{x} = \theta x$ for all $x \in \calX$, where $\theta \in \Real$. With $\theta_1, \theta_2 \in \Real$, the inner product between $f = \theta_1 \cdot \mathrm{Id} \in \calH_0$ and $g = \theta_2 \cdot \mathrm{Id} \in \calH_0$ is $\innerp{f}{g}_{\calH_0} = \theta_1 \theta_2$. The reproducing kernel is $k \parens{x, y} = \innerp{x \cdot \mathrm{Id}}{y \cdot \mathrm{Id} }_{\hil_0} = x y$ for all $x, y \in \calX$. 
+	
+	We then verify $A \parens{f} = B \parens{\theta}$, where $f = \theta \cdot \mathrm{Id}$ for some $\theta \in \Real$. Note that 
+	\begin{align*}
+		A \parens{f} = & \, \log \parens[\Bigg]{\int_{\mathcal{X}} \mu \parens{x} \exp \parens{f \parens{x}} \diff x} 
+		= \log \parens[\Bigg]{\sum_{x=0}^{\infty} \frac{1}{x!} e^{\theta x}} \\ 
+		= & \, \log \parens[\Bigg]{\sum_{x=0}^{\infty} \frac{\parens{e^{\theta}}^x}{x!} } 
+		= \log \parens{\exp \parens{e^\theta}} = e^\theta = B \parens{\theta}, 
+	\end{align*}
+	which is the desired result. Since $A \parens{f} = e^{\theta} < + \infty$ if and only if $\theta \in \Real$, the natural parameter space is $\calF = \sets[\big]{f \in \calH_0 \mid f = \theta \cdot \mathrm{Id}, \theta \in \Real}$. 
+\end{example}
+
+% -----------------------------------------
+
+\begin{example}[Exponential distribution]
+	Consider the family of pdfs of the exponential distribution with the scale parameter $\eta > 0$. The general form of the pdf is 
+	\begin{align*}
+		p_{\eta} \parens{x} = \frac{1}{\eta} \exp \parens[\bigg]{-\frac{x}{\eta}}, \qquad \text{ for all } x \in \calX := \sets[\Big]{x \Bigm| x > 0}. 
+	\end{align*}
+	We can rewrite it in the natural parametrization form as 
+	\begin{align}
+		\tilde{q}_{\theta} \parens{x} = \exp \parens[\Big]{x \theta + \log \parens{-\theta}}, \qquad \text{ for all } x \in \calX, 
+	\end{align}
+	where the natural parameter is $\theta := - \frac{1}{\eta}$ and the natural parameter space is $\Theta := \parens{-\infty, 0}$. We recognize that 
+	\begin{align*}
+		\mu \parens{x} = 1 \enspace \text{ and } \enspace \varphi \parens{x} = x \text{ for all } x \in \calX, \qquad \text{ and } \qquad B \parens{\theta} = - \log \parens{-\theta}.  
+	\end{align*}
+	Here, the canonical statistic is $\varphi = \mathrm{Id}$. Then, $\calH_0$ contains all functions of the form $f \parens{x} = \theta x$ for all $x \in \calX$, for some $\theta \in \Theta$. With $\theta_1, \theta_2 \in \Theta$, the inner product between $f = \theta_1 \cdot \mathrm{Id} \in \calH$ and $g = \theta_2 \cdot \mathrm{Id} \in \calH$ is $\innerp{f}{g}_{\calH_0} = \theta_1 \theta_2$. It follows that the reproducing kernel is $k \parens{x, y} = \innerp{x \cdot \mathrm{Id}}{y \cdot \mathrm{Id}}_{\calH_0} = x y$, for all $x, y \in \calX$. 
+	
+	Finally, we verify that $A \parens{f} = B \parens{\theta}$, where $f = \theta \cdot \mathrm{Id}$ for some $\theta \in \Theta$. Note that 
+	\begin{align*}
+		A \parens{f} = \log \parens[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens{f \parens{x}} \diff x} 
+		= \log \parens[\bigg]{\int_{0}^{+\infty} \exp \parens{\theta x} \diff x} = \log \parens[\bigg]{-\frac{1}{\theta}} = B \parens{\theta}, 
+	\end{align*}
+	which is the desired result. Since $A \parens{f} = A \parens{\theta \cdot \mathrm{Id}} = \log \parens{-\frac{1}{\theta}} < + \infty$ if and only if $\theta < 0$, the natural parameter space is $\calF = \sets[\big]{f \in \calH_0 \mid f = \theta \cdot \mathrm{Id}, \theta \in \parens{-\infty, 0} }$. 
+\end{example}
+
+
+% -----------------------------------------
+
+\begin{example}[Univariate normal distribution]
+	Consider the univariate normal distribution with the unknown mean $\eta \in \Real$ and the unknown variance $\sigma^2 > 0$. The general form of the pdf is 
+	\begin{align*}
+		p_{\eta, \sigma^2} \parens{x} = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \parens[\bigg]{- \frac{1}{2\sigma^2} \parens{x - \eta}^2}, \qquad \text{ for all } x \in \calX := \Real. 
+	\end{align*}
+	We can rewrite $p_{\eta, \sigma^2}$ in the natural parametrization form as 
+	\begin{align*}
+		\tilde{q}_{\theta} \parens{x} = \frac{1}{\sqrt{2\pi}} \exp \parens[\Bigg]{\theta_1 x^2 + \theta_2 x - \parens[\bigg]{ - \frac{\theta_2^2}{4\theta_1} - \frac{1}{2} \log \parens{-2\theta_1}}}, 
+	\end{align*}
+	where 
+	\begin{align*}
+		\theta := & \, \parens{\theta_1, \theta_2}^\top = \parens[\bigg]{-\frac{1}{2\sigma^2}, \frac{\eta}{\sigma^2}}^\top \in \Real^2, \qquad \Theta := \sets[\bigg]{\theta \biggm| \theta := \parens{\theta_1, \theta_2}^\top, \theta_1 < 0, \theta_2 \in \Real}. \\ 
+		\varphi \parens{x} := & \, \parens{\varphi_1 \parens{x}, \varphi_2 \parens{x}}^\top = \parens{x^2, x}^\top \in \Real^2, \quad \text{ and } \quad
+		\mu \parens{x} = \frac{1}{\sqrt{2\pi}} \text{ for all } x \in \calX, \\ 
+		B \parens{\theta} = & \, - \frac{\theta_2^2}{4\theta_1} - \frac{1}{2} \log \parens{-2\theta_1}. 
+		\end{align*}
+	This is an example of a 2-dimensional exponential family. 
+	%Here, the natural parameter space is 
+	%\begin{align}
+	%	
+	%\end{align}
+	In this case, $\calH_0$ contains all functions $f$ of the form 
+	\begin{align*}
+		f \parens{x} = \theta_1 x^2 + \theta_2 x, \qquad \text{ for all } x \in \Real, 
+	\end{align*}
+	for some $\parens{\theta_1, \theta_2}^\top \in \Theta$. For any $f, g \in \calH_0$ with $f \parens{x} = \theta_{1,1} x^2 + \theta_{2, 1} x$ and $g \parens{x} = \theta_{2, 1} x^2 + \theta_{2, 2} x$ for all $x \in \calX$, where $\parens{\theta_{1,1}, \theta_{1,2}}^\top \in \Theta$ and $\parens{\theta_{2,1}, \theta_{2,2}}^\top \in \Theta$, define the inner product between $f$ and $g$ to be 
+	\begin{align*}
+		\innerp{f}{g}_{\calH_0} = \theta_{1,1} \theta_{2,1} + \theta_{1,2} \theta_{2,2}. 
+	\end{align*}
+	Then, $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ forms a RKHS with the reproducing kernel 
+	\begin{align*}
+		k \parens{x, y} = x^2 y^2 + x y, \qquad \text{ for all } x, y \in \Real. 
+	\end{align*}
+	
+	We finally verify $A \parens{f} = B \parens{\theta}$ with $f \parens{x} = \theta_1 x^2 + \theta_2 x$ for all $x \in \calX$, where $\theta := \parens{\theta_1, \theta_2}^\top \in \Theta$. Note the following 
+	\begin{align*}
+		A \parens{f} = \log \parens[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens{f \parens{x}}\diff x} 
+		= & \, \log \parens[\bigg]{\int_{-\infty}^{+\infty} \frac{1}{\sqrt{2 \pi}} \exp \parens[\big]{\theta_1 x^2 + \theta_2 x} \diff x} \\ 
+		= & \, \log \parens[\bigg]{ \frac{1}{\sqrt{-2\theta_1}} \exp \parens[\bigg]{ - \frac{\theta_2^2}{4\theta_1}} } \\ 
+		= & \, - \frac{\theta_2^2}{4\theta_1} - \frac{1}{2} \log\parens{-2\theta_1} \\ 
+		= & \, B \parens{\theta}. 
+	\end{align*}
+	Since $A \parens{f} < + \infty$ if and only if $\theta_1 < 0$ and $\theta_2 \in \Real$, we have $\calF = \sets[\big]{f \in \calH_0 \mid f \parens{x} = \theta_1 x^2 + \theta_2 x \text{ for all } x \in \calX, \theta_1 < 0, \theta_2 \in \Real}$. 
+\end{example}
+
+% -----------------------------------------
+
+%\begin{example}[Multivariate Normal Distribution]
+%	
+%	As one more example, we look at the $m$-dimensional multivariate normal distribution with the unknown mean parameter $\eta \in \Real^m$ and the unknown covariance matrix $\Sigma \in \Real^{m \times m}$. Here, we assume that the covariance matrix $\Sigma$ is positive definite. The probability density function is 
+%	\begin{align*}
+%		p_{\eta, \Sigma} \parens{x} = \frac{1}{\sqrt{\det\parens{2\pi \Sigma}}} \exp \parens[\bigg]{-\frac{1}{2}\parens{x-\eta}^\top \Sigma^{-1} \parens{x - \eta} }, \hspace{20pt} \text{ for all } x \in \Real^m. 
+%	\end{align*}
+%	We can rewrite $p_{\eta, \Sigma}$ in the natural parametrization form as 
+%	\begin{align}
+%		\tilde{q}_{\theta} \parens{x} = \frac{1}{\parens{2 \pi}^{m/2}} \exp \parens[\Big]{\innerp{\theta_1}{\varphi_1 \parens{x}}_{F} + \innerp{\theta_2}{\varphi_2 \parens{x}} - A \parens{\theta}}, 
+%	\end{align}
+%	where $\innerp{\,\cdot\,}{\,\cdot\,}_F$ denotes the Frobenius inner product, 
+%	\begin{align*}
+%		& \, \varphi_1 \parens{x} = xx^\top, \qquad \varphi_2 \parens{x} = x, \text{ and } \qquad \mu \parens{x} = \frac{1}{\parens{2\pi}^{d/2}} \text{ for all } x \in \Real^m, \\ 
+%		& \, \theta = \parens{\theta_1, \theta_2}^{\top}, \qquad \theta_1 = - \frac{1}{2} \Sigma^{-1}, \text{ and } \qquad \theta_2 = \Sigma^{-1} \eta, \\
+%		& \, A \parens{\theta} = - \frac{1}{4} \theta_2^\top \parens{\theta_1}^{-1} \theta_2 - \frac{1}{2} \log \parens[\big]{\det \parens{-2\theta_1}}. 
+%	\end{align*}
+%	Here, the natural parameter space is $\Theta = \sets[\Big]{\theta \bigm| \theta_1 \prec 0, \theta_2 \in \Real^d}$. 
+%	Define 
+%	\begin{align*}
+%		\varphi_{1, ij}: \Real \times \Real \to \Real, \ \parens{x_i, x_j} \mapsto x_i x_j, \qquad \text{ and } \qquad 
+%		\varphi_{2,i}: \Real \to \Real, \ x_i \mapsto x_i, 
+%	\end{align*}
+%	for $i, j = 1, \cdots, d$, and
+%	\begin{align*}
+%		\varphi = \parens{\mathrm{vec} \parens{\varphi_1}^\top, T_2^\top}^\top \in \Real^{d(d+1)}, 
+%\end{align*}
+%where $\text{vec}\parens{\cdot}$ denotes the vectoring operation. Then, letting $\hil$ be the completion of the pre-Hilbert space spanned by $T$, we have the reproducing kernel of $\hil$ is 
+%\begin{align}
+%	k(x, y) = \sum_{i=1}^d \sum_{j=1}^d x_i x_j y_i y_j + \sum_{i=1}^d x_i y_i, 
+%\end{align}
+%and the natural parameter in RKHS is 
+%\begin{align}
+%	f = \sum_{i=1}^d \sum_{j=1}^d \theta_{1,ij} T_{1,ij} + \sum_{i=1}^d \theta_{2,i} T_{2,i}, 
+%\end{align}
+%where $\theta_{1, ij}$ is the $(i, j)$th-element in the matrix $\theta_1$ and $\theta_{2, i}$ is the $i$th-element in the vector $\theta_2$. Then, we have 
+%\begin{align}
+%	\innerp{f(\cdot)}{T(x)}_{\hil} = \sum_{i=1}^d\sum_{j=1}^d \theta_{1, ij}x_ix_j + \sum_{i=1}^d \theta_{2,i}x_i = \innerp{\theta_1}{T_1(x)}_F + \innerp{\theta_2}{T_2(x)} \equiv f(x). 
+%\end{align}
+%The natural parameter space in the RKHS view is 
+%\begin{align*}
+%	\calF = \sets{f \in \hil: \theta_1 \prec 0,  \theta_2 \in \Real^{d}}. 
+%\end{align*}
+%
+%	
+%\end{example}
+
+
+\subsection{Assumptions on $\calH$ and $k$ and Their Implications}
+
+In the rest of this dissertation, we are going to make the following assumptions on $\calH$ and $k$, unless explicitly stated otherwise: 
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+	\item \label{assumption-2-1-inf-dim} The underlying RKHS $\calH$ is infinite-dimensional. 
+	\item \label{assumption-2-2-bdd-kernel} The kernel function $k$ is bounded. 
+	\item \label{assumption-2-3-no-const-fun} The RKHS $\calH$ does \emph{not} constant functions. 
+	\item \label{assumption-2-4-base-density} The base density $\mu$ is a pdf with the support being $\calX$. 
+\end{enumerate}
+
+If we assume $\calH$ to be finite-dimensional, rather than infinite-dimensional as we have in Assumption \ref{assumption-2-1-inf-dim}, we are returning to the case of finite-dimensional exponential families discussed in Subsection \ref{subsection-fin-dim-exp-fam}, as we have seen in Subsection \ref{subsection-connection-fin-exp-fam}. Classic theories on the estimation in $\calQ_{\mathrm{fin}}$ are directly applicable and are not very interesting. Thus, we rule out this case. 
+
+The main motivation of Assumption \ref{assumption-2-2-bdd-kernel} is to ensure $\calF = \calH$, as we have shown in Proposition \ref{prop-bounded-kernel-H=F}. This is going to make all the optimization problems considered in Section \ref{section-density-estimation} unconstrained. 
+
+Assumptions \ref{assumption-2-3-no-const-fun} and \ref{assumption-2-4-base-density} together ensure the identifiability of $\calQ_{\ker}$, i.e., $q_{f_1} = q_{f_2}$ if and only if $f_1 = f_2$. One sufficient condition that guarantees $\calH$ does not contain constant functions is that the kernel function $k$ is continuous on $\calX \times \calX$ and vanishes at infinity \parencite[see Remark 3(iii) in][]{Sriperumbudur-density-estimation-inf-exp-family}. 
+
+
+
+\section{Density Estimation in $\calQ_{\ker}$}\label{section-density-estimation}
+
+
+% So far, we have only focused on the properties of $\calQ_{\ker}$ and its connection with $\calQ_{\mathrm{fin}}$. 
+We now turn to the nonparametric density estimation problem in $\calQ_{\ker}$. Borrowing the framework in \textbf{\color{red} Chapter 1}, we consider the following minimization problem 
+\begin{align}\label{eq-density-estimation-general-kef}
+	\minimize_{q_f \in \calQ_{\ker}} \braces[\bigg]{\widehat{L} \parens{q_f} + \frac{\lambda}{2} \widetilde{P} \parens{f}}. 
+\end{align}
+
+The very first question we consider is how good $\calQ_{\ker}$ is as a class of pdfs to estimate $p_0$. More specifically, we want to understand what class of density functions over $\calX$ can be approximated arbitrarily well by those in $\calQ_{\ker}$. Proposition 1, Corollary 2 and Proposition 13 in \textcite{Sriperumbudur-density-estimation-inf-exp-family} answered this question and stated that, under certain regularity conditions, 
+%and there exists a constant $M$ such that, for any $\varepsilon > 0$, there exists $R > 0$ that satisfies $\abs{\frac{p \parens{x}}{\mu \parens{x}} - M} \le \varepsilon$ for all $x \in \calX$ with $\norm{x}_2 > R$, 
+$\calQ_{\ker}$ can approximate arbitrarily well any continuous $p_0$ that vanishes at infinity under the KL-divergence, $L^r$ norm with $r \in \bracks{1, \infty}$, the Hellinger distance, and the H-divergence. Hence, $\calQ_{\ker}$ is a rather rich class of density functions to estimate $p_0$. 
+
+In the rest of this section, we again consider the two loss functionals, $\widehat{L}_{\NLL}$ and $\widehat{L}_{\SM}$, and give a review of density estimation problem in $\calQ_{\ker}$ using them. 
+
+\subsection{Density Estimation in $\calQ_{\ker}$ using $\widehat{L}_{\NLL}$}\label{subsection-nnl-kef}
+
+We let $\widehat{L}$ in \eqref{eq-density-estimation-general-kef} to be the NLL loss functional $\widehat{L}_{\NLL}$. Then, using \eqref{eq-kernel-exp-fam}, $\widehat{L}_{\NLL} \parens{q_f}$ becomes 
+\begin{align}
+	\widehat{J}_{\NLL} \parens{f} % := & \, - \frac{1}{n} \sum_{i=1}^n \log q_f \parens{X_i} \nonumber \\ 
+	:= & \, A \parens{f} - \frac{1}{n} \sum_{i=1}^n f \parens{X_i}, \qquad \quad \text{ for all } f \in \calF, 
+\end{align}
+up to an additive constant. 
+
+Since $A$ is convex, as we have seen from Proposition \ref{prop-convexity-A}, and $- \frac{1}{n} \sum_{i=1}^n f \parens{X_i} = - \frac{1}{n} \sum_{i=1}^n \innerp{f}{k \parens{X_i, \,\cdot\,}}_{\calH}$ is linear and, hence, convex in $f$, their sum, $\widehat{J}_{\NLL}$, is convex as well. 
+
+Minimizing $\widehat{J}_{\NLL}$ over the entire $\calH$ has no solution; in other words, the ML density estimator in $\calQ_{\ker}$ does \emph{not} exist, as the following proposition shows. 
+
+\begin{proposition}[\textcites{Fukumizu2005-mf}]\label{prop-no-mle-inf-exp-fam}
+	Under Assumptions \ref{assumption-2-1-inf-dim} and \ref{assumption-2-2-bdd-kernel}, minimizing $\widehat{J}_{\NLL}$ over $\calH$ does \emph{not} have a solution. 
+\end{proposition}
+
+The proof of Proposition \ref{prop-no-mle-inf-exp-fam} can be found in Subsection \ref{subsection-proof-prop-no-mle-inf-exp-fam}. 
+
+\begin{remark}
+	Proposition \ref{prop-no-mle-inf-exp-fam} exemplifies a distinct difference between $\calQ_{\ker}$ and $\calQ_{\mathrm{fin}}$. 
+	
+	Suppose we estimate $p_0$ using elements in $\calQ_{\mathrm{fin}}$ via maximizing the log-likelihood function
+	\begin{align}\label{eq-mle-fin-exp-fam}
+		\innerp[\bigg]{\theta}{\frac{1}{n} \sum_{i=1}^n \varphi \parens{X_i}} - B \parens{\theta}, \qquad \text{ subject to } \theta \in \Theta. 
+	\end{align}
+	Under certain regularity conditions, the maximizer of \eqref{eq-mle-fin-exp-fam}, denoted by $\hat{\theta}$, exists and is unique, and must satisfy the equation 
+	\begin{align}\label{eq-moment-matching-fin-exp-fam}
+		\nabla B \parens{\hat{\theta}} = \frac{1}{n} \sum_{i=1}^n \varphi \parens{X_i}, 
+	\end{align}
+	which has the moment matching interpretation that the sample mean of the canonical statistic must match the population mean at the MLE, since $\nabla B \parens{\hat{\theta}} = \int_{\calX} \tilde{q}_{\hat{\theta}} \parens{x} \varphi \parens{x} \diff x$. In particular, the inverse map of $\nabla B$ exists and $\hat{\theta} = \parens{\nabla B}^{-1} \parens{\frac{1}{n} \sum_{i=1}^n \varphi \parens{X_i}}$. 
+	
+	On the contrary, as the proof of Proposition \ref{prop-no-mle-inf-exp-fam} shows, the inverse map of $\nabla A$ does \emph{not} exist. Thus, neither the minimizer of $\widehat{J}_{\NLL}$ nor the ML density estimator exists. 
+\end{remark}
+
+With the result in Proposition \ref{prop-no-mle-inf-exp-fam}, the density estimation problem in $\calQ_{\ker}$ via minimizing $\widehat{J}_{\NLL}$ is ill-posed. In order to make the problem well-posed and obtain a solution, one has to impose certain kind of regularization. Serval ideas have been proposed in the literature to tackle this issue. 
+
+The first idea is to regularize the function space over which we minimize $\widehat{J}_{\NLL}$. Rather than minimize it over the entire $\calH$, \textcite{Fukumizu2005-mf} proposed to construct a sequence of nested finite-dimensional subspaces of $\calH$ that enlarges with the sample size $n$, $\sets{\hil^{\parens{m_n}}}_{m_n \in \Natural}$ satisfying $\calH^{\parens{m_n}} \subset \hil^{\parens{m_{n+1}}}$ for all $n$, and minimize $\widehat{J}_{\NLL}$ over $\hil^{\parens{m_n}}$. \textcite{Fukumizu2005-mf} showed that $\hat{f}_{\NLL}^{\parens{m_n}} := \argmin_{f \in \calH^{\parens{m_n}}} \widehat{J}_{\NLL} \parens{f}$ exists for all $n$, and that, if $p_0 \in \calQ_{\ker}$, together with some additional assumptions, $q_{\hat{f}_{\NLL}^{\parens{m_n}}}$ is consistent for $p_0$ under the KL-divergence. 
+
+Even though this approach is theoretically interesting, it suffers from several theoretical and practical drawbacks. On the theoretical side, the consistency of $q_{\hat{f}_{\NLL}^{\parens{m_n}}}$ relies on the decay rate of the smallest eigenvalue of certain covariance operator, which is hard or even impossible to check in practice. On the practical side, \textcites{Fukumizu2005-mf} did not elucidate guidelines on which class of RKHS should be used or how to choose the nested sequence of the finite-dimensional subspaces. Moreover, even if such guidelines were provided, the minimization problem is nonlinear by its nature and one has to rely on an iterative optimization algorithm to compute $\hat{f}_{\NLL}^{\parens{m_n}}$. Then, it is inevitable to deal with $A$ and its derivative, both of which involve integration over a possibly high-dimensional space and are hard to handle in practice. Thus, the density estimator constructed using this approach is not attractive. 
+
+%One work along this direction is the one carried out by \textcite{Barron1991-ro} who let $\calX$ be a bounded interval and restricted $f \in \calH_m$, where 
+%\begin{align}
+%	\calH_m := \braces[\bigg]{f \Bigm| f = \sum_{j=1}^m \beta_j \varphi_j}, 
+%\end{align}
+%where $\set{\varphi_j}_{j=1}^m$ is a set of basis functions, such as polynomials, splines, or trigonometric series. Then, assuming $\log p_0$ has square-integral derivatives up to order $r$, $\int_{\calX} \parens{\parens{\log p_0}^{\parens{r}} \parens{x}}^2 \diff x < \infty$, they showed that the sequence of density estimator $\log q_{\hat{f}_{\NLL, 0, m}}$, where 
+%\begin{align}
+%	\hat{f}_{\NLL, 0, m} := \argmin_{f \in \calH_m} \widehat{L}_{\NLL}, 
+%\end{align}
+%converges to $p_0$ in the sense of the Kullback-Leibler divergence at the rate $\calO_{p_0} \parens{n^{-\frac{2r}{2r+1}}}$ by choosing $m = n^{\frac{1}{2r+1}}$. 
+
+A different approach proposed in the literature is to add a nonzero penalty functional $\widetilde{P}$ to $\widehat{J}_{\NLL}$ and minimize the penalized NLL loss functional. One such work was carried out by \textcite{Gu1993-na} who chose $\widetilde{P}$ to be a square seminorm of $\calH$. They showed the minimizer of $\widehat{J}_{\NLL} \parens{f} + \lambda \widetilde{P} \parens{f}$ with $f \in \calH$ exists and is unique under very mild conditions. 
+%Furthermore, \textcite{Gu1993-na} established the convergence rate of the estimator in terms of the symmetrized KL-divergence under mild conditions. 
+However, since $\calH$ is infinite-dimensional, this minimizer is \emph{not} computable. They proposed to minimize the penalized NLL loss functional over $\calH_{0} \oplus \widetilde{\calH}_n$, where $\calH_0 := \sets[\big]{f \in \calH \mid \widetilde{P} \parens{f} = 0}$ is the null space of $\widetilde{P}$ and $\widetilde{\calH}_n := \sets{f \mid f := \sum_{i=1}^n \alpha_i k \parens{X_i, \,\cdot\,}, \alpha_1, \cdots, \alpha_n \in \Real}$ is an $n$-dimensional subspace of $\calH$, and established asymptotic properties of $q_{\tilde{f}_{\NLL}^{\parens{\lambda}}}$, where $\tilde{f}_{\NLL}^{\parens{\lambda}} := \argmin_{f \in \calH_{0} \oplus \widetilde{\calH}_n} \sets[\big]{\widehat{J}_{\NLL} \parens{f} + \lambda \widetilde{P} \parens{f}}$. 
+%the consistency and convergence rate of $q_{\tilde{f}_{\NLL}^{\parens{\lambda}}}$ under the symmetrized KL-divergence, where $\tilde{f}_{\NLL}^{\parens{\lambda}} := \argmin_{f \in \widetilde{\calH}_n} \sets[\big]{\widehat{J}_{\NLL} \parens{f} + \lambda \widetilde{P} \parens{f}}$ and the symmetrized KL divergence between pdfs $p$ and $q$ is $\KLdiv \parens{p \Vert q} + \KLdiv \parens{q \Vert p}$. 
+\textcite{Gu1993-lf} proposed an iterative algorithm to compute $\tilde{f}_{\NLL}^{\parens{\lambda}}$ and used the quadrature rule over a dense mesh to approximate $A$ and its derivatives at each iteration. All numerical examples therein were limited to cases $d \le 2$. If $d$ were large, the computation would become prohibitively expensive and the approximations via this approach could be very poor. 
+
+In order to avoid working with $A$ directly, \textcite{Dai2018-tp} proposed a doubly dual embedding approach. Suppose $k$ satisfies $\int_{\calX} k \parens{x, x} \diff x < \infty$ so that any $f \in \calH$ is square-integrable. We then have 
+\begin{align}
+	A \parens{f} = & \, \sup_{p \in \calP \cap L^2 \parens{\calX}} \braces[\bigg]{\innerp{p}{f}_{L^2 \parens{\calX}} - \KLdiv \parens{p \Vert \mu}}, && \, \text{ for all } f \in \calH, \label{eq-var-representation-A} \\ 
+	\KLdiv \parens{p \Vert \mu} = & \, \sup_{g \in \calH} \braces[\bigg]{\innerp{p}{g}_{L^2 \parens{\calX}} - \int_{\calX} e^{g \parens{x}} \mu \parens{x} \diff x + 1}, && \, \text{ for all } p \in \calP \cap L^2 \parens{\calX}, \label{eq-var-representation-KL}
+\end{align}
+where $\calP$ denotes the set of all pdfs over $\calX$, $L^2 \parens{\calX} := \sets[\big]{f: \calX \to \Real \mid \int_{\calX} \parens{f \parens{x}}^2 \diff x < \infty}$, and $\innerp{f_1}{f_2}_{L^2 \parens{\calX}} := \int_{\calX} f_1 \parens{x} f_2 \parens{x} \diff x$ for all $f_1, f_2 \in L^2 \parens{\calX}$. Plugging \eqref{eq-var-representation-A} and \eqref{eq-var-representation-KL} successively into $\widehat{J}_{\NLL} \parens{f} + \lambda \widetilde{P} \parens{f}$, \textcite{Dai2018-tp} proposed to solve the following max-min problem 
+\begin{align}\label{eq-dai-formualtion}
+	\maximize_{p \in \calP \cap L^2 \parens{\calX}} \ \minimize_{f, g \in \calH} \ \braces[\bigg]{- \frac{1}{n} \sum_{i=1}^n f \parens{X_i} + \int_{\calX} \parens{f \parens{x} - g \parens{x}} p \parens{x} \diff x + \int_{\calX} e^{g \parens{x}} \mu \parens{x} \diff x + \lambda \widetilde{P} \parens{f}}, 
+\end{align}
+and 
+%restrict $p$ to belong to a parametric family parametrized by a deep neural network. In addition, they 
+proposed a stochastic gradient ascent-descent algorithm to iterate between the inner and outer optimization problems until convergence. While this approach avoids directly working with $A$, it incurs additional computational burdens as, in order to compute the minimizer with respect to $f$, one has to compute the optimal solutions with respect to $p$ and $g$ at the same time. 
+
+%Plugging \eqref{eq-var-representation-A} into $\widehat{J}_{\NLL}$, the problem of minimizing $\widehat{J}_{\NLL} \parens{f} + \lambda \widetilde{P} \parens{f}$ becomes 
+%\begin{align}\label{eq-dai-reformulation1}
+%	\minimize_{f \in \calH} \maximize_{p \in \calP \cap L^2 \parens{\calX}} \braces[\Bigg]{ \innerp{p}{f}_{L^2 \parens{\calX}} - \KLdiv \parens{p \Vert \mu} - \frac{1}{n} \sum_{i=1}^n f \parens{X_i} + \lambda \widetilde{P} \parens{f}}. 
+%\end{align}
+%Even though the formulation above did get rid of $A$, it, unfortunately, introduces new difficulties. The first one is that it is \emph{not} clear how to handle the class of functions $\calP \cap L^2 \parens{\calX}$. Even if this class is easily accessible, computing $\KLdiv \parens{p \Vert \mu}$ is not an easy task. In order to tackle this second problem, \textcite{Dai2018-tp} applies the variational representation of the KL-divergence, 
+%\begin{align}\label{eq-kl-var-representation}
+%	\KLdiv \parens{p \Vert \mu} = \max_{\nu \in \calH} \sets[\Bigg]{ \innerp{p}{\nu}_{L^2} - \E_{\mu} \bracks[\big]{ \exp \parens{\nu \parens{X}} } + 1 }. 
+%\end{align}
+%Plugging \eqref{eq-kl-var-representation} into \eqref{eq-dai-reformulation1}, we obtain 
+%\begin{align}\label{eq-dai-1}
+%	\minimize_{f \in \calH} \maximize_{h \in \calP \cap L^2 \parens{\calX}} \minimize_{\nu \in \calH} & \, \bigg\{- \frac{1}{n} \sum_{i=1}^n f \parens{X_i} + \E_{Y \sim h} \bracks{ f \parens{Y} - \nu \parens{Y} } + \E_{W \sim \mu} \bracks{ \exp \parens{\nu \parens{W}}} - 1 \bigg\}. 
+%\end{align}
+
+%Consequently, \textcite{Dai2018-tp} proposed to solve the following max-min problem 
+%\begin{align}\label{eq-dai-final-optimization}
+%	\maximize_{h \in \calP \cap L^2 \parens{\calX}} \minimize_{f, \nu \in \calH} \bigg\{- \frac{1}{n} \sum_{i=1}^n f \parens{X_i} + \E_{Y \sim h} \bracks{ f \parens{Y} - \nu \parens{Y} } + \E_{W \sim \mu} \bracks{ \exp \parens{\nu \parens{W}}} \bigg\}, 
+%\end{align}
+%which is a lower bound of the problem \eqref{eq-dai-1}. To handle the expectation $\E_{Y \sim h} \bracks{ f \parens{Y} - \nu \parens{Y} }$, they proposed to approximate it by the Monte Carlo method as 
+%\begin{align*}
+%	\frac{1}{m} \sum_{j=1}^m f \parens{Y_j} - \nu \parens{Y_j}, 
+%\end{align*}
+%where, for each $j = 1, \cdots, m$, $Y_j = h_{\theta} \parens{Z_j}$, $Z_j$ is a random sample from a simple distribution (such as the multivariate Gaussian distribution over $\Real^{d'}$, with possibly $d \neq d'$), and $h_\theta$ is a function parametrized by a neural network. In other words, since the class of all square-integrable pdfs over $\calX$ is hard to handle, we only focus the density functions that corresponds to the random vector $h_{\theta} \parens{Z}$. Also, instead of maximizing over a function space, we can only maximize over a finite-dimensional parameter space, which is easier to handle. 
+%
+%Similarly, they approximate the expectation $\E_{W \sim \mu} \bracks{ \exp \parens{\nu \parens{W}}}$ using the Monte Carlo method. Since $\mu$ is a pdf, with $W_1, \cdots, W_{m'} \sim \mu$, $\E_{W \sim \mu} \bracks{ \exp \parens{\nu \parens{W}}}$ can be approximated by 
+%\begin{align*}
+%	\frac{1}{m'} \sum_{j=1}^{m'} \exp \parens{\nu \parens{W_j}}. 
+%\end{align*}
+%
+%\textcite{Dai2018-tp} proposed a stochastic ascent-gradient algorithm to iterate between the inner and outer optimization problems until convergence. While this approach avoids directly working with $A$, it incurs additional computational burdens as, in order to compute the minimizer with respect to $f$, one has to compute the optimal solutions with respect to $h$ and $\nu$ at the same time. 
+%
+%In addition, since the function $h_{\theta}$ is parametrized by a neural network, depending on the choices of the archetecture of this neural network and the choice of the activation function, maximizing with respect to $\theta$ may lead to a local maximizer. One need to try multiple starting point to guarantee the global maximizer is achieved. 
+
+
+
+\subsection{Density estimation in $\calQ_{\ker}$ using $\widehat{L}_{\SM}$}\label{subsection-sm-kef}
+
+
+With the discussions in the preceding subsection, we see that the main difficulty in the approach via minimizing $\widehat{J}_{\NLL}$ is that one has to deal with $A$ and its derivative, which is computationally intractable in practice. The SM loss functional, as we have discussed in \textbf{\color{red} Chapter 1}, can help us avoid this difficulty. 
+
+Recall that, under certain regularity conditions, the SM loss functional, in its original form, is 
+\begin{align}\label{eq-sm-loss}
+	\widehat{L}_{\SM} \parens{q} := \frac{1}{n} \sum_{i=1}^n \parens[\bigg]{\frac{1}{2} \parens[\big]{\partial_u \log q \parens{X_i}}^2 + \partial_u^2 \log q \parens{X_i}}. 
+\end{align}
+If we let $q = q_f \in \calQ_{\ker}$ in \eqref{eq-sm-loss}, we can rewrite $\widehat{L}_{\SM}$, up to additive constants, as 
+\begin{align}
+	\widehat{J}_{\SM} \parens{f} := & \, \frac{1}{2} \sum_{i=1}^n \sum_{u=1}^d \parens{\partial_u f \parens{X_i}}^2 + \sum_{i=1}^n \sum_{u=1}^d \parens[\big]{\partial_u \log \mu \parens{X_i} \partial_u f \parens{X_i} + \partial_u^2 f \parens{X_i} } \nonumber \\
+	\stackrel{\parens{\star}}{=} & \, \frac{1}{2} \innerp{f}{\widehat{C} f}_{\calH} - \innerp{f}{\hat{z}}_{\calH}, \label{eq-sm-loss-kef}
+\end{align}
+where $\widehat{C}: \calH \to \calH$ is given by 
+\begin{align}\label{eq-hatC}
+	\widehat{C} := \frac{1}{n} \sum_{i=1}^n \sum_{u=1}^d \partial_u k \parens{X_i, \,\cdot\,} \otimes \partial_u k \parens{X_i, \,\cdot\,}, 
+\end{align}
+with $\widehat{C} f = \frac{1}{n} \sum_{i=1}^n \sum_{u=1}^d \partial_u f \parens{X_i} \partial_u k \parens{X_i, \,\cdot\,}$ for all $f \in \calH$, and 
+\begin{align}\label{eq-hatz}
+	\hat{z} := - \frac{1}{n} \sum_{i=1}^n \sum_{u=1}^d \parens[\big]{\partial_u \log \mu \parens{X_i} \partial_u k \parens{X_i, \,\cdot\,} + \partial_u^2 k \parens{X_i, \,\cdot\,}} \in \calH. 
+\end{align}
+We will discuss regularity conditions under which we can obtain \eqref{eq-sm-loss-kef} in \textbf{\color{red} Chapter 3}. In \eqref{eq-hatC} and \eqref{eq-hatz}, with a fixed $x \in \calX$, $\partial_u^s k \parens{x, y} := \frac{\partial^s}{\partial w_u^s} k \parens{x, y}\big\vert_{w = x}$, for all $y \in \calX$, $s = 1, 2$, and $u = 1, \cdots, d$. 
+%For $a, b \in \calH$, $a \otimes b$ defines a map from $\calH$ to $\calH$ via $\parens{a \otimes b} c = \innerp{b}{c}_{\calH} a$ for all $c \in \calH$. 
+In $\parens{\star}$, we use $\partial_u^s k \parens{x, \,\cdot\,} \in \calH$ and the reproducing property of partial derivative of $k$, $\partial_u^s f \parens{x} = \innerp{f}{\partial_u^s k \parens{x, \,\cdot\,}}_{\calH}$, for $s = 1, 2$ and $u = 1, \cdots, d$ \parencites{Zhou2008-jt}. Details about the partial derivatives of $k$ and its properties can be found in \textbf{\color{red}Subsection 3 in Appendix 1}. In particular, notice that $\widehat{J}_{\SM}$ does \textit{not} involve $A$. 
+
+Now, $\widehat{J}_{\SM}$ is a quadratic functional in $f$. It is not hard to show that the operator $\widehat{C}$ is linear, self-adjoint, and positive semidefinite. Hence, minimizing $\widehat{J}_{\SM}$ over $\calH$ is a convex optimization problem. Suppose that $\hat{f}_{\SM} := \argmin_{f \in \calH} \widehat{J}_{\SM} \parens{f}$ exists. Then, $\hat{f}_{\SM}$ must satisfy the first-order optimality condition $\widehat{C} \hat{f}_{\SM} = \hat{z}$; in other words, minimizing $\widehat{J}_{\SM}$ amounts to solving an infinite-dimensional linear system, and $\hat{f}_{\SM} = \widehat{C}^{-1} \hat{z}$. However, since $\widehat{C}$ has finite rank and must be a compact operator in an infinite-dimensional RKHS $\calH$, it is \emph{not} invertible \parencites[Section 16.5 in][]{Royden2018-cd} and, hence, $\hat{f}_{\SM}$ does \textit{not} exist. 
+
+Thus, minimizing $\widehat{J}_{\SM}$ is an ill-posed problem. In order to remedy this, certain kind of regularization has to be imposed. % page 160, Luenberg, optimization by vector space methods 
+\textcite{Sriperumbudur-density-estimation-inf-exp-family} proposed to add a penalty term and minimize 
+\begin{align}
+	\widehat{J}_{\SM} \parens{f} + \frac{\rho}{2} \norm{f}_{\calH}^2, \qquad \text{ subject to } f \in \calH, 
+\end{align}
+where we use $\rho > 0$ to denote the penalty parameter associated with the SM loss functional. 
+% to distinguish the one associated with the NLL loss functional. 
+This is exactly the Tikhonov regularization. \textcite{Sriperumbudur-density-estimation-inf-exp-family} showed this penalized SM loss functional has a unique minimizer given by 
+\begin{align}\label{eq-penalized-sm-sol}
+	\hat{f}_{\SM}^{\parens{\rho}} := & \, \argmin_{f \in \calH} \braces[\bigg]{\widehat{J}_{\SM} \parens{f} + \frac{\rho}{2} \norm{f}_{\calH}^2} = \parens{\widehat{C} + \lambda I}^{-1} \hat{z}, 
+\end{align}
+where $I: \calH \to \calH$ denotes the identity operator in $\calH$. In practice, however, it may not be easy to compute the minimizer in the form of \eqref{eq-penalized-sm-sol} as it involves solving an infinite-dimensional linear system. With the help of a general representer theorem \parencites[Theorem A.2 in][]{Sriperumbudur-density-estimation-inf-exp-family}, it can be shown that 
+\begin{align}
+	\hat{f}_{\SM}^{\parens{\rho}} := & \, \sum_{i=1}^n \sum_{u=1}^d \alpha_{\parens{i-1}d+u}^{\parens{\rho}} \partial_u k \parens{X_i, \,\cdot\,} + \frac{1}{\rho} \hat{z}, 
+\end{align}
+where $\balpha^{\parens{\rho}} := \parens{\alpha_{1}^{\parens{\rho}}, \cdots, \alpha_{nd}^{\parens{\rho}}}^\top \in \Real^{nd}$ can be obtained by solving the linear system
+\begin{align*}
+	\parens{\bG + n \rho \bI_{nd}} \balpha^{\parens{\rho}} = \frac{1}{\rho} \bh, 
+\end{align*}
+the $\parens{\parens{i-1}d+u, \parens{j-1}+v}$-entry of $\bG \in \Real^{nd \times nd}$ is $\innerp{\partial_u \partial k \parens{X_i, \,\cdot\,}}{\partial_v \partial k \parens{X_j, \,\cdot\,}}_{\calH} = \partial_i \partial_{i+d} k \parens{X_i, X_j}$, and $\parens{\parens{i-1}d+u}$-entry of $\bh \in \Real^{nd}$ is 
+\begin{align*}
+	\innerp{\hat{z}}{\partial_u \partial k \parens{X_i, \,\cdot\,}}_{\calH} = - \frac{1}{n} \sum_{j=1}^n \sum_{v=1}^d \parens[\big]{\partial_u \partial_{v+d} k \parens{X_i, X_j} \partial_v \log \mu \parens{X_j} + \partial_u \partial^2_{v+d} k \parens{X_i, X_j} }, 
+\end{align*}
+and $\bI_{nd}$ denotes the $nd \times nd$ identity matrix. 
+Note that the matrix $\bG$ is positive semidefinite and $n \rho \bI_{nd}$ is positive definite, so their sum must be positive definite and must be invertible. 
+
+Theoretical properties of the penalized SM density estimator $q_{\hat{f}_{\SM}^{\parens{\rho}}}$ was studied by \textcites{Sriperumbudur-density-estimation-inf-exp-family}. If $p_0 \in \calQ_{\ker}$, they established the consistency and convergence rate of $q_{\hat{f}_{\SM}^{\parens{\rho}}}$ under the KL-divergence, the H-divergence, the Hellinger distance, and the total variation distance. 
+%In particular, suppose $p_0 = q_{f_0}$ for some $f_0 \in \calH$. Under the condition $f_0 \in \range \parens{C^\beta}$ for some $\beta > 0$, $\norm{\hat{f}_{\SM}^{\lambda} - f_0}_{\calH} = \calO_{p_0} \parens{n^{-\min \sets{\frac{1}{4}, \frac{1}{2\beta + 2}}}}$, and $\Hdiv \parens{p_0 \Vert \hat{q}_{f_{\SM}^{\lambda}}} = \calO_{p_0} \parens{n^{-\min \sets[\big]{\frac{2}{3}, \frac{2\beta+1}{2\beta+2}}}}$. 
+If $p_0 \notin \calQ_{\ker}$, they showed $q_{\hat{f}_{\SM}^{\parens{\rho}}}$ converges to the element in $\calQ_{\ker}$ that has the smallest H-divergence to $p_0$ and established the corresponding convergence rate under the H-divergence. 
+% $\Hdiv \parens{p_0 \Vert q_{\hat{f}_{\SM}^{\parens{\rho}}}} \to \inf_{q \in \calQ} \Hdiv \parens{p_0 \Vert q}$ as $n \to \infty$ and the associated convergence rate is also established. 
+
+In their simulation studies, \textcite{Sriperumbudur-density-estimation-inf-exp-family} showed their penalized SM density estimator outperforms the kernel density estimator \parencites[Section 6.3 in][]{Wasserman2006-lj}, especially when $d$ is large. However, no comparison with the (penalized) ML density estimator was conducted. 
+
+Note that computing $\hat{f}_{\SM}^{\parens{\rho}}$ requires to solve a linear system of $nd$ equations in $nd$ variables, which requires elementary operations of order $\calO \parens{n^3 d^3}$. This can be computationally expensive when $n$ or $d$ is large. To alleviate the computational cost, \textcite{Sutherland2017-wz} adopted the idea of the Nystr{\"o}m approximation \parencite{Williams2001-ka} and proposed to minimize $\widehat{J}_{\SM} \parens{f} + \frac{\rho}{2} \norm{f}_{\calH}^2$ subject to 
+\begin{align}
+	f \in \mathrm{Span} \sets[\bigg]{\partial_u k \parens{Y_j, \,\cdot\,} \text{ for all } j = 1, \cdots, m \text{ and } u = 1, \cdots, d}, 
+\end{align}
+where 
+% apply Nystr{\"o}m approximation and, instead of using basis functions centered at all $n$ observations, use basis functions centered at 
+$Y_1, \cdots, Y_m$ are $m$ randomly selected observations from $\sets{X_1, \cdots, X_n}$ with $m \ll n$. Then, one only needs to work with a linear system of $md$ equations in $md$ variables. This penalized SM density estimator is more efficient to compuate and empirically performs very close to the one proposed by \textcite{Sriperumbudur-density-estimation-inf-exp-family}. 
+
+
+\section{Proofs}\label{section-chapter2-proof}
+
+
+\subsection{Proof of Proposition \ref{prop-bounded-kernel-H=F}}\label{subsection-proof-prop-bounded-kernel-H=F}
+
+\begin{proof}
+	Let $f \in \calH$ be arbitrary. Due to the Cauchy-Schwartz inequality, we have $\abs[\big]{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}} \le \norm{f}_{\calH} \norm{k \parens{x, \,\cdot\,}}_{\calH} \le \kappa \norm{f}_{\calH}$. Then, we can bound $A \parens{f}$ from above by 
+	\begin{align*}
+		A \parens{f} \le & \, \log \parens[\bigg]{\exp \parens{\kappa \norm{f}_{\calH} } \int_{\calX} \mu \parens{x}  \diff x} \stackrel{\parens{\star}}{=} \kappa \norm{f}_{\calH} < \infty, 
+	\end{align*}
+	where we use the assumption that $\mu$ is a density function over $\calX$ in deriving the equality $\parens{\star}$. Since the choice of $f \in \calH$ is arbitrary, we conclude $\calF = \calH$. 
+\end{proof}
+
+
+\subsection{Proof of Proposition \ref{prop-convexity-A}}\label{subsection-prop-convexity-A}
+
+\begin{proof}[Proof of Proposition \ref{prop-convexity-A}]
+	We first show the convexity of $A$. That is, we need to show, for any distinct $f, g \in \calF$ and $\alpha \in \bracks{0, 1}$, the following inequality holds 
+	\begin{align*}
+		A \parens{\alpha f + \parens{1 - \alpha} g} \le \alpha A \parens{f} + \parens{1 - \alpha} A \parens{g}. 
+	\end{align*}
+	Notice that if $\alpha = 1$ or $\alpha = 0$, the inequality above becomes an equality and the result holds trivially. 
+	
+	Hence, we assume $\alpha \in \parens{0,1}$. Then, 
+	\begin{align}
+		A \parens{\alpha f + \parens{1 - \alpha} g} 
+		% = & \, \log \bracks[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens[\big]{\alpha f \parens{x} + \parens{1 - \alpha} g \parens{x} } \diff x} \nonumber \\ 
+		% = & \, \log \bracks[\bigg]{\int_{\calX} \parens{\mu \parens{x}}^{\alpha + \parens{1 - \alpha}} \exp \parens{f \parens{x}}^\alpha \exp \parens{g \parens{x}}^{(1 - \alpha)} \diff x} \nonumber \\ 
+		= & \, \log \bracks[\bigg]{\int_{\calX} \parens[\big]{\mu \parens{x} \exp \parens{f \parens{x}}}^{\alpha} \parens[\big]{\mu \parens{x} \exp \parens{g \parens{x}}}^{1 - \alpha} \diff x} \nonumber \\ 
+		\stackrel{(\star)}{\le} & \, \log \bracks[\Bigg]{ \parens[\bigg]{\int_{\calX} \parens[\big]{\mu \parens{x} \exp \parens{f \parens{x}}}^{\alpha \cdot \frac{1}{\alpha}} dx}^{\alpha} \cdot \parens[\bigg]{\int_{\calX} \parens[\big]{\mu \parens{x} \exp \parens{g \parens{x}}}^{(1 - \alpha) \cdot \frac{1}{1 - \alpha}} \diff x}^{1-\alpha}} \nonumber \\ 
+		% = & \, \log \bracks[\Bigg]{ \parens[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens{f \parens{x}} \diff x}^{\alpha}} + \log \bracks[\Bigg]{\parens[\bigg]{ \int_{\calX} \mu \parens{x} \exp \parens{g \parens{x}} \diff x}^{1 - \alpha}} \nonumber \\ 
+		= & \, \alpha \log \bracks[\bigg]{ \int_{\calX} \mu \parens{x} \exp \parens{f \parens{x}} \diff x} + \parens{1 - \alpha} \log \bracks[\Bigg]{\int_{\calX} \mu \parens{x} \exp \parens{g \parens{x}} \diff x} \nonumber \\ 
+		= & \, \alpha A \parens{f} + (1 - \alpha) A \parens{g}, \nonumber
+	\end{align}
+	where $\parens{\star}$ is due to the H{\"o}lder's inequality. This established the convexity of $A$. 
+	
+	%Using Theorem 6.2 in \textcite{folland.real.analysis}, 
+	The inequality $\parens{\star}$ becomes an equality if and only if there exist $\beta_1 > 0$ and $\beta_2 > 0$ such that $\beta_1 \exp \parens{ f \parens{x} } = \beta_2 \exp \parens{g \parens{x}}$ for almost all $x \in \calX$, or, equivalently, 
+	\begin{align*}
+		f \parens{x} - g \parens{x} = \innerp{f - g}{k \parens{x, \,\cdot\,}}_{\calH} = \log \beta_2 - \log \beta_1, \qquad \text{ for almost all } x \in \calX. 
+	\end{align*}
+	%Since $f \neq g$, it follows that $\beta_1 \neq \beta_2$ and $\log \beta_2 - \log \beta_1 \neq 0$. 
+	Now, if $\calH$ does \emph{not} contain constant functions, $f - g$ cannot be a constant function, meaning that the equality cannot hold. Thus, $A$ is strictly convex. 
+	
+%	{\color{red} This implies that $A$ fails to be strictly convex if and only if $f - g$ is a constant function almost everywhere, if and only if $\calH$ does \textit{not} contain a constant function. }
+	
+	Finally, we show the convexity of $\calF$. Let $f, g \in \calF$ so that $A \parens{f} < \infty$ and $A \parens{g} < \infty$. By the proof above, we have $A \parens{\alpha f + \parens{1 - \alpha} g} < \infty$, i.e, $\alpha f + \parens{1 - \alpha} g \in \calF$. In other words, $\calF$ is convex. 
+\end{proof}
+
+\subsection{Proof of Lemma \ref{lemma-eval-functional-frechet-diff}}\label{subsection-proof-lemma-eval-functional-frechet-diff}
+
+\begin{proof}[Proof of Lemma \ref{lemma-eval-functional-frechet-diff}]
+	Let $f \in \calH$ be arbitrary and $g \in \calH$ with $g \neq 0$. Note that 
+	\begin{align*}
+		J \parens{f + g} - J \parens{f} = & \, \innerp{f + g}{k \parens{x, \,\cdot\,}}_{\calH} - \innerp{f}{k \parens{x, \,\cdot\,}}_{\calH} 
+		= \innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}. 
+	\end{align*}
+	Then, 
+	\begin{align*}
+		\frac{\abs[\big]{J \parens{f + g} - J \parens{f} - \innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}}}{\norm{g}_{\calH}} = 0, 
+	\end{align*}
+	and, by Definition \ref{def-frechet-differentiable}, we have $\Diff J \parens{f} \parens{g} = \innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}$, for all $g \in \calH$. 
+	
+	We next verify that the map $\Diff J \parens{f}$ is linear and bounded. The linearity part follows from the linearity of inner product and is omitted. To establish the boundedness, we have, for all $g \in \calH$, 
+	\begin{align*}
+		\abs{\Diff J \parens{f} \parens{g}} = & \, \abs{\innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}} 
+		\le \norm{g}_{\calH} \norm{k \parens{x, \,\cdot\,}}_{\calH} 
+		\le \kappa \norm{g}_{\calH}, 
+	\end{align*}
+	where $\kappa := \sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$, by the assumption. Hence, $\Diff J \parens{f}$ is a bounded linear operator. Since the choice of $f \in \calH$ is arbitrary, we conclude $J$ is Fr{\'e}chet differentiable on $\calH$ and $\Diff J \parens{f} \parens{g} = \innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}$ for all $g \in \calH$. 
+	
+	Using the definition of Fr{\'e}chet gradient, it is easy to see $\nabla J \parens{f} = k \parens{x, \,\cdot\,}$ for all $f \in \calH$. 
+\end{proof}
+
+
+\subsection{Proof of Proposition \ref{prop-frechet-derivative-A}}
+
+%\begin{proposition}[Fr{\'e}chet differentiability and derivative of $A$]\label{prop-frechet-derivative-A}
+%	Suppose $\kappa_1 := \sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$. Then, $A: \calF \to \Real$ is Fr{\'e}chet differentiable over $\calF$ and its Frech{\'e}t derivative at $f \in \calF$ is 
+%	\begin{align}\label{eq-frechet-derivative-A}
+%		\Diff A \parens{f} \parens{g} = \innerp[\bigg]{g}{\int_{\calX} q_f \parens{x} k \parens{x, \,\cdot\,} \diff x}_{\calH}, \qquad \text{ for all } g \in \calH. 
+%	\end{align}
+%	In addition, the Frechet gradient of $A$ at $f \in \calF$ is $\nabla A \parens{f} = \int_{\calX} q_f \parens{x} k \parens{x, \,\cdot\,} \diff x$. 
+%\end{proposition}
+
+\begin{proof}[Proof of Proposition \ref{prop-frechet-derivative-A}]
+	
+	Observe that $A \parens{f} = \parens{J_2 \circ J_1} \parens{f}$ for all $f \in \calH$, where 
+	\begin{align*}
+		J_2 \parens{x} := & \, \log x && \, \text{ for all } x > 0,  \\ 
+		J_1 \parens{f} := & \, \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x}} \diff x && \, \text{ for all } f \in \calH. 
+	\end{align*}
+	Since $J_1 \parens{f} > 0$ for all $f \in \calH$, this composition is well-defined. 
+	
+	If we could show $J_1$ is Fr{\'e}chet differentiable with the Fr{\'e}chet derivative
+	\begin{align*}
+		\Diff J_1 \parens{f} \parens{g} = & \, \innerp[\bigg]{g}{\int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } k \parens{x, \,\cdot\,} \diff x}_{\calH}, \qquad \text{ for all } g \in \calH, 
+	\end{align*}
+	the Fr{\'e}chet differentiable of $A$ follows by the differentiability of $J_2$ and {\color{red} \textbf{Proposition \ref{prop-property-frechet-differentiable}\ref{prop-property-frechet-differentiable-b}}}. 
+	
+	In particular, note the integrand of $\int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } k \parens{x, \,\cdot\,} \diff x$ is an element in $\calH$, and 
+	\begin{align*}
+		\norm[\bigg]{\int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } k \parens{x, \,\cdot\,} \diff x}_{\calH} \le & \, \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } \norm{ k \parens{x, \,\cdot\,}}_{\calH} \diff x 
+		\le \kappa \exp \parens{A \parens{f}} < \infty, 
+	\end{align*}
+	where $\kappa := \sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$, by the assumption. Hence, $\int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } k \parens{x, \,\cdot\,} \diff x$ is Bochner integrable with respect to the Lebesgue measure (by Proposition \ref{prop-bochner-integrability} in \textbf{\color{red}Appendix 1}), and we can interchange the inner product and the integral (by Proposition \ref{prop-properties-bochcher-integral}\ref{prop-properties-bochcher-integral-c} in \textbf{\color{red}Appendix 1}) and have 
+	\begin{align*}
+		\Diff J_1 \parens{f} \parens{g} % = & \, \innerp[\bigg]{g}{\int_{\calX} \mu \parens{x} \exp \parens[\big]{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}} k \parens{x, \,\cdot\,} \diff x}_{\calH} \\ 
+		= & \, \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } g \parens{x} \diff x, \qquad \text{ for all } g \in \calF, 
+	\end{align*}
+	
+	Now, let $0 \ne g \in \calH$. We have 
+	\begin{align*}
+		  & \, J_1 \parens{f + g} - J_1 \parens{f} - \Diff J_1 \parens{f} \parens{g} \\ 
+		%= & \, \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} + g \parens{x} } \diff x - \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } \diff x - \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } g \parens{x} \diff x \\ 
+		=  & \, \int_{\calX} \mu \parens{x} \exp \parens[\big]{ f \parens{x} } \bracks[\Big]{\exp \parens{ g \parens{x} } - 1 - g \parens{x} } \diff x \\ 
+		= & \, \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } \bracks[\Bigg]{\sum_{j=0}^\infty \frac{\parens{ g \parens{x} }^m}{m!} - 1 - g \parens{x}} \diff x \\
+		= & \, \int_{\calX} \mu \parens{x} \exp \parens{ f \parens{x} } \bracks[\Bigg]{ \sum_{m=2}^\infty \frac{\parens{ g \parens{x} }^m}{m!}} \diff x \\
+		\stackrel{\text{(i)}}{\le} & \, \int_{\calX} \mu \parens{x} \exp \parens[\big]{ \norm{f}_{\calH} \sqrt{k \parens{x, \,\cdot\,}} } \bracks[\Bigg]{ \sum_{m=2}^\infty \frac{\norm{g}_{\calH}^m k \parens{x, x}^{m/2}}{m!}} \diff x \\ 
+		\stackrel{\text{(ii)}}{\le} & \, \int_{\calX} \mu \parens{x} \exp \parens{ \kappa \norm{f}_{\calH} } \bracks[\Bigg]{ \sum_{m=2}^\infty \frac{\norm{g}_{\calH}^m \kappa^{m/2}}{m!}} \diff x \\ 
+		\stackrel{\text{(iii)}}{=} & \, \exp \parens{ \kappa \norm{f}_{\calH} } \bracks[\Bigg]{ \sum_{m=2}^\infty \frac{\norm{g}_{\calH}^m \kappa^{m/2}}{m!}}, 
+	\end{align*}
+	where (i) follows from the Cauchy-Schwartz inequality, (ii) is due to $\sqrt{k \parens{x, x}} \le \kappa$, and (iii) is because $\mu$ is a density function over $\calX$. To proceed, we have 
+	\begin{align*}
+		\frac{\abs[\big]{J_1 \parens{f + g} - J_1 \parens{f} - \Diff J_1 \parens{f} \parens{g}}}{\norm{g}_{\calH}} 
+		\le \exp \parens{ \kappa \norm{f}_{\calH} } \bracks[\Bigg]{ \sum_{m=2}^\infty \frac{\norm{g}_{\calH}^{m-1} \kappa^{m/2}}{m!}} 
+		\to & \, 0, 
+	\end{align*}
+	as $\norm{g}_{\calH} \to 0$. 
+	
+	Furthermore, we need to show $\Diff J_1 \parens{f}$ is linear and bounded. The linearity follows from that of the inner product and is omitted. To show the boundedness, we let $g \in \calH$ be arbitrary and notice 
+	\begin{align*}
+		\abs[\big]{\Diff J_1 \parens{f} \parens{g}}_{\calH} 
+		% = & \, \abs[\bigg]{\innerp[\bigg]{g}{\int_{\calX} \mu \parens{x} \exp \parens{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}} k \parens{x, \,\cdot\,} \diff x}_{\calH}} \nonumber \\ 
+		\le & \, \norm{g}_{\calH} \int_{\calX} \mu \parens{x} \exp \parens[\big]{\norm{f}_{\calH} \sqrt{k \parens{x, x}} } \sqrt{k \parens{x, x}} \diff x \nonumber \\ 
+		% = & \, \norm{g}_{\calH} \int_{\calX} \mu \parens{x} \exp \parens{ \kappa \norm{f}_{\calH} } \kappa \diff x \nonumber \\ 
+		\le & \, \bracks[\Big]{\kappa \exp \parens{ \kappa \norm{f}_{\calH} }} \norm{g}_{\calH}, 
+	\end{align*}
+	from which we conclude that $\Diff J_1 \parens{f}$ is a bounded operator. 
+	
+	Since $A = J_2 \circ J_1$, applying {\color{red} \textbf{Proposition \ref{prop-property-frechet-differentiable}\ref{prop-property-frechet-differentiable-b}}} in \textbf{\color{red} Appendix 1}, we obtain, for any $f \in \calH$, 
+	\begin{align*}
+		\Diff A \parens{f} \parens{g} 
+		% = & \, J_2' \parens{J_1 \parens{f}} \Diff J_1 \parens{f} \parens{g} \\ 
+		= & \, \frac{1}{J_1 \parens{f}} \Diff J_1 \parens{f} \parens{g} \\ 
+		= & \, \frac{1}{\exp \parens{A \parens{f}}} \innerp[\bigg]{g}{\int_{\calX} \mu \parens{x} \exp \parens{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}} k \parens{x, \,\cdot\,} \diff x}_{\calH} \\ 
+		% = & \, \innerp[\bigg]{g}{\int_{\calX} \mu \parens{x} \exp \parens[\big]{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH} - A \parens{f}} k \parens{x, \,\cdot\,} \diff x} _{\calH} \\ 
+		= & \, \innerp[\bigg]{g}{\int_{\calX} q_f \parens{x} k \parens{x, \,\cdot\,} \diff x} _{\calH}. 
+	\end{align*}
+	Since our choice of $f \in \calH$ is arbitrary, we conclude $A$ is Fr{\'e}chet differentiable over $\calH$. 
+	
+	Finally, by the definition of Fr{\'e}chet gradient operator, we conclude that the Fr{\'e}chet gradient operator is $\int_{\calX} q_f \parens{x} k \parens{x, \,\cdot\,} \diff x$ as claimed. This completes the proof. 
+	
+\end{proof}
+
+%
+%\subsection{Proof of Proposition \ref{prop-moment-generating-property}}
+%
+%\begin{proposition}\label{prop-moment-generating-property}
+%	Suppose $\sup_{x \in \calX} \sqrt{k \parens{X, X}} < \infty$. Let $X$ be a random variable with the distribution function $F$. Then, for any $r \in \Natural$, the kernel moment generating function $M_X$ is $r$-times Fr{\'e}chet differentiable and $\Diff^r M_X \parens{0} = \mu_r$. 
+%\end{proposition}
+%
+%We first show the following lemma that will be useful later. 
+%
+%\begin{lemma}\label{lemma-frechete-derivative-poly}
+%	Assume $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$. Let $J \parens{f} = \parens{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}}^{\ell} = f \parens{x}^{\ell}$ for any $f \in \calH$, where $\ell \in \Natural$. Then, for any $r \in \Natural$, $J$ is $r$-times Fr{\'e}chet differentiable, and 
+%	\begin{enumerate}[label=(\alph*)]
+%		\item \label{lemma-frechete-derivative-poly-a} if $r = 1, \cdots, \ell$, the $r$-th order Fr{\'e}chet derivative is 
+%		\begin{align}\label{eq-poly-frechet-derivative}
+%			\Diff^r J \parens{f} \parens{g} = \prod_{j=0}^{r-1} \parens{\ell - j} \parens{f \parens{x}}^{\ell-r} g \parens{x} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{\parens{r-1} \text{-fold tensor product}}, 
+%		\end{align}
+%		for all $g \in \calH$; 
+%		\item \label{lemma-frechete-derivative-poly-b} if $r > \ell$, the $r$-th order Fr{\'e}chet derivative is $0$. 
+%	\end{enumerate}
+%\end{lemma}
+%
+%\begin{proof}[Proof of Lemma \ref{lemma-frechete-derivative-poly}]
+%	Due to the assumption $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$, the Fr{\'e}chet differentiability of $J$ of any order is easily seen. The result of \ref{lemma-frechete-derivative-poly-b} is obvious. 
+%	
+%	We now prove \ref{lemma-frechete-derivative-poly-a} by induction. Let $f \in \calH$ be arbitrary and $g \in \calH$ be nonzero. If $r = 1$, we have 
+%	\begin{align}
+%		& \, J \parens{f + h} - J \parens{f} - \Diff J \parens{f} \parens{g} \nonumber \\ 
+%		= & \, \parens{f \parens{x} + g \parens{x}}^{\ell} - \parens{f \parens{x}}^{\ell} - \innerp{{\ell} f \parens{x}^{{\ell}-1} k \parens{x, \,\cdot\,}}{g}_{\hil} \nonumber \\ 
+%		= & \, \sum_{v=0}^{\ell} {{\ell} \choose v} f \parens{x}^{\ell-v} g \parens{x}^v - \parens{f \parens{x}}^{\ell} - \ell f \parens{x}^{\ell-1} g \parens{x} \nonumber \\ 
+%		= & \, \sum_{v=2}^{\ell} {\ell \choose v} f \parens{x}^{\ell-v} g \parens{x}^v \nonumber, 
+%	\end{align}
+%	and, therefore, 
+%	\begin{align*}
+%		  \frac{\abs{J \parens{f + g} - J \parens{f} - \Diff J \parens{g}}}{\norm{g}_{\calH}} 
+%		= & \, \frac{1}{\norm{g}_{\calH}} \abs[\bigg]{\sum_{v=2}^m {m \choose v} f \parens{x}^{m-v} g \parens{x}^v} \\
+%		% \le & \, \frac{1}{\norm{g}_{\calH}} \sum_{v=2}^m {m \choose v} \abs{f \parens{x}^{m-v} g \parens{x}^v} \\ 
+%		\le & \, \frac{1}{\norm{g}_{\calH}} \sum_{v=2}^m {m \choose v} \norm{f}_{\calH}^{m-v} \norm{g}_{\calH}^{v} k \parens{x, x}^{m/2} \\ 
+%		\le & \, \sum_{v=2}^m {m \choose v} \norm{f}_{\calH}^{m-v} \norm{g}_{\calH}^{v-1} \kappa^{m/2} \to 0 
+%	\end{align*}
+%	as $\norm{g}_{\calH} \to 0$, which establishes the first-order Fr{\'e}chet derivative of $J$.
+%	
+%	Now, let $r = s$ for some $s = 1, \cdots, m-1$. Suppose $G$ is $r$-times Fr{\'e}chet differentiable with the Fr{\'e}chet derivative \eqref{eq-poly-frechet-derivative}. We show the desired result holds for $r = s+1$. First note 
+%	\begin{align*}
+%		\Diff^{s+1} J \parens{f} \parens{g} = & \, \bracks[\Bigg]{\prod_{j=0}^{s} \parens{m-j} f \parens{x}^{m-s-1}} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{\parens{s+1} \text{-fold tensor product}} g \\ 
+%		= & \, \bracks[\Bigg]{\prod_{j=0}^{s} \parens{m-j} f \parens{x}^{m-s-1} g \parens{x}} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}}, 
+%	\end{align*}
+%	where we use the fact that, if $x \in \calH_1$ and $y \in \calH_2$, $ x \otimes y $ defines an operator from $\calH_2$ to $\calH_1$ as $\parens{x \otimes y} z = x \innerp{y}{z}_{\calH_2}$ for any $ z \in \calH_2$. And here we let $\hil_1 = \underbrace{\hil \otimes \cdots \otimes \hil}_{s \text{-fold tensor product}}$ and $\hil_2 = \hil$. 
+%	
+%	Then, we have 
+%	\begin{align*}
+%		& \, \Diff^{s} J \parens{f + g} - \Diff^{s} J \parens{f} - \Diff^{s+1} J \parens{f} \parens{g} \\ 
+%%		= & \, \prod_{j=0}^{s-1} \parens{m-j} \parens{f \parens{x} + g \parens{x}}^{m-s} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}} \\ 
+%%		& \qquad - \prod_{j=0}^{s-1} \parens{m-j} f \parens{x}^{m - s} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}} \\ 
+%%		& \qquad \qquad - \bracks[\Bigg]{\prod_{j=0}^{s} \parens{m-j} f \parens{x}^{m-s-1} g \parens{x}} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}} \\ 
+%		\stackrel{(\star)}{=} & \, \bracks[\Bigg]{\prod_{j=0}^{s-1} \parens{m-j} \parens[\bigg]{\sum_{v=0}^{m-s} {m-s \choose v} f \parens{x}^{m-s-v} g \parens{x}^v - f \parens{x}^{m-s} - f \parens{x}^{m-s-1} g \parens{x}}} \times \\ 
+%		& \qquad \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}} \\ 
+%		= & \, \bracks[\Bigg]{\prod_{j=0}^{s-1} \parens{m-j} \sum_{v=2}^{m-s} {m-s \choose v} f \parens{x}^{m-s-v} g \parens{x}^v} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}}. 
+%	\end{align*}
+%	
+%	To proceed, we have 
+%	\begin{align*}
+%		  & \, \frac{\norm{\Diff^s J \parens{f + h} - \Diff^s J \parens{f} - \Diff^{s+1} J \parens{f} \parens{g}}_{\calH \otimes \cdots \otimes \calH}}{\norm{g}_{\calH}} \\ 
+%		% \le & \, \frac{1}{\norm{g}_{\calH}} \norm[\Bigg]{\bracks[\Bigg]{\prod_{j=0}^{s-1} \parens{m-j} \sum_{v=2}^{m-s} {m-s \choose v} f \parens{x}^{m-s-v} h \parens{x}^v} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}}}_{\calH \otimes \cdots \otimes \calH} \\
+%		\le & \, \frac{1}{\norm{g}_{\calH}} \prod_{j=0}^{s-1} \parens{m-j} \bracks[\Bigg]{\sum_{v=2}^{m-s} {m-s \choose v} \norm{f}_{\calH}^{m-s-v} \cdot \norm{g}_{\calH}^{v} k \parens{x, x}^{\frac{m-s}{2}} } \times \\ 
+%		& \qquad \qquad \norm{\underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{s \text{-fold tensor product}}}_{\calH \otimes \cdots \otimes \calH} \\ 
+%		\le & \, \prod_{j=0}^{s-1} \parens{m-j} \sum_{v=2}^{m-s} {m-s \choose v} \norm{f}_{\hil}^{m-s-v} \norm{g}_{\calH}^{v-1} k \parens{x, x}^{\frac{m}{2}}, 
+%	\end{align*}
+%	which approaches to 0 as $\norm{g}_{\hil} \to 0$. This completes the proof. 
+%\end{proof}
+%
+%We now prove Proposition \ref{prop-moment-generating-property}. 
+%
+%{\color{red}
+%\begin{proof}[Proof of Proposition \ref{prop-moment-generating-property}]
+%
+%	Let $f \in \calH$. Note that 
+%	\begin{align}
+%		M_X \parens{f} = & \, \E_{F} \bracks[\Bigg]{ \sum_{m=0}^\infty \frac{ \parens{f \parens{x}}^m}{m!}} \nonumber \\ 
+%		\le & \, \E_{F} \bracks[\Bigg]{\sum_{m=0}^\infty \frac{\norm{f}_{\calH}  k \parens{X, X}^{m/2}}{m!}} \nonumber \\ 
+%		= & \, \sum_{m=0}^\infty \frac{\norm{f}_{\calH}^m \E_{F} \bracks{k \parens{X, X}^{m/2}}}{m!}. 
+%	\end{align}
+%	In the derivation above, we use the Taylor expansion of the exponential function and the property that this Taylor expansion is absolutely convergent. Also, we use the Cauchy-Schwartz inequality and the assumption $\kappa < \infty$ and apply Fubini's Theorem. 
+%
+%	Applying Lemma \ref{lemma-frechete-derivative-poly} above, we conclude that, for $r \in \Natural$, 
+%	\begin{align*}
+%		\Diff^r M_X \parens{f} = & \, \sum_{m=0}^\infty \frac{1}{m!} \E_{F} \bracks{\Diff^r \parens{\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH}^m}} \\ 
+%		= & \, \sum_{m=r}^\infty \frac{1}{m!} \E_{F} \bracks[\Bigg]{ \prod_{j=0}^{r-1} \parens{m - j} \parens{\innerp{g}{k \parens{x, \,\cdot\,}}_{\calH}}^{m-r} \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{r \text{-fold tensor product}}}. 
+%	\end{align*}
+%	Evaluating the preceding equation at $f = 0$, we have 
+%	\begin{align*}
+%		\Diff^r M_X \parens{0} = \E_{F} \bracks{ \underbrace{k \parens{x, \,\cdot\,} \otimes \cdots \otimes k \parens{x, \,\cdot\,}}_{r \text{-fold tensor product}}}, 
+%	\end{align*}
+%	which is exactly $u_r$. 
+%\end{proof}
+%}
+%
+%
+%\subsection{Proof of Proposition \ref{prop-mgf-kef}}
+%
+%\begin{proposition}\label{prop-mgf-kef}
+%	Suppose $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$. Let $X$ be a random variable whose density function is $q_f \in \calQ_{\ker}$ for some $f \in \calF$. Then, 
+%	\begin{align}
+%		M_X \parens{g} = \exp \parens{A \parens{f + g} - A \parens{f}}, 
+%	\end{align}
+%	which exists for all $g \in \calH$. 
+%\end{proposition}
+%
+%\begin{proof}[Proof of Proposition \ref{prop-mgf-kef}]
+%	By the definition, we have 
+%	\begin{align}
+%		M_X \parens{g} = & \, \E_{p_f} \bracks{\exp \parens{g \parens{X}}} \\ 
+%		= & \, \int_{\calX} \exp \parens{g \parens{x}} \cdot \mu \parens{x} \exp \parens{f \parens{x} - A \parens{f}} \diff x \nonumber \\ 
+%		= & \, \int_{\calX} \mu \parens{x} \exp \parens{g \parens{x} + f \parens{x} - A \parens{f+g} + A \parens{f+g} - A \parens{f}}  \diff x \nonumber \\ 
+%		= & \, \exp \parens{A \parens{f+g} - A \parens{f}}, 
+%	\end{align}
+%	since $\int_{\calX} \mu \parens{x} \exp \parens[\big]{f \parens{x} + g \parens{x} - A \parens{f + g}} \diff x = 1$. The existence for all $g$ follows from the assumption $\sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$. 
+%\end{proof}
+
+\subsection{Proof of Proposition \ref{prop-fin-ker-exp-fam-connection}}\label{subsection-proof-prop-fin-ker-exp-fam-connection}
+
+\begin{proof}[Proof of Proposition \ref{prop-fin-ker-exp-fam-connection}]
+	
+	We will show the desired result by the three steps: 
+	\begin{enumerate}[label=(\alph*)]
+		\item \label{prop-proof-connection-a} show $\parens{\calH_{0}, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is an inner product space, 
+		\item \label{prop-proof-connection-b} show $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is a Hilbert space, and
+		\item \label{prop-proof-connection-c} show $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is a RKHS. 
+	\end{enumerate}
+	
+	\ref{prop-proof-connection-a} To show $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is an inner product space, we verify using the definition of an inner product space. Let $f = \sum_{j=1}^m \alpha_j \varphi_j \in \calH_0$, $g = \sum_{j=1}^m \beta_j \varphi_j \in \calH_0$, $h = \sum_{j=1}^m \gamma_j \varphi_j \in \calH_0$, $\alpha_j, \beta_j, \gamma_j \in \Real$ for all $j = 1, \cdots, m$, and $a, b \in \Real$ be arbitrary. Then, the operation $\innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}$ is 
+	\begin{enumerate}[label=(\roman*)]
+		\item \textit{symmetric}, since $\innerp{f}{g}_{\calH_0} = \sum_{j=1}^m \alpha_{j} \beta_{j} = \sum_{j=1}^m \beta_{j} \alpha_{j} = \innerp{g}{f}_{\calH_0}$; 
+		\item \textit{linear}, since 
+		\begin{align*}
+			\innerp{a f + b g}{h}_{\calH_0} = & \, \innerp[\bigg]{a \sum_{j=1}^m \alpha_j \varphi_j + b \sum_{j=1}^m \beta_j \varphi_j}{\sum_{j=1}^m \gamma_j \varphi_j}_{\calH_0} \\ 
+			= & \, \innerp[\bigg]{\sum_{j=1}^m \parens{a \alpha_j + b \beta_j} \varphi_j}{\sum_{j=1}^m \gamma_j \varphi_j}_{\calH_0} \\ 
+			= & \, \sum_{j=1}^m \parens{a \alpha_j + b \beta_j} \gamma_j \\ 
+			= & \, a \sum_{j=1}^m \alpha_j \gamma_j + b \sum_{j=1}^m \beta_j \gamma_j \\ 
+			= & \, a \innerp{f}{h}_{\calH_0} + b \innerp{g}{h}_{\calH_0}; 
+		\end{align*} 
+		
+		\item \textit{positive definite}, since $\innerp{f}{f}_{\calH_0} = \sum_{j=1}^m \alpha_j^2 \ge 0$ for all $f \in \calH_0$, and $\innerp{f}{f}_{\calH_0} = 0$ if and only if $\alpha_j = 0$ for all $j = 1, \cdots, m$, implying $f = 0$. 
+	\end{enumerate}
+
+	\ref{prop-proof-connection-b} To show $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is a Hilbert space, first note that the inner product space $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is $m$-dimensional. The desired result follows directly from the fact that any finite-dimensional inner product space over $\Real$ is complete and the definition that a Hilbert space is a complete inner product space. 
+	
+	\ref{prop-proof-connection-c} Finally, to show $\parens{\calH_0, \innerp{\,\cdot\,}{\,\cdot\,}_{\calH_0}}$ is a RKHS with the reproducing kernel \eqref{eq-m-dim-exp-fam-rk}, we let $x \in \calX$ be arbitrary and $E_x: \calH \to \Real$ be the evaluation functional, i.e., $E_x \parens{f} = f \parens{x}$ for all $f \in \calH$, and need to show $E_x$ is a bounded linear operator. 
+	
+	To this end, let $f, g \in \calH_0$ be arbitrary and $a, b \in \Real$, and note the following 
+	\begin{align*}
+		E_x \parens{a f + b g} = \parens{a f + b g} \parens{x} = a f \parens{x} + b g \parens{x} = a E_x \parens{f} + b E_x \parens{g}, 
+	\end{align*}
+	and 
+	\begin{align*}
+		\abs{E_x \parens{f}} = \abs{f \parens{x}} = \abs[\Bigg]{\sum_{j=1}^m \alpha_j \varphi_j \parens{x}} 
+		\le & \, \sqrt{\sum_{j=1}^m \alpha_j^2} \sqrt{\sum_{j=1}^m \parens{\varphi_j \parens{x}}^2} \\ 
+		= & \, \norm{f}_{\calH_0} \sqrt{\sum_{j=1}^m \parens{\varphi_j \parens{x}}^2} 
+		= M_x \norm{f}_{\calH_0}, 
+	\end{align*}
+	where $M_x := \sqrt{\sum_{j=1}^m \parens{\varphi_j \parens{x}}^2} < \infty$. Hence, the evaluation functional $E_x$ is a bounded linear operator, from which we conclude $\calH_0$ is a RKHS. 
+	
+	Finally, we identify the reproducing kernel associated with $\calH_0$. Let $k \parens{x, \,\cdot\,} = \sum_{j=1}^m \varphi_j \parens{x} \varphi_j \in \calH_0$, 
+	so that $k \parens{x, y}$ is given by \eqref{eq-m-dim-exp-fam-rk}. Letting $f = \sum_{j=1}^m \alpha_j \varphi_j \in \calH_0$, we have 
+	\begin{align*}
+		\innerp{f}{k \parens{x, \,\cdot\,}}_{\calH_0} = \innerp[\bigg]{\sum_{j=1}^m \alpha_j \varphi_j}{\sum_{j=1}^m \varphi_j \parens{x} \varphi_j}_{\calH_0} = \sum_{j=1}^m \alpha_j \varphi_j \parens{x} = f \parens{x}. 
+	\end{align*}
+	Thus, $k$ defined in \eqref{eq-m-dim-exp-fam-rk} satisfies the reproducing property and is the reproducing kernel of $\calH_0$. 
+\end{proof}
+
+
+\subsection{Proof of Proposition \ref{prop-no-mle-inf-exp-fam}}\label{subsection-proof-prop-no-mle-inf-exp-fam}
+
+\begin{proof}[Proof of Proposition \ref{prop-no-mle-inf-exp-fam}]
+	
+	We are going to prove by contradiction and suppose $\hat{f}_{\NLL} := \argmin_{f \in \calF} \widehat{J}_{\NLL} \parens{f}$ exists. 
+	
+	Since $\kappa := \sup_{x \in \calX} \sqrt{k \parens{x, x}} < \infty$, Proposition \ref{prop-bounded-kernel-H=F} implies that $\calH = \calF$. Minimizing $\widehat{J}_{\NLL}$ over $\calH$ is an unconstrained optimization problem. Due to Fermat's rule \parencites[Theorem 16.3 in][]{Bauschke2017-he}, the minimizer $\hat{f}_{\NLL}$ must satisfy $\nabla \widehat{J}_{\NLL} \parens{\hat{f}_{\NLL}} = 0$, where $\nabla \widehat{J}_{\NLL}: \calH \to \calH$ is the Fr{\'e}chet gradient operator of $\widehat{J}_{\NLL}$. By the results from Lemma \ref{lemma-eval-functional-frechet-diff} and Proposition \ref{prop-frechet-derivative-A}, we have, for all $f \in \calH$, 
+	\begin{align*}
+		\nabla \widehat{J}_{\NLL} \parens{f} = \nabla A \parens{f} - \frac{1}{n} \sum_{i=1}^n k \parens{X_i, \,\cdot\,} = \int_{\calX} k \parens{x, \,\cdot\,} q_f \parens{x} \diff x - \frac{1}{n} \sum_{i=1}^n k \parens{X_i, \,\cdot\,}. 
+	\end{align*}
+	Then, it is necessary that $\hat{f}_{\NLL}$ satisfies 
+	\begin{align}
+		\nabla A \parens{\hat{f}_{\NLL}} = \frac{1}{n} \sum_{i=1}^n k \parens{X_i, \,\cdot\,}; 
+	\end{align}
+	in other words, $\hat{f}_{\NLL}$ is given by the inverse map of $\nabla A$. 
+	
+	However, this inverse map does \emph{not} exist, which can be seen by assessing the second-order Fr{\'e}chet derivative of $A$ given by \eqref{eq-frechet-derivative-A-order2}. This is a self-adjoint trace-class operator, and by the Hilbert-Schmidt Theorem \parencites[Section 16.6 in][]{Royden2018-cd}, it has infinitely many eigenvalues clustered at 0, which is not invertible. It follows that the inverse map of $\nabla A$ does not exist and $\hat{f}_{\NLL}$ does not exist. 
+\end{proof}	
+
+
+\printbibliography
+
+\end{document}
