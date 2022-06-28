@@ -1,0 +1,1600 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\sortlist[entry]{nyt/global/}
+  \entry{Baker1971-pu}{article}{}
+    \name{author}{1}{}{%
+      {{hash=BCR}{%
+         family={Baker},
+         family_i={B\bibinitperiod},
+         given={Charles\bibnamedelima R.},
+         given_i={C\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{BCR1}
+    \strng{fullhash}{BCR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1973}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{pages}{273\bibrangedash 289}
+    \field{title}{Joint Measures and Cross-Covariance Operators}
+    \field{volume}{186}
+    \field{journaltitle}{Transactions of the American Mathematical Society}
+    \field{year}{1973}
+    \field{urlday}{13}
+    \field{urlmonth}{06}
+    \field{urlyear}{2022}
+  \endentry
+
+  \entry{Barndorff-Nielsen2014-ua}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BNO}{%
+         family={Barndorff-Nielsen},
+         family_i={B\bibinitperiod-N\bibinitperiod},
+         given={O},
+         given_i={O},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {John Wiley \& Sons}%
+    }
+    \strng{namehash}{BNO1}
+    \strng{fullhash}{BNO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Information and Exponential Families: In Statistical Theory}
+    \field{month}{05}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Bauschke2017-he}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BHH}{%
+         family={Bauschke},
+         family_i={B\bibinitperiod},
+         given={Heinz\bibnamedelima H.},
+         given_i={H\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=CPL}{%
+         family={Combettes},
+         family_i={C\bibinitperiod},
+         given={Patrick\bibnamedelima L.},
+         given_i={P\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Publishing Company}%
+    }
+    \strng{namehash}{BHHCPL1}
+    \strng{fullhash}{BHHCPL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{edition}{1st}
+    \field{isbn}{9781441994660}
+    \field{title}{Convex Analysis and Monotone Operator Theory in Hilbert
+  Spaces}
+    \field{year}{2011}
+  \endentry
+
+  \entry{bertinetThomas04RKHS}{book}{}
+    \name{author}{2}{}{%
+      {{hash=BA}{%
+         family={Bertinet},
+         family_i={B\bibinitperiod},
+         given={A.},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=ATC}{%
+         family={Agnan},
+         family_i={A\bibinitperiod},
+         given={Thomas\bibnamedelima C.},
+         given_i={T\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Kluwer Academic Publishers}%
+    }
+    \keyw{rkhs}
+    \strng{namehash}{BAATC1}
+    \strng{fullhash}{BAATC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{{Reproducing Kernel Hilbert Spaces in Probability and
+  Statistics}}
+    \field{year}{2004}
+  \endentry
+
+  \entry{Brown1986-ef}{book}{}
+    \name{author}{1}{}{%
+      {{hash=BLD}{%
+         family={Brown},
+         family_i={B\bibinitperiod},
+         given={Lawrence\bibnamedelima D},
+         given_i={L\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {IMS}%
+    }
+    \strng{namehash}{BLD1}
+    \strng{fullhash}{BLD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1986}
+    \field{sortinit}{B}
+    \field{sortinithash}{B}
+    \field{title}{Fundamentals of Statistical Exponential Families: With
+  Applications in Statistical Decision Theory}
+    \field{year}{1986}
+  \endentry
+
+  \entry{Canu2006-ig}{article}{}
+    \name{author}{2}{}{%
+      {{hash=CS}{%
+         family={Canu},
+         family_i={C\bibinitperiod},
+         given={St{\'e}phane},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Smola},
+         family_i={S\bibinitperiod},
+         given={Alex},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \keyw{Kernel methods; Exponential families; Novelty detection}
+    \strng{namehash}{CSSA1}
+    \strng{fullhash}{CSSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2006}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{number}{7}
+    \field{pages}{714\bibrangedash 720}
+    \field{title}{Kernel methods and the exponential family}
+    \field{volume}{69}
+    \field{journaltitle}{Neurocomputing}
+    \field{month}{03}
+    \field{year}{2006}
+  \endentry
+
+  \entry{Dai2018-tp}{article}{}
+    \name{author}{6}{}{%
+      {{hash=DB}{%
+         family={Dai},
+         family_i={D\bibinitperiod},
+         given={Bo},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=DH}{%
+         family={Dai},
+         family_i={D\bibinitperiod},
+         given={Hanjun},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Song},
+         family_i={S\bibinitperiod},
+         given={Le},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Schuurmans},
+         family_i={S\bibinitperiod},
+         given={Dale},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=HN}{%
+         family={He},
+         family_i={H\bibinitperiod},
+         given={Niao},
+         given_i={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DB+1}
+    \strng{fullhash}{DBDHGASLSDHN1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \verb{eprint}
+    \verb 1811.02228
+    \endverb
+    \field{title}{Kernel Exponential Family Estimation via Doubly Dual
+  Embedding}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{month}{11}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Darmois1935-yz}{article}{}
+    \name{author}{1}{}{%
+      {{hash=DG}{%
+         family={Darmois},
+         family_i={D\bibinitperiod},
+         given={Georges},
+         given_i={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DG1}
+    \strng{fullhash}{DG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1935}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{number}{1265}
+    \field{pages}{85}
+    \field{title}{Sur les lois de probabilit{\'e}a estimation exhaustive}
+    \field{volume}{260}
+    \field{journaltitle}{CR Acad. Sci. Paris}
+    \field{year}{1935}
+  \endentry
+
+  \entry{Denkowski2013-ke}{book}{}
+    \name{author}{3}{}{%
+      {{hash=DZ}{%
+         family={Denkowski},
+         family_i={D\bibinitperiod},
+         given={Zdzislaw},
+         given_i={Z\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Mig{\'o}rski},
+         family_i={M\bibinitperiod},
+         given={Stanislaw},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=PNS}{%
+         family={Papageorgiou},
+         family_i={P\bibinitperiod},
+         given={Nikolaos\bibnamedelima S},
+         given_i={N\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Springer Science \& Business Media}%
+    }
+    \strng{namehash}{DZMSPNS1}
+    \strng{fullhash}{DZMSPNS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{An Introduction to Nonlinear Analysis: Theory}
+    \field{month}{12}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Diestel1977-bt}{book}{}
+    \name{author}{2}{}{%
+      {{hash=DJ}{%
+         family={Diestel},
+         family_i={D\bibinitperiod},
+         given={Joseph},
+         given_i={J\bibinitperiod},
+      }}%
+      {{hash=UJJ}{%
+         family={Uhl},
+         family_i={U\bibinitperiod},
+         given={John\bibnamedelima Jerry},
+         given_i={J\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Soc.}%
+    }
+    \strng{namehash}{DJUJJ1}
+    \strng{fullhash}{DJUJJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1977}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{title}{Vector Measures}
+    \field{month}{06}
+    \field{year}{1977}
+  \endentry
+
+  \entry{Fukumizu2005-mf}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FK1}
+    \strng{fullhash}{FK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{booktitle}{2nd International Symposium on Information Geometry and
+  its Applications}
+    \field{pages}{324\bibrangedash 333}
+    \field{title}{Infinite dimensional exponential families by reproducing
+  kernel Hilbert spaces}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Fukumizu2007-rd}{article}{}
+    \name{author}{3}{}{%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=BFR}{%
+         family={Bach},
+         family_i={B\bibinitperiod},
+         given={Francis\bibnamedelima R},
+         given_i={F\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FKBFRGA1}
+    \strng{fullhash}{FKBFRGA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{2}
+    \field{title}{Statistical Consistency of Kernel Canonical Correlation
+  Analysis}
+    \field{volume}{8}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Fukumizu2004-zw}{article}{}
+    \name{author}{3}{}{%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=BFR}{%
+         family={Bach},
+         family_i={B\bibinitperiod},
+         given={Francis\bibnamedelima R},
+         given_i={F\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=JMI}{%
+         family={Jordan},
+         family_i={J\bibinitperiod},
+         given={Michael\bibnamedelima I},
+         given_i={M\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FKBFRJMI1}
+    \strng{fullhash}{FKBFRJMI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{Jan}
+    \field{pages}{73\bibrangedash 99}
+    \field{title}{Dimensionality Reduction for Supervised Learning with
+  Reproducing Kernel Hilbert Spaces}
+    \field{volume}{5}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{year}{2004}
+  \endentry
+
+  \entry{Fukumizu2009-zh}{article}{}
+    \name{author}{3}{}{%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=BFR}{%
+         family={Bach},
+         family_i={B\bibinitperiod},
+         given={Francis\bibnamedelima R},
+         given_i={F\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=JMI}{%
+         family={Jordan},
+         family_i={J\bibinitperiod},
+         given={Michael\bibnamedelima I},
+         given_i={M\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \keyw{62H99; 62J02; consistency; Dimension reduction; Positive definite
+  kernel; regression; reproducing kernel;}
+    \strng{namehash}{FKBFRJMI1}
+    \strng{fullhash}{FKBFRJMI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{number}{4}
+    \field{pages}{1871\bibrangedash 1905}
+    \field{title}{Kernel dimension reduction in regression}
+    \field{volume}{37}
+    \field{journaltitle}{aos}
+    \field{month}{08}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Fukumizu2007-rc}{article}{}
+    \name{author}{4}{}{%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SX}{%
+         family={Sun},
+         family_i={S\bibinitperiod},
+         given={Xiaohai},
+         given_i={X\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FK+1}
+    \strng{fullhash}{FKGASXSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{sortinit}{F}
+    \field{sortinithash}{F}
+    \field{title}{Kernel measures of conditional dependence}
+    \field{volume}{20}
+    \field{journaltitle}{Adv. Neural Inf. Process. Syst.}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Gretton2005-tj}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=HR}{%
+         family={Herbrich},
+         family_i={H\bibinitperiod},
+         given={Ralf},
+         given_i={R\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Smola},
+         family_i={S\bibinitperiod},
+         given={Alexander},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=BO}{%
+         family={Bousquet},
+         family_i={B\bibinitperiod},
+         given={Olivier},
+         given_i={O\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GA+1}
+    \strng{fullhash}{GAHRSABOSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2005}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{70}
+    \field{pages}{2075\bibrangedash 2129}
+    \field{title}{Kernel Methods for Measuring Independence}
+    \verb{url}
+    \verb http://jmlr.org/papers/v6/gretton05a.html
+    \endverb
+    \field{volume}{6}
+    \field{journaltitle}{Journal of Machine Learning Research}
+    \field{year}{2005}
+  \endentry
+
+  \entry{Gretton2012-zi}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=BKM}{%
+         family={Borgwardt},
+         family_i={B\bibinitperiod},
+         given={Karsten\bibnamedelima M},
+         given_i={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=RMJ}{%
+         family={Rasch},
+         family_i={R\bibinitperiod},
+         given={Malte\bibnamedelima J},
+         given_i={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Smola},
+         family_i={S\bibinitperiod},
+         given={Alexander},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GA+1}
+    \strng{fullhash}{GABKMRMJSBSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2012}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{25}
+    \field{pages}{723\bibrangedash 773}
+    \field{title}{A Kernel {Two-Sample} Test}
+    \field{volume}{13}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{year}{2012}
+  \endentry
+
+  \entry{Gu1993-lf}{article}{}
+    \name{author}{1}{}{%
+      {{hash=GC}{%
+         family={Gu},
+         family_i={G\bibinitperiod},
+         given={Chong},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Taylor \& Francis}%
+    }
+    \strng{namehash}{GC1}
+    \strng{fullhash}{GC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1993}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{422}
+    \field{pages}{495\bibrangedash 504}
+    \field{title}{Smoothing Spline Density Estimation: A Dimensionless
+  Automatic Algorithm}
+    \field{volume}{88}
+    \field{journaltitle}{J. Am. Stat. Assoc.}
+    \field{month}{06}
+    \field{year}{1993}
+  \endentry
+
+  \entry{Gu1993-na}{article}{}
+    \name{author}{2}{}{%
+      {{hash=GC}{%
+         family={Gu},
+         family_i={G\bibinitperiod},
+         given={Chong},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=QC}{%
+         family={Qiu},
+         family_i={Q\bibinitperiod},
+         given={Chunfu},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Institute of Mathematical Statistics}%
+    }
+    \strng{namehash}{GCQC1}
+    \strng{fullhash}{GCQC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1993}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{number}{1}
+    \field{pages}{217\bibrangedash 234}
+    \field{title}{Smoothing Spline Density Estimation: Theory}
+    \field{volume}{21}
+    \field{journaltitle}{Ann. Stat.}
+    \field{year}{1993}
+  \endentry
+
+  \entry{Jegelka2009-an}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=JS}{%
+         family={Jegelka},
+         family_i={J\bibinitperiod},
+         given={Stefanie},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=SBK}{%
+         family={Sriperumbudur},
+         family_i={S\bibinitperiod},
+         given={Bharath\bibnamedelima K},
+         given_i={B\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=vLU}{%
+         prefix={von},
+         prefix_i={v\bibinitperiod},
+         family={Luxburg},
+         family_i={L\bibinitperiod},
+         given={Ulrike},
+         given_i={U\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{JS+1}
+    \strng{fullhash}{JSGASBSBKLUv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2009}
+    \field{sortinit}{J}
+    \field{sortinithash}{J}
+    \field{abstract}{%
+    We generalize traditional goals of clustering towards distinguishing
+  components in a non-parametric mixture model. The clusters are not
+  necessarily based on point locations, but on higher order criteria. This
+  framework can be implemented by embedding probability distributions in a
+  Hilbert space. The corresponding clustering objective is very general and
+  relates to a range of common clustering concepts.%
+    }
+    \field{booktitle}{{KI} 2009: Advances in Artificial Intelligence}
+    \field{pages}{144\bibrangedash 152}
+    \field{title}{Generalized Clustering via Kernel Embeddings}
+    \field{year}{2009}
+  \endentry
+
+  \entry{Koopman1936-fb}{article}{}
+    \name{author}{1}{}{%
+      {{hash=KBO}{%
+         family={Koopman},
+         family_i={K\bibinitperiod},
+         given={B\bibnamedelima O},
+         given_i={B\bibinitperiod\bibinitdelim O\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{KBO1}
+    \strng{fullhash}{KBO1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1936}
+    \field{sortinit}{K}
+    \field{sortinithash}{K}
+    \field{number}{3}
+    \field{pages}{399\bibrangedash 409}
+    \field{title}{On Distributions Admitting a Sufficient Statistic}
+    \field{volume}{39}
+    \field{journaltitle}{Trans. Amer. Math. Soc.}
+    \field{year}{1936}
+  \endentry
+
+  \entry{Le2008-dl}{book}{}
+    \name{author}{1}{}{%
+      {{hash=LS}{%
+         family={Le},
+         family_i={L\bibinitperiod},
+         given={Song},
+         given_i={S\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {University of Sydney}%
+    }
+    \strng{namehash}{LS1}
+    \strng{fullhash}{LS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Learning Via Hilbert Space Embedding of Distributions}
+    \field{year}{2008}
+  \endentry
+
+  \entry{mccullagh1989generalized}{book}{}
+    \name{author}{2}{}{%
+      {{hash=MP}{%
+         family={McCullagh},
+         family_i={M\bibinitperiod},
+         given={P.},
+         given_i={P\bibinitperiod},
+      }}%
+      {{hash=NJ}{%
+         family={Nelder},
+         family_i={N\bibinitperiod},
+         given={J.A.},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Chapman \& Hall}%
+    }
+    \keyw{GLM reference statistics}
+    \strng{namehash}{MPNJ1}
+    \strng{fullhash}{MPNJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1989}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{isbn}{9780412317606}
+    \field{series}{Monographs on Statistics and Applied Probability Series}
+    \field{title}{Generalized Linear Models, Second Edition}
+    \field{year}{1989}
+  \endentry
+
+  \entry{kernel-mean-estimator-muandet}{article}{}
+    \name{author}{5}{}{%
+      {{hash=MK}{%
+         family={Muandet},
+         family_i={M\bibinitperiod},
+         given={Krikamol},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sriperumbudur},
+         family_i={S\bibinitperiod},
+         given={Bharath},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JMLR. org}%
+    }
+    \strng{namehash}{MK+1}
+    \strng{fullhash}{MKSBFKGASB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2016}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{1}
+    \field{pages}{1656\bibrangedash 1696}
+    \field{title}{Kernel mean shrinkage estimators}
+    \field{volume}{17}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{year}{2016}
+  \endentry
+
+  \entry{kernel-mean-embedding-survey-muandet}{article}{}
+    \name{author}{4}{}{%
+      {{hash=MK}{%
+         family={Muandet},
+         family_i={M\bibinitperiod},
+         given={Krikamol},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sriperumbudur},
+         family_i={S\bibinitperiod},
+         given={Bharath},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Now Publishers}%
+    }
+    \keyw{Kernel methods; Nonparametric methods; Statistical learning theory;
+  Statistical/machine learning; Pattern recognition and learning; Information
+  theory and statistics; Learning and statistical methods; Filtering,
+  Estimation, Identification}
+    \strng{namehash}{MK+1}
+    \strng{fullhash}{MKFKSBSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{number}{1-2}
+    \field{pages}{1\bibrangedash 141}
+    \field{title}{Kernel Mean Embedding of Distributions: A Review and Beyond}
+    \field{volume}{10}
+    \field{journaltitle}{Foundations and Trends\textregistered{} in Machine
+  Learning}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Pitman1936-cl}{article}{}
+    \name{author}{1}{}{%
+      {{hash=PEJG}{%
+         family={Pitman},
+         family_i={P\bibinitperiod},
+         given={E\bibnamedelima J\bibnamedelima G},
+         given_i={E\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim
+  G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{PEJG1}
+    \strng{fullhash}{PEJG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1936}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{number}{4}
+    \field{pages}{567\bibrangedash 579}
+    \field{title}{Sufficient statistics and intrinsic accuracy}
+    \field{volume}{32}
+    \field{journaltitle}{Math. Proc. Cambridge Philos. Soc.}
+    \field{month}{12}
+    \field{year}{1936}
+  \endentry
+
+  \entry{Royden2018-cd}{book}{}
+    \name{author}{2}{}{%
+      {{hash=RHL}{%
+         family={Royden},
+         family_i={R\bibinitperiod},
+         given={H.\bibnamedelima L.},
+         given_i={H\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=FP}{%
+         family={Fitzpatrick},
+         family_i={F\bibinitperiod},
+         given={P.M.},
+         given_i={P\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {eng}%
+    }
+    \list{publisher}{1}{%
+      {Pearson}%
+    }
+    \strng{namehash}{RHLFP1}
+    \strng{fullhash}{RHLFP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2018}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{edition}{Fourth edition [2018 reissue]}
+    \field{isbn}{9780134689494}
+    \field{series}{Pearson modern classic}
+    \field{title}{Real Analysis}
+    \list{location}{1}{%
+      {New York, NY}%
+    }
+    \field{year}{2018}
+  \endentry
+
+  \entry{Scholkopf1998-jn}{article}{}
+    \name{author}{3}{}{%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Smola},
+         family_i={S\bibinitperiod},
+         given={Alexander},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=MKR}{%
+         family={M{\"u}ller},
+         family_i={M\bibinitperiod},
+         given={Klaus-Robert},
+         given_i={K\bibinitperiod-R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SBSAMKR1}
+    \strng{fullhash}{SBSAMKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1998}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{5}
+    \field{pages}{1299\bibrangedash 1319}
+    \field{title}{Nonlinear Component Analysis as a Kernel Eigenvalue Problem}
+    \field{volume}{10}
+    \field{journaltitle}{Neural Comput.}
+    \field{month}{07}
+    \field{year}{1998}
+  \endentry
+
+  \entry{hilbert-embedding-2007}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=SA}{%
+         family={Smola},
+         family_i={S\bibinitperiod},
+         given={Alex},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Song},
+         family_i={S\bibinitperiod},
+         given={Le},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=SB}{%
+         family={Sch{\"o}lkopf},
+         family_i={S\bibinitperiod},
+         given={Bernhard},
+         given_i={B\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{SA+1}
+    \strng{fullhash}{SAGASLSB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2007}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Algorithmic Learning Theory}
+    \field{pages}{13\bibrangedash 31}
+    \field{title}{A Hilbert Space Embedding for Distributions}
+    \field{year}{2007}
+  \endentry
+
+  \entry{Song2013-ha}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=SL}{%
+         family={Song},
+         family_i={S\bibinitperiod},
+         given={Le},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SLFKGA1}
+    \strng{fullhash}{SLFKGA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2013}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{4}
+    \field{pages}{98\bibrangedash 111}
+    \field{title}{Kernel Embeddings of Conditional Distributions: A Unified
+  Kernel Framework for Nonparametric Inference in Graphical Models}
+    \field{volume}{30}
+    \field{journaltitle}{IEEE Signal Processing Magazine}
+    \field{year}{2013}
+  \endentry
+
+  \entry{Song2010-ea}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SL}{%
+         family={Song},
+         family_i={S\bibinitperiod},
+         given={Le},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Guestrin},
+         family_i={G\bibinitperiod},
+         given={Carlos},
+         given_i={C\bibinitperiod},
+      }}%
+    }
+    \name{editor}{2}{}{%
+      {{hash=TYW}{%
+         family={Teh},
+         family_i={T\bibinitperiod},
+         given={Yee\bibnamedelima Whye},
+         given_i={Y\bibinitperiod\bibinitdelim W\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={Titterington},
+         family_i={T\bibinitperiod},
+         given={Mike},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {PMLR}%
+    }
+    \strng{namehash}{SLGAGC1}
+    \strng{fullhash}{SLGAGC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Proceedings of the Thirteenth International Conference on
+  Artificial Intelligence and Statistics}
+    \field{pages}{765\bibrangedash 772}
+    \field{series}{Proceedings of Machine Learning Research}
+    \field{title}{Nonparametric Tree Graphical Models}
+    \field{volume}{9}
+    \list{location}{1}{%
+      {Chia Laguna Resort, Sardinia, Italy}%
+    }
+    \field{year}{2010}
+  \endentry
+
+  \entry{Song2014-pi}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SL}{%
+         family={Song},
+         family_i={S\bibinitperiod},
+         given={Le},
+         given_i={L\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Liu},
+         family_i={L\bibinitperiod},
+         given={Han},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Parikh},
+         family_i={P\bibinitperiod},
+         given={Ankur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=XE}{%
+         family={Xing},
+         family_i={X\bibinitperiod},
+         given={Eric},
+         given_i={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SL+1}
+    \strng{fullhash}{SLLHPAXE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2014}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{eprint}
+    \verb 1401.3940
+    \endverb
+    \field{title}{Nonparametric Latent Tree Graphical Models: Inference,
+  Estimation, and Structure Learning}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{stat.ML}
+    \field{month}{01}
+    \field{year}{2014}
+  \endentry
+
+  \entry{Sriperumbudur2011-db}{article}{}
+    \name{author}{3}{}{%
+      {{hash=S}{%
+         family={{Sriperumbudur}},
+         family_i={S\bibinitperiod},
+      }}%
+      {{hash=F}{%
+         family={{Fukumizu}},
+         family_i={F\bibinitperiod},
+      }}%
+      {{hash=o}{%
+         family={{others}},
+         family_i={o\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SFo1}
+    \strng{fullhash}{SFo1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2011}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{70}
+    \field{pages}{2389\bibrangedash 2410}
+    \field{title}{Universality, Characteristic Kernels and {RKHS} Embedding of
+  Measures}
+    \field{volume}{12}
+    \field{journaltitle}{Journal of Machine Learning Research}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Sriperumbudur2010-ug}{article}{}
+    \name{author}{4}{}{%
+      {{hash=S}{%
+         family={{Sriperumbudur}},
+         family_i={S\bibinitperiod},
+      }}%
+      {{hash=G}{%
+         family={{Gretton}},
+         family_i={G\bibinitperiod},
+      }}%
+      {{hash=F}{%
+         family={{Fukumizu}},
+         family_i={F\bibinitperiod},
+      }}%
+      {{hash=o}{%
+         family={{others}},
+         family_i={o\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{S+1}
+    \strng{fullhash}{SGFo1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2010}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{pages}{1517\bibrangedash 1561}
+    \field{title}{Hilbert space embeddings and metrics on probability measures}
+    \field{volume}{11}
+    \field{journaltitle}{Journal of Machine Learning Research}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Sriperumbudur-density-estimation-inf-exp-family}{article}{}
+    \name{author}{5}{}{%
+      {{hash=SB}{%
+         family={Sriperumbudur},
+         family_i={S\bibinitperiod},
+         given={Bharath},
+         given_i={B\bibinitperiod},
+      }}%
+      {{hash=FK}{%
+         family={Fukumizu},
+         family_i={F\bibinitperiod},
+         given={Kenji},
+         given_i={K\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=HA}{%
+         family={Hyv{\"a}rinen},
+         family_i={H\bibinitperiod},
+         given={Aapo},
+         given_i={A\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Kumar},
+         family_i={K\bibinitperiod},
+         given={Revant},
+         given_i={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SB+1}
+    \strng{fullhash}{SBFKGAHAKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{number}{57}
+    \field{pages}{1\bibrangedash 59}
+    \field{title}{Density Estimation in Infinite Dimensional Exponential
+  Families}
+    \verb{url}
+    \verb http://jmlr.org/papers/v18/16-011.html
+    \endverb
+    \field{volume}{18}
+    \field{journaltitle}{Journal of Machine Learning Research}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Sun15-dc}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SS}{%
+         family={Sun},
+         family_i={S\bibinitperiod},
+         given={Siqi},
+         given_i={S\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={Kolar},
+         family_i={K\bibinitperiod},
+         given={Mladen},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=XJ}{%
+         family={Xu},
+         family_i={X\bibinitperiod},
+         given={Jinbo},
+         given_i={J\bibinitperiod},
+      }}%
+    }
+    \name{editor}{5}{}{%
+      {{hash=CC}{%
+         family={Cortes},
+         family_i={C\bibinitperiod},
+         given={C.},
+         given_i={C\bibinitperiod},
+      }}%
+      {{hash=LN}{%
+         family={Lawrence},
+         family_i={L\bibinitperiod},
+         given={N.},
+         given_i={N\bibinitperiod},
+      }}%
+      {{hash=LD}{%
+         family={Lee},
+         family_i={L\bibinitperiod},
+         given={D.},
+         given_i={D\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Sugiyama},
+         family_i={S\bibinitperiod},
+         given={M.},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Garnett},
+         family_i={G\bibinitperiod},
+         given={R.},
+         given_i={R\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Curran Associates, Inc.}%
+    }
+    \strng{namehash}{SSKMXJ1}
+    \strng{fullhash}{SSKMXJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2015}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{booktitle}{Advances in Neural Information Processing Systems}
+    \field{pages}{2287 \bibrangedash  2295}
+    \field{title}{Learning structured densities via infinite dimensional
+  exponential families}
+    \field{volume}{28}
+    \field{year}{2015}
+  \endentry
+
+  \entry{Sutherland2017-wz}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SDJ}{%
+         family={Sutherland},
+         family_i={S\bibinitperiod},
+         given={Dougal\bibnamedelima J},
+         given_i={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=SH}{%
+         family={Strathmann},
+         family_i={S\bibinitperiod},
+         given={Heiko},
+         given_i={H\bibinitperiod},
+      }}%
+      {{hash=AM}{%
+         family={Arbel},
+         family_i={A\bibinitperiod},
+         given={Michael},
+         given_i={M\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gretton},
+         family_i={G\bibinitperiod},
+         given={Arthur},
+         given_i={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SDJ+1}
+    \strng{fullhash}{SDJSHAMGA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \verb{eprint}
+    \verb 1705.08360
+    \endverb
+    \field{title}{Efficient and principled score estimation with Nystr{\"o}m
+  kernel exponential families}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{stat.ML}
+    \field{month}{05}
+    \field{year}{2017}
+  \endentry
+
+  \entry{Wainwright2008-tp}{article}{}
+    \name{author}{2}{}{%
+      {{hash=WMJ}{%
+         family={Wainwright},
+         family_i={W\bibinitperiod},
+         given={Martin\bibnamedelima J},
+         given_i={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=JMI}{%
+         family={Jordan},
+         family_i={J\bibinitperiod},
+         given={Michael\bibnamedelima I},
+         given_i={M\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Now Publishers}%
+    }
+    \strng{namehash}{WMJJMI1}
+    \strng{fullhash}{WMJJMI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{number}{1--2}
+    \field{pages}{1\bibrangedash 305}
+    \field{title}{Graphical Models, Exponential Families, and Variational
+  Inference}
+    \field{volume}{1}
+    \field{journaltitle}{Foundations and Trends\textregistered{} in Machine
+  Learning}
+    \field{year}{2008}
+  \endentry
+
+  \entry{Wasserman2006-lj}{book}{}
+    \name{author}{1}{}{%
+      {{hash=WL}{%
+         family={Wasserman},
+         family_i={W\bibinitperiod},
+         given={Larry},
+         given_i={L\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {en}%
+    }
+    \list{publisher}{1}{%
+      {Springer Science \& Business Media}%
+    }
+    \strng{namehash}{WL1}
+    \strng{fullhash}{WL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2006}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{title}{All of Nonparametric Statistics}
+    \field{month}{09}
+    \field{year}{2006}
+  \endentry
+
+  \entry{Williams2001-ka}{incollection}{}
+    \name{author}{2}{}{%
+      {{hash=WCKI}{%
+         family={Williams},
+         family_i={W\bibinitperiod},
+         given={Christopher K\bibnamedelima I},
+         given_i={C\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
+  I\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Seeger},
+         family_i={S\bibinitperiod},
+         given={Matthias},
+         given_i={M\bibinitperiod},
+      }}%
+    }
+    \name{editor}{3}{}{%
+      {{hash=LTK}{%
+         family={Leen},
+         family_i={L\bibinitperiod},
+         given={T\bibnamedelima K},
+         given_i={T\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=DTG}{%
+         family={Dietterich},
+         family_i={D\bibinitperiod},
+         given={T\bibnamedelima G},
+         given_i={T\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=TV}{%
+         family={Tresp},
+         family_i={T\bibinitperiod},
+         given={V},
+         given_i={V},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT Press}%
+    }
+    \strng{namehash}{WCKISM1}
+    \strng{fullhash}{WCKISM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2001}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{booktitle}{Advances in Neural Information Processing Systems 13}
+    \field{pages}{682\bibrangedash 688}
+    \field{title}{Using the Nystr{\"o}m Method to Speed Up Kernel Machines}
+    \field{year}{2001}
+  \endentry
+
+  \entry{Zhou2008-jt}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ZDX}{%
+         family={Zhou},
+         family_i={Z\bibinitperiod},
+         given={Ding-Xuan},
+         given_i={D\bibinitperiod-X\bibinitperiod},
+      }}%
+    }
+    \keyw{Learning theory; Reproducing kernel Hilbert spaces; Derivative
+  reproducing; Representer theorem; Hermite learning and semi-supervised
+  learning}
+    \strng{namehash}{ZDX1}
+    \strng{fullhash}{ZDX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2008}
+    \field{sortinit}{Z}
+    \field{sortinithash}{Z}
+    \field{number}{1}
+    \field{pages}{456\bibrangedash 463}
+    \field{title}{Derivative reproducing properties for kernel methods in
+  learning theory}
+    \field{volume}{220}
+    \field{journaltitle}{J. Comput. Appl. Math.}
+    \field{month}{10}
+    \field{year}{2008}
+  \endentry
+\endsortlist
+\endinput
