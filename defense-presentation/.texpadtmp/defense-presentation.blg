@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is '/Users/chenxizhou/Dropbox/Research_Density_Estimation/dissertation-local/defense-presentation/.texpadtmp/defense-presentation.blg'
+[59] biber-darwin:340> INFO - === Tue Aug 16, 2022, 21:47:41
+[73] Biber.pm:415> INFO - Reading '/Users/chenxizhou/Dropbox/Research_Density_Estimation/dissertation-local/defense-presentation/.texpadtmp/defense-presentation.bcf'
+[138] Biber.pm:952> INFO - Found 9 citekeys in bib section 0
+[151] Biber.pm:4340> INFO - Processing section 0
+[159] Biber.pm:4531> INFO - Looking for bibtex format file '/Users/chenxizhou/Library/texmf/tex/noteref.bib' for section 0
+[165] bibtex.pm:1689> INFO - LaTeX decoding ...
+[376] bibtex.pm:1494> INFO - Found BibTeX data source '/Users/chenxizhou/Library/texmf/tex/noteref.bib'
+[454] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
+[454] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[454] Biber.pm:4168> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-GB'
+[454] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-GB'
+[465] bbl.pm:654> INFO - Writing '/Users/chenxizhou/Dropbox/Research_Density_Estimation/dissertation-local/defense-presentation/.texpadtmp/defense-presentation.bbl' with encoding 'UTF-8'
+[469] bbl.pm:757> INFO - Output to /Users/chenxizhou/Dropbox/Research_Density_Estimation/dissertation-local/defense-presentation/.texpadtmp/defense-presentation.bbl
