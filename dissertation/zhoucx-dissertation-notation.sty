@@ -1,0 +1,489 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{zhoucx-notation}
+ 
+\RequirePackage{imakeidx}
+\RequirePackage{xstring}
+\RequirePackage[svgnames]{xcolor}
+\definecolor{greycolour}{HTML}{525252}
+\definecolor{sharelatexcolour}{HTML}{882B21}
+\definecolor{mybluecolour}{HTML}{394773}
+\newcommand{\wordcolour}{greycolour}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage[mathscr]{eucal}
+\RequirePackage{mathtools}
+\RequirePackage{etoolbox}
+\usepackage{rotating}
+
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{bbm}
+\usepackage{cancel}
+\usepackage{dsfont}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{algcompatible}
+\usepackage{algorithm}
+\usepackage{caption}
+%\usepackage{algorithm2e}
+%\usepackage{algorithmic}
+\usepackage[noend]{algpseudocode}
+\usepackage{braket}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{color}
+\usetikzlibrary{arrows.meta,matrix,decorations.pathreplacing,calc}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  citecolor = blue,
+}
+
+\usepackage{adjustbox}
+\usepackage{blindtext}
+
+\usepackage[title]{appendix}
+
+\usepackage[backend=bibtex,style=authoryear,citestyle=authoryear]{biblatex}
+\addbibresource{/Users/chenxizhou/Library/texmf/tex/noteref.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+\DeclareOption{red}{\renewcommand{\wordcolour}{sharelatexcolour}}
+\DeclareOption{blue}{\renewcommand{\wordcolour}{mybluecolour}}
+\DeclareOption*{\PackageWarning{examplepackage}{Unknown ‘\CurrentOption’}}
+\ProcessOptions\relax
+
+%%Important words are added to the index and printed in different color
+\newcommand{\important}[1]
+{\IfSubStr{#1}{!}
+    {\textcolor{\wordcolour}{\textbf{\StrBefore{#1}{!}~\StrBehind{#1}{!}}}\index{#1}}
+    {\textcolor{\wordcolour}{\textbf{#1}}\index{#1}\kern-1pt}
+}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\maximize}{maximize}
+
+\geometry{letterpaper, top = 1in, bottom = 1in, left = 1.5in, right = 1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Section Numbering 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\def\toclevel@subsubsubsection{4}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Topology
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ball}[2]{\mathbb{B} \parens[]{#1; #2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Calculus
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\Diff}{\mathrm{D}}
+\newcommand{\kef}{\mathrm{kef}}
+\newcommand{\Hdiv}{\mathrm{H}}
+\newcommand{\KLdiv}{\mathrm{KL}}
+\newcommand{\NLL}{\mathrm{NLL}}
+\newcommand{\SM}{\mathrm{SM}}
+\newcommand{\ML}{\mathrm{ML}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\DDE}{\mathrm{DDE}}
+\newcommand{\lik}{\mathrm{lik}}
+
+\newcommand{\MLE}{\mathrm{MLE}}
+\newcommand{\SME}{\mathrm{SME}}
+
+\newcommand{\supp}{\mathrm{supp}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bold Greek Letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bth}{\boldsymbol{\theta}}
+\newcommand{\beps}{\boldsymbol{\epsilon}}
+\newcommand{\bxi}{\boldsymbol{\xi}}
+\newcommand{\bpi}{\boldsymbol{\pi}}
+\newcommand{\bpsi}{\boldsymbol{\psi}}
+\newcommand{\bPsi}{\boldsymbol{\Psi}}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+\newcommand{\bPi}{\boldsymbol{\Pi}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\bTheta}{\boldsymbol{\Theta}}
+\newcommand{\bLambda}{\boldsymbol{\Lambda}}
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\newcommand{\bphi}{\boldsymbol{\varphi}}
+\newcommand{\bPhi}{\boldsymbol{\Phi}}
+\newcommand{\bome}{\boldsymbol{\omega}}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+
+\newcommand{\tlam}{\tilde{\lambda}}
+\newcommand{\tW}{\widetilde{W}}
+\newcommand{\hW}{\widehat{W}}
+\newcommand{\hM}{\widehat{M}}
+\newcommand{\tPr}{\widetilde{\Pr}}
+
+\newcommand{\indic}{\mathds{1}}
+\newcommand{\boldone}{\mathbf{1}}
+\newcommand{\boldzero}{\mathbf{0}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Number System 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Rational}{\mathbb{Q}}
+\newcommand{\Borel}{\mathcal{B}}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\sign}{sign}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Convex analysis and geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\absconv}{absconv}
+\DeclareMathOperator{\clconv}{\overline{\conv}}
+\DeclareMathOperator{\extreme}{Ext}
+\DeclareMathOperator{\cone}{cone}
+\DeclareMathOperator{\relint}{relint}
+\DeclareMathOperator{\interior}{int}
+\newcommand{\infconv}{\mathbin{\square}}
+\DeclareMathOperator{\closure}{cl}
+\DeclareMathOperator{\effdom}{dom}
+\DeclareMathOperator{\epi}{epi}
+\DeclareMathOperator{\graph}{gra}
+\newcommand{\ConvexIndicator}[1]{\iota_{#1}}
+\def\convexindicator{\ConvexIndicator}
+
+\newcommand{\PSD}{\mathrm{PSD}}
+\newcommand{\PD}{\mathrm{PD}}
+
+\newcommand{\prox}[2]{\text{Prox}_{ #1 }\parens{ #2 }}
+\newcommand{\levelset}[2]{\textsf{lev}_{ #1 }\parens{ #2 }}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\rint}[1]{\textsf{rint}\parens{ #1 }}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bold English Letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\bD}{\mathbf{D}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bI}{\mathbf{I}} % for identity matrix
+\newcommand{\bJ}{\mathbf{J}}
+\newcommand{\bK}{\mathbf{K}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bS}{\mathbf{S}}
+\newcommand{\bT}{\mathbf{T}}
+\newcommand{\bU}{\mathbf{U}}
+\newcommand{\bV}{\mathbf{V}}
+\newcommand{\bW}{\mathbf{W}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bZ}{\mathbf{Z}}
+
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bc}{\mathbf{c}}
+\newcommand{\be}{\mathbf{e}}
+\newcommand{\bg}{\mathbf{g}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bp}{\mathbf{p}}
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\bt}{\mathbf{t}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Curly English Letters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\hil}{\mathcal{H}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Linear algebra
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\offdiag}{offdiag}
+\DeclareMathOperator{\affdim}{affdim}
+\DeclareMathOperator{\tr}{trace}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\id}[1][]{%
+  \ifstrempty{#1}{I}{I_{#1}}%
+}
+
+\newcommand{\one}[1][]{%
+  \ifblank{#1}{\mathbf{1}}{\mathbf{1}_{#1}}%
+}
+
+\DeclareMathOperator{\vectorize}{vec}
+
+\newcommand{\indep}{\perp\!\!\!\perp}
+
+\newcommand{\Stiefel}[2]{\mathbb{V}_{#1,#2}}
+\newcommand{\Grassmann}[2]{\mathbb{G}_{#1,#2}}
+
+\DeclareMathOperator{\rowspace}{row}
+\DeclareMathOperator{\colspace}{col}
+\DeclareMathOperator{\nullspace}{Null}
+\DeclareMathOperator{\nullity}{nullity}
+
+\DeclareMathOperator{\image}{Im}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\kernel}{ker}
+
+\DeclareMathOperator{\rowspan}{rowspan}
+\DeclareMathOperator{\colspan}{colspan}
+\DeclareMathOperator{\vecspan}{span}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Probability and statistics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\Pr}{\mathbb{P}}
+\DeclareMathOperator{\prob}{\mathbb{P}}
+\DeclareMathOperator{\expect}{\mathbb{E}}
+\newcommand{\E}{\expect}
+\DeclareMathOperator{\bias}{Bias}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\cor}{Cor}
+\DeclareMathOperator{\mse}{MSE}
+\DeclareMathOperator{\sd}{SD}
+\DeclareMathOperator{\se}{SE}
+\DeclareMathOperator{\med}{median}
+\DeclareMathOperator{\logit}{logit}
+\DeclarePairedDelimiterX\event[1]{\{}{\}}{#1}
+\newcommand{\1}[1]{\boldsymbol{1}_{\event{#1}}}
+\newcommand{\indicator}[1]{\boldsymbol{1}_{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Product, Norm, etc. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclarePairedDelimiterX\innerp[2]{\langle}{\rangle}{#1,#2}
+
+% just to make sure it exists 
+\providecommand\given{\,|\,}
+% can be useful to refer to this outside \Set 
+\newcommand\SetSymbol[1][]{%
+  \nonscript\:#1\vert
+  \allowbreak
+  \nonscript\:
+  \mathopen{}}
+
+\DeclarePairedDelimiterX\sets[1]\{\}{%
+  \renewcommand\given{\SetSymbol[\delimsize]}
+  #1 
+}
+
+\DeclarePairedDelimiterX\parens[1]\lparen\rparen{%
+  \renewcommand\given{\SetSymbol[\delimsize]}
+  #1   
+}
+
+\DeclarePairedDelimiterX\bracks[1]\lbrack\rbrack{%
+  \renewcommand\given{\SetSymbol[\delimsize]}
+  #1   
+}
+
+\DeclarePairedDelimiterX\braces[1]\lbrace\rbrace{%
+  \renewcommand\given{\SetSymbol[\delimsize]}
+  #1   
+}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\newcommand{\card}{\abs}
+\DeclarePairedDelimiterX\norm[1]\lVert\rVert{\ifblank{#1}{\:\cdot\:}{#1}}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\makeatletter
+\newcommand{\opnorm}{\@ifstar\@opnorms\@opnorm}
+\newcommand{\@opnorms}[1]{%
+  \left|\mkern-1.5mu\left|\mkern-1.5mu\left|
+   #1
+  \right|\mkern-1.5mu\right|\mkern-1.5mu\right|
+}
+\newcommand{\@opnorm}[2][]{%
+  \mathopen{#1|\mkern-1.5mu#1|\mkern-1.5mu#1|}
+  #2
+  \mathclose{#1|\mkern-1.5mu#1|\mkern-1.5mu#1|}
+}
+\makeatother
+
+\DeclarePairedDelimiter\evaluated{.}{\rvert}
+\reDeclarePairedDelimiterInnerWrapper\evaluated{nostarnonscaled}{%
+    \mathopen{}#2\mathclose{#3}%
+}
+\reDeclarePairedDelimiterInnerWrapper\evaluated{star}{%
+    \mathopen{}\mathclose\bgroup #1\hskip -\nulldelimiterspace \relax
+    #2\aftergroup\egroup #3%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Probability
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Normal}{\mathrm{Normal}}
+\newcommand{\Bernoulli}{\mathrm{Bernoulli}}
+\newcommand{\Binomial}{\mathrm{Binomial}}
+\newcommand{\Multinomial}{\mathrm{Multinomial}}
+\newcommand{\Poisson}{\mathrm{Poisson}}
+\newcommand{\Exponential}{\mathrm{Exponential}}
+\newcommand{\dist}[1]{\mathrm{#1}}
+\newcommand{\BetaDist}{\mathrm{Beta}}
+\newcommand{\Uniform}{\mathrm{Uniform}}
+\newcommand{\Wishart}{\mathcal{Wishart}}
+\newcommand{\normal}{\Normal}
+\newcommand{\bernoulli}{\Bernoulli}
+\newcommand{\multinomial}{\Multinomial}
+\newcommand{\poisson}{\Poisson}
+\newcommand{\betadist}{\BetaDist}
+\newcommand{\uniform}{\Uniform}
+\newcommand{\wishart}{\Wishart}
+
+\newcommand{\iid}{\buildrel \mathrm{i.i.d} \over \sim}
+
+\newcommand{\probto}{\buildrel \prob \over \to}
+\newcommand{\asto}{\buildrel \as \over \to}
+\newcommand{\distto}{\buildrel \mathrm{d} \over \to}
+\newcommand{\weakto}{\Longrightarrow}
+\newcommand{\eqdist}{\buildrel \mathrm{d} \over =}
+\newcommand{\approxdist}{\buildrel \mathrm{d} \over \approx}
+
+\newcommand{\chisquaredivergence}[2]{\chi^2( {#1} \Vert {#2} )}
+\newcommand{\kldivergence}{D\divergence}
+\DeclarePairedDelimiterX\divergence[2]{\lparen}{\rparen}{#1\Vert #2}
+\newcommand{\mutualinfo}[2]{I(#1 ;\, #2)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Big-O
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\bigoh}{\mathcal{O}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Others
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\numberwithin{definition}{chapter}
+%\declaretheorem[numbered=no]{definition}
+
+\theoremstyle{theorem}
+\newtheorem{lemma}{Lemma}
+\numberwithin{lemma}{chapter}
+
+\newtheorem{proposition}{Proposition}
+\numberwithin{proposition}{chapter}
+
+\newtheorem{conjecture}{Conjecture}
+\numberwithin{conjecture}{chapter}
+
+\newtheorem{theorem}{Theorem}
+\numberwithin{theorem}{chapter}
+
+\newtheorem{corollary}{Corollary}
+\numberwithin{corollary}{chapter}
+
+\theoremstyle{remark}
+\newtheorem{remarkx}{Remark}
+\newenvironment{remark}
+    {\pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangleright$}\remarkx}
+    {\popQED\endremarkx}
+\numberwithin{remarkx}{chapter}
+
+\newtheorem{examplex}{Example}
+\newenvironment{example}
+    {\pushQED{\qed}\renewcommand{\qedsymbol}{$\blacktriangleright$}\examplex}
+    {\popQED\endexamplex}
+\numberwithin{examplex}{chapter}
+
+\renewcommand{\qedsymbol}{\hfill\rule{2mm}{2mm}}
+
+\makeatletter 
+\renewcommand\thealgorithm{\thechapter.\arabic{algorithm}} 
+\@addtoreset{algorithm}{chapter} 
+\makeatother
+
+\allowdisplaybreaks

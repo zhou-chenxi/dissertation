@@ -1,0 +1,202 @@
+\documentclass{osudissert96}
+%
+% To change the dissertation to a Master's Thesis, include a documentclass
+% option such as [masters], [ms], [ma], etc.  Also available are [osudraft]
+% and [twoside].  As a reminder, documentclass options are a
+% comma-separated list, e.g. \documentclass[ms,osudraft]{osudissert96}
+
+% Everything between the \documentclass and the \begin{document} is
+% called the preamble of the document. Everything between the
+% \begin{document} and the \end{document} is called the body of the
+% document. Define any additional commands you want here (the preamble)
+
+% BibTeX from the BiBTeX Documentation
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%
+% It is better to break up the dissertation into multiple files (e.g.,
+% one file per chapter, as well as separate files for the abstract,
+% acknowledgements, and vita).  These files are brought into the
+% document using \include{} statements.  There will be times, however,
+% when you don't want to print the ENTIRE dissertation.  You can limit
+% what will actually be printed by using the \includeonly{} statement.
+% This contains a list of the files you want printed.  Any file NOT
+% listed will not be printed.  However, all page numbers, references,
+% etc., will be preserved as though all the files were actually
+% printed. For example, the line below would result only in chapters 1
+% and 3 being printed (if it were uncommented).
+%
+
+%\includeonly{chapter-01-intro}
+
+% UPDATED TEXT (2010):
+%  In the newest format, titles should be title case everywhere.
+%
+% HISTORICAL TEXT (1996):
+%  In the new format, the titles of each chapter should appear in
+%  uppercase.  In the TOC, however, they should be in lowercase.
+%  The command below automates this behavior.  However, you'll have to be
+%  careful not to include \labels within your \chapter definitions or
+%  there will be problems.  If you don't want this to be automated, comment
+%  out the \typesetChapterTitle definition below and do your chapters in
+%  the form:
+%  \chapter[MY TITLE]{My Title}
+%
+%  \renewcommand\typesetChapterTitle[1]{\uppercase{#1}}
+\renewcommand\typesetChapterTitle[1]{#1}
+
+\begin{document}
+
+%
+% First, declare the parts of your title page 
+%
+
+\author{Chenxi Zhou}
+\title{Density Estimation in Kernel Exponential Families: \\ Methods and Their Sensitivities}
+
+\authordegrees{B.S.}  % Degrees thus far, not including this one.
+\unit{Statistics}
+
+\advisorname{Vincent Q. Vu}
+\member{Yoonkyung Lee}
+\member{Sebastian A. Kurtek}
+%\member{Yet another dude}      % Normally you will have advisor + 2 members
+
+
+%
+% The following creates the title page
+%
+
+\maketitle
+
+% Next, EITHER a copyright or BLANK page.
+%
+%   The following creates a page used to copyright your dissertation
+%
+%   BACKGROUND: Even without this copyright page, your dissertation will
+%               carry a common-law copyright. However, if your
+%               dissertation ends up seeing wide distribution, your
+%               common-law copyright is at risk of being expunged.
+%               Adding this copyright page prevents that from happening.
+%
+%               There are NO DOWNSIDES to including a copyright page as
+%               your document is automatically copyright by law anyway.
+%               However, this copyright page is OPTIONAL. If you get rid
+%               of it, uncomment the \blankpage that follows it so that
+%               there is a blank page here. The graduate school requires
+%               a page here that is either blank or carries the
+%               copyright.
+%
+%   IMPORTANT NOTE: The graduate school requires either a copyright page
+%                   here or a BLANK PAGE here. If you get rid of the
+%                   copyright, uncomment the \blankpage that follows it.
+%                   You should NOT have BOTH uncommented.
+%
+
+% If you get rid of \disscopyright, restore the \blankpage line after it
+\disscopyright
+%\blankpage
+
+%
+% Abstract goes here.
+%
+
+\begin{abstract}
+  \input{abstract}
+\end{abstract}
+
+
+%
+% UPDATED TEXT (2010):
+%  The graduate school does not require an external abstract. If this
+%  changes, follow the old instructions below.
+%
+% HISTORICAL TEXT (1996):
+%  Uncomment the three lines below to generate the external abstract.  Two
+%  copies of this must be turned in to the graduate school.  These lines can
+%  be placed pretty much anywhere, since the page numbering should be
+%  independent of the rest of the thesis
+%
+
+% \begin{externalabstract}
+%   \input{abstract}
+% \end{externalabstract}
+
+%
+%  My Dedication
+%
+
+\dedication{To my family}
+
+%
+% Bring in Acknowledgement and Vita from separate files named ``ack.tex''
+% and ``vita.tex''.
+%
+
+\include{ack}
+\include{vita}
+
+
+%
+% Make the Table of Contents and other good stuff
+%
+
+\tableofcontents
+%\listoftables
+\listoffigures
+
+%\phantomsection \label{listofalgorithms}
+%\addcontentsline{toc}{chapter}{List of Algorithms}
+%\renewcommand{\listalgorithmname}{List of Algorithms}
+%\listofalgorithms
+
+
+%
+% The following is a list of chapters.  Each is brought in from a
+% separate file using the \include{} command.
+%
+
+\include{chapter-01-intro}
+
+\include{chapter-02-kernel-exponential-family} 
+
+\include{chapter-03-early-stopping-sm-density-estimator}
+
+\include{chapter-04-comparison-ml-sm}
+
+\include{chapter-05-influence-function-theory}
+
+\include{chapter-06-influence-function-numerical-examples}
+
+\include{chapter-07-summary-future-directions}
+
+
+% If you have appendices in your dissertation, you will need the
+% following, else keep it commented. The following appendices are in
+% files called ``app1.tex'', and ``app2.tex'', and they
+% look just like any chapter.
+%
+
+\appendix
+\include{appendix-01-math-background}
+% \include{app2}
+
+
+% The all important bibliography file at the end of your document!! Use
+% the bibstyle you (your department) like in the \bibliographystyle{}
+% statement and list the name of your bibliography database file in
+% the \bibliography{} statement.  In this example, ``bibfile.bib'' is
+% the name of the database.  See the LaTeX manual appendix B for details
+% about the bibliography database and BibTeX.
+%
+
+
+\begingroup
+\setstretch{2.0}
+\printbibliography
+\endgroup
+
+
+\end{document}
+

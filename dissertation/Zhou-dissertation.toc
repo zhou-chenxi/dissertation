@@ -1,0 +1,222 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\nobreakspace {}\hfill {{\bfseries Page}}
+\defcounter {refsection}{0}\relax 
+\contentsline {front}{{Abstract}}{ii}{chapter*.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {front}{{Dedication}}{iv}{section*.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {front}{{Acknowledgments}}{v}{chapter*.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {front}{{Vita}}{vii}{chapter*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {front}{List of Figures}{xii}{chapter*.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1.}Introduction}{1}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}A Review of Density Estimation Methods}{2}{section.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.1}Parametric Approach}{2}{subsection.1.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1.2}Nonparametric Approach}{3}{subsection.1.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.1.2.1}Nonparametric Maximum Likelihood Density Estimation}{4}{subsubsection.1.1.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {1.1.2.2}Nonparametric Score Matching Density Estimation}{8}{subsubsection.1.1.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Nonparametric Density Estimation in Kernel Exponential Families}{9}{section.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Organization of the Remaining Dissertation}{11}{section.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2.}Density Estimation in Kernel Exponential Families}{14}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Kernel Exponential Families}{14}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.1}A Review of Finite-dimensional Exponential Family}{14}{subsection.2.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.2}Kernel Exponential Family}{15}{subsection.2.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.3}Properties of Kernel Exponential Families}{16}{subsection.2.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.1.3.1}Characterization of the Natural Parameter Space for Bounded Kernels}{16}{subsubsection.2.1.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.1.3.2}Convexity of the Log-partition Functional}{17}{subsubsection.2.1.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {2.1.3.3}Differential Properties of the Log-partition Functional}{18}{subsubsection.2.1.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.4}Connection to Finite-dimensional Exponential Families}{21}{subsection.2.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.5}Assumptions and Their Implications}{27}{subsection.2.1.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Nonparametric Density Estimation in Kernel Exponential Families}{28}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}Density Estimation Using the Negative Log-likelihood Loss Functional}{28}{subsection.2.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.2}Density Estimation Using the Score Matching Loss Functional}{32}{subsection.2.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Proofs}{36}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.1}Proof of Proposition \ref {prop-bounded-kernel-H=F}}{36}{subsection.2.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.2}Proof of Proposition \ref {prop-convexity-A}}{36}{subsection.2.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.3}Proof of Lemma \ref {lemma-eval-functional-frechet-diff}}{37}{subsection.2.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.4}Proof of Proposition \ref {prop-frechet-derivative-A}}{38}{subsection.2.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.5}Proof of Proposition \ref {prop-fin-ker-exp-fam-connection}}{40}{subsection.2.3.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3.}Early Stopping Score Matching Density Estimator}{42}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}An Overview}{42}{section.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Early Stopping Score Matching Density Estimator}{44}{section.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.1}Computation}{48}{subsection.3.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.1.1}The First Algorithm}{48}{subsubsection.3.2.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.2.1.2}The Second Algorithm}{49}{subsubsection.3.2.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.2}Numerical Examples}{50}{subsection.3.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2.3}When to Terminate the Algorithm}{52}{subsection.3.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Theoretical Properties}{54}{section.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.1}Density Estimator Without Termination}{56}{subsection.3.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1.1}Decomposition of Gradient Descent Iterates}{56}{subsubsection.3.3.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.1.2}Numerical Illustration of Theorem \ref {thm-limiting-density-t}}{59}{subsubsection.3.3.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3.2}Rate of Convergence}{59}{subsection.3.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2.1}An Upper Bound on the Approximation Error}{62}{subsubsection.3.3.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2.2}An Upper Bound on the Sample Error}{63}{subsubsection.3.3.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2.3}Upper Bounds on the Distances between Densities}{63}{subsubsection.3.3.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {3.3.2.4}Discussion on \ref {assumption-7}}{64}{subsubsection.3.3.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Comparison to Penalized Score Matching Density Estimator}{66}{section.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}Early Stopping Density Estimator as the Solution of a Penalized Score Matching Loss Functional}{66}{subsection.3.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.2}Density Estimator Without Penalization}{67}{subsection.3.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.3}Comparison through Eigen-decomposition}{68}{subsection.3.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.4}Comparison of Convergence Rates}{69}{subsection.3.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.5}Numerical Examples}{70}{subsection.3.4.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.5}Auxiliary Results and Proofs}{72}{section.3.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.1}Proof of Theorem \ref {thm-grad-widehatJ}}{72}{subsection.3.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.2}Proof of Theorem \ref {thm-closed-form}}{73}{subsection.3.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.3}Proof of Theorem \ref {thm-early-stopping-algo}}{73}{subsection.3.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.4}Proofs of Results in Section \ref {subsec-smes-limiting-t}}{78}{subsection.3.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.5}Proof of Theorem \ref {theorem-convergence-rate}}{81}{subsection.3.5.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.6}Proof of Theorem \ref {theorem-approx-error}}{82}{subsection.3.5.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.7}Proof of Theorem \ref {theorem-sample-error}}{84}{subsection.3.5.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.8}Proof of Corollary \ref {corollary-density-distances}}{89}{subsection.3.5.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.9}Proof of Results in Section \ref {section-compare-smes-smpen}}{91}{subsection.3.5.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4.}Comparison of Regularized Density Estimators in Kernel Exponential Families}{95}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Penalized Maximum Likelihood Density Estimator}{96}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Failure of the Representer Theorem}{96}{subsection.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Construction of a Finite-dimensional Approximating Space}{98}{subsection.4.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.3}Computation of the Minimizer of the Penalized Negative Log-likelihood Loss Functional}{101}{subsection.4.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.3.1}Batch Monte Carlo Approximation of the Log-partition Functional}{103}{subsubsection.4.1.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {4.1.3.2}Gradient Descent Algorithm to Minimize the Penalized Negative Log-likelihood Loss Functional}{103}{subsubsection.4.1.3.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.4}Numerical Illustration}{103}{subsection.4.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Regularized Score Matching Density Estimators in a Finite-dimensional Approximating Space}{108}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Penalized Score Matching Density Estimator}{109}{subsection.4.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Early Stopping Score Matching Density Estimator}{110}{subsection.4.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Comparison of Regularized Maximum Likelihood and Score Matching Density Estimators}{111}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}Discussion on the Presence of a Spike in Score Matching Density Estimates}{113}{section.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.5}Proofs}{116}{section.4.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.1}Proof of Proposition \ref {prop-nll-sol-exist-unique}}{116}{subsection.4.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.2}Details about Example \ref {example-representer-theorem-fails}}{116}{subsection.4.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.3}Proof of Proposition \ref {prop-sm-loss-fin-dim-space}}{120}{subsection.4.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.4}Proof of Proposition \ref {prop-penalized-sm-fin-dim-space}}{121}{subsection.4.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.5}Proof of Proposition \ref {prop-early-stop-sm-fin-dim-space}}{122}{subsection.4.5.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5.}Sensitivity of Density Estimators via Influence Functions}{124}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}A Review of Influence Function and Its Applications}{124}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Extension of Influence Function in Density Estimation}{129}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Influence Functions of Density Projections in a Finite-dimensional Exponential Family}{133}{section.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Influence Functions of Density Projections in a Kernel Exponential Family}{139}{section.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.5}Proofs}{142}{section.5.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.1}Proof of Proposition \ref {prop-inf-fun-relationship-den-logden}}{142}{subsection.5.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.2}Proof of Proposition \ref {prop-inf-fun-relationship-den-logden-kldiv}}{142}{subsection.5.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.3}Proof of Theorem \ref {theorem-inf-fun-ml-sm-fin-dim-exp-fam}}{143}{subsection.5.5.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.4}Proof of Theorem \ref {theorem-inf-fun-ml-sm-ker-exp-fam}}{144}{subsection.5.5.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6.}Numerical Examples of Sensitivity of Density Estimators}{148}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Comparison of the Sensitivities of Penalized Maximum Likelihood and Score Matching Density Estimators}{148}{section.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1.1}Computation of the Sample Influence Function}{149}{subsection.6.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1.2}Comparison of the Sample Influence Functions of Log-density and Density Estimators}{151}{subsection.6.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1.3}Comparison of the Sensitivities}{157}{subsection.6.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}The Sensitivity of $K$-fold Cross-validated Penalized Score Matching Density Estimator}{161}{section.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Which One to Use: Regularized Maximum Likelihood or Score Matching Density Estimators?}{163}{section.6.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7.}Summary and Future Directions}{165}{chapter.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Summary}{165}{section.7.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Future Directions}{166}{section.7.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{Appendices}{167}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A.}Math Background}{167}{section*.26}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.1}Fr{\'e}chet Differentiability and Derivative}{167}{section.A.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.2}Bochner Integral}{170}{section.A.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.3}Partial Derivatives of a Kernel Function}{172}{section.A.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.4}Some Theories on Bounded Linear Operators}{173}{section.A.4}%

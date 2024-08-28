@@ -1,0 +1,76 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Zhou-dissertation.aux
+The style file: biblatex.bst
+A level-1 auxiliary file: ack.aux
+A level-1 auxiliary file: vita.aux
+A level-1 auxiliary file: chapter-01-intro.aux
+A level-1 auxiliary file: chapter-02-kernel-exponential-family.aux
+A level-1 auxiliary file: chapter-03-early-stopping-sm-density-estimator.aux
+A level-1 auxiliary file: chapter-04-comparison-ml-sm.aux
+A level-1 auxiliary file: chapter-05-influence-function-theory.aux
+A level-1 auxiliary file: chapter-06-influence-function-numerical-examples.aux
+A level-1 auxiliary file: chapter-07-summary-future-directions.aux
+A level-1 auxiliary file: appendix-01-math-background.aux
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated field_info (elt_size=4) to 17320 items from 5000.
+Database file #1: Zhou-dissertation-blx.bib
+Database file #2: /Users/chenxizhou/Library/texmf/tex/noteref.bib
+Biblatex version: 3.16
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 88 entries,
+            6393 wiz_defined-function locations,
+            1807 strings with 25974 characters,
+and the built_in function-call counts, 590927 in all, are:
+= -- 42009
+> -- 11457
+< -- 3815
++ -- 13850
+- -- 3974
+* -- 43594
+:= -- 59260
+add.period$ -- 0
+call.type$ -- 88
+change.case$ -- 2338
+chr.to.int$ -- 300
+cite$ -- 174
+duplicate$ -- 61377
+empty$ -- 53791
+format.name$ -- 6164
+if$ -- 123345
+int.to.chr$ -- 0
+int.to.str$ -- 271
+missing$ -- 0
+newline$ -- 3203
+num.names$ -- 5185
+pop$ -- 30705
+preamble$ -- 1
+purify$ -- 2825
+quote$ -- 0
+skip$ -- 19445
+stack$ -- 0
+substring$ -- 71166
+swap$ -- 15927
+text.length$ -- 2564
+text.prefix$ -- 100
+top$ -- 1
+type$ -- 2979
+warning$ -- 0
+while$ -- 7903
+width$ -- 0
+write$ -- 3116
