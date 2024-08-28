@@ -1,4 +1,4 @@
-# dissertation
+# Density Estimation in Kernel Exponential Families: Methods and Their Sensitivities
 
 This repository contains my dissertation for the Ph.D. degress in Statistics at the Ohio State University. 
 
