@@ -10,4 +10,4 @@ The title of my dissertation is **Density Estimation in Kernel Exponential Famil
 
 3. The differences in the score matching and maximum likelihood density estimators motivate us to study the sensitivities of different density estimators to the presence of an isolated observation. We extend the definition of the influence function by allowing its input to be function-valued statistical functionals. We study various properties of this extended influence functions of maximum likelihood and score matching density projections in finite-dimensional and kernel exponential families, and empirically demonstrate that regularized score matching density estimators in a kernel exponential family are more sensitive to the presence of an additional observation than the penalized ML density estimator when the amount of regularization is small. 
 
-![alt text](plots/waiting-ML-vs-SM-density-estimates-baseden=Gamma-26-3-gridpoint=1-181-1.pdf)
+![alt text](plots/waiting-ML-vs-SM-density-estimates-baseden=Gamma-26-3-gridpoint=1-181-1.jpg)
